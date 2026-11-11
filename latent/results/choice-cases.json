@@ -1,0 +1,54 @@
+{
+ "train": {
+  "cases": 1250,
+  "cases_excluded": 0,
+  "questions": 3954,
+  "kinds": {
+   "select": 2500,
+   "ruledout": 1454
+  },
+  "status": {
+   "Assessed": 2580,
+   "Insufficient": 352,
+   "Conflicting": 342,
+   "Unresolved": 352,
+   "NoFeasibleChoice": 328
+  },
+  "cases_with_letter_names": 1250,
+  "alternatives_located": {
+   "by rule": 3750,
+   "exact tokens": 3750
+  },
+  "pointer_tokens_min_max": [
+   1,
+   1
+  ]
+ },
+ "development": {
+  "cases": 230,
+  "cases_excluded": 2,
+  "questions": 1001,
+  "kinds": {
+   "select": 627,
+   "ruledout": 374
+  },
+  "status": {
+   "Assessed": 693,
+   "NoFeasibleChoice": 100,
+   "Insufficient": 73,
+   "Conflicting": 66,
+   "Unresolved": 69
+  },
+  "cases_with_letter_names": 119,
+  "alternatives_located": {
+   "by rule": 572,
+   "exact tokens": 623,
+   "by hand": 55,
+   "with a neighbouring mark": 4
+  },
+  "pointer_tokens_min_max": [
+   1,
+   7
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "arm": "choice-text",
+ "examples": 3954,
+ "selection_sha256": "9df5422fa4fad1d43557fbb33af510e0345d9299be972d896787843e67a8fefe",
+ "steps": 468,
+ "passes": 1,
+ "seed": 20261111,
+ "kinds": {
+  "select": 2500,
+  "ruledout": 1454
+ },
+ "status": {
+  "Assessed": 2580,
+  "Insufficient": 352,
+  "Conflicting": 342,
+  "Unresolved": 352,
+  "NoFeasibleChoice": 328
+ },
+ "prompt_tokens_mean": 431.5,
+ "executed_positions": 1867264,
+ "buckets": [
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 50
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 3368
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 112
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 342
+  },
+  {
+   "length": 704,
+   "batch": 5,
+   "rows": 82
+  }
+ ],
+ "file_sha256": "ef6cdb7f1007ebfdc604ce34e9905a0bea6e1392d637638fdd22edc2c8f6a2f1"
+}

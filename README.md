@@ -57,7 +57,7 @@ Development cases, state read adapter-off:
 
 `fork-v1` was accepted for Noul, Choice and status detection. Score is open: interior values got worse, and the training cases hold only 19 distinct Score values.
 
-The latent request format of pilot 4 (fixed request kinds as vectors plus a replayed pointer) was accepted for Noul as the basis for the next stage. Reliability across runs is open, and Choice and Score requests are not built. A Choice request pilot in the same format is designed, not run ([design](latent/CHOICE.md)).
+The latent request format of pilot 4 (fixed request kinds as vectors plus a replayed pointer) was accepted for Noul as the basis for the next stage. Reliability across runs is open, and Choice and Score requests are not built. A Choice request pilot in the same format is running ([design](latent/CHOICE.md)).
 
 The ten Noul cases every model misses are mislabelled in the source: the stated facts contradict the label.
 

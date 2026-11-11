@@ -1,6 +1,6 @@
 # Latent Choice request pilot: design and pass rule
 
-Written 11 November 2026, before any Choice training. Not approved or run yet.
+Written 11 November 2026, before any Choice training. Approved by Vince the same day; started at 21:59.
 
 ## Question
 
@@ -41,7 +41,7 @@ The two kinds never share a right answer on one state, so an arm that ignores th
 
 Each question is asked with the alternatives in several orders: the listed order, the reverse, and for three alternatives one rotation.
 
-- **Development:** 1,013 questions (633 select, 380 ruled out).
+- **Development:** 1,001 questions (627 select, 374 ruled out) on 230 cases. Two cases are left out of both arms: one of their alternatives is never mentioned in the state, so nothing can point at it.
 - **Training:** two orders per question drawn with a fixed seed, 3,954 examples (2,500 select, 1,454 ruled out), one pass.
 
 ## Arms
@@ -59,14 +59,22 @@ The fixed wordings: "Which of the indicated alternatives should be selected unde
 
 Each alternative needs the place in the state where it is named.
 
-- All 3,750 training alternatives and 553 of the 633 development alternatives are found by rule (the name occurs in the state, allowing for case and underscores).
-- The other 80, in 33 development cases, have ids that differ from the state's wording, such as `room-alder` for "Room Alder" or `nine` for "9:00". I will map these by hand to the state's words and publish the list. That mapping is model-made and not reviewed by a person.
+- All 3,750 training alternatives and 572 of the 627 development alternatives are found by rule (the name occurs in the state, allowing for case and underscores). Where a name occurs several times, the first place whose tokens decode to exactly the name is used.
+- The other 55 have ids that differ from the state's wording, such as `nine` for "9:00". They are mapped by hand in `choice_names.json`. That mapping is model-made and not reviewed by a person.
+- A pointer is a range of tokens. For 4 development alternatives a token straddles the name's edge and brings a neighbouring punctuation mark or line-break character with it.
 
 ## Checks before training
 
-- Every pointer range decodes to the alternative's name, in both splits.
-- The two requests' vectors differ.
-- FP32 loss check and bit-identity of the on-device loop on both prepared files.
+All passed on 11 November 2026, before the runs were started (`choice_cases.py`, `check.py`):
+
+| Check | Result |
+| --- | --- |
+| Every pointer range decodes to the alternative's name | all 11,862 training and 2,851 development pointers, apart from the 4 noted above |
+| The two requests' vectors differ | cosine 0.79 between the two sets |
+| FP32 loss, batched step against an independent per-case forward | latent: worst relative gap 3.3e-06. Text: 4.0e-04, on a loss of 0.00003; the other five steps agree to five digits |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical, both arms |
+
+For reference, the starting adapter `fork-v1` reading the fixed wordings as text, before any training: 889/1,001, kind pairs 296/374, assessed states right in every order 105/112 (`results/choice-ref-forkv1-text.json`).
 
 ## Pass rule for the latent arm, on the development variants
 

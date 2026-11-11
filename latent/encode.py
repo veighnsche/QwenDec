@@ -27,6 +27,7 @@ def main():
     ap.add_argument("--k", type=int, required=True)
     ap.add_argument("--pointer", action="store_true", help="pilot 2: single-prerequisite questions name no prerequisite")
     ap.add_argument("--canonical", action="store_true", help="pilot 3: one fixed wording per kind of question")
+    ap.add_argument("--choice", action="store_true", help="Choice pilot: the two fixed Choice requests")
     args = ap.parse_args()
 
     from transformers import AutoTokenizer
@@ -34,8 +35,12 @@ def main():
     device = require_gpu()
     tok = AutoTokenizer.from_pretrained(ROOT / "Qwen3.5-4B")
     model = load_text_model(str(ROOT / "Qwen3.5-4B"), device)
-    texts = sorted({question_text(json.loads(x), args.pointer or args.canonical, args.canonical) for split in ("train", "development")
-                    for x in open(ROOT / f"data/latent/noul-{split}.jsonl")})
+    if args.choice:
+        from choice_common import CRITERION, WORDING
+        texts = sorted(w + CRITERION for w in WORDING.values())
+    else:
+        texts = sorted({question_text(json.loads(x), args.pointer or args.canonical, args.canonical)
+                        for split in ("train", "development") for x in open(ROOT / f"data/latent/noul-{split}.jsonl")})
     tokens = [tok(t, add_special_tokens=False)["input_ids"] for t in texts]
     assert min(len(t) for t in tokens) >= args.k
     order = sorted(range(len(texts)), key=lambda i: len(tokens[i]))
@@ -55,7 +60,7 @@ def main():
             spans = torch.stack([hidden[row, edges[j]:edges[j + 1]].mean(0) for j in range(args.k)])
             vectors[i] = (spans / spans.norm(dim=-1, keepdim=True) * typical).to(torch.bfloat16).cpu()
 
-    out = ROOT / f"data/latent/question-vectors-k{args.k}{'-canonical' if args.canonical else '-pointer' if args.pointer else ''}.pt"
+    out = ROOT / f"data/latent/question-vectors-k{args.k}{'-choice' if args.choice else '-canonical' if args.canonical else '-pointer' if args.pointer else ''}.pt"
     torch.save({"vectors": vectors, "index": {t: i for i, t in enumerate(texts)}, "k": args.k}, out)
     lengths = [len(t) for t in tokens]
     print(json.dumps({"questions": len(texts), "k": args.k, "question_tokens_mean": round(sum(lengths) / len(lengths), 1),

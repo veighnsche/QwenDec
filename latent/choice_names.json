@@ -1,0 +1,19 @@
+{
+ "note": "Where a development Choice alternative is named in its state, for alternatives whose id differs from the state's wording. Written by the assistant from reading the states; not reviewed by a person.",
+ "names": {
+  "muse-economy-12-pilot-11": {"help_typo": "help-page typo"},
+  "pilot-family-02": {"refund-to-card": "refund", "same-model-exchange": "exchange"},
+  "pilot120-scheduling-07": {"nine": "9:00", "ten-thirty": "10:30", "one": "1:00"},
+  "pilot120-refund_eligibility-08": {"replace": "replacement tablet"},
+  "pilot120-scheduling-08": {"mon": "Monday 4 pm", "tue": "Tuesday 4 pm", "wed": "Wednesday 4 pm"},
+  "pilot120-scheduling-09": {"early": "8-10 am", "mid": "10-noon", "late": "2-4 pm"},
+  "pilot120-refund_eligibility-10": {"caf": "cafeteria credit"},
+  "pilot120-scheduling-11": {"jun2": "June 2 at 9 am", "jun3": "June 3 at 9 am", "jun4": "June 4 at 9 am"},
+  "pilot120-scheduling-06": {"tue": "Tuesday 5 pm", "thu": "Thursday 5 pm", "fri": "Friday 5 pm"},
+  "pilot120-refund_eligibility-09": {"gift": "gift card"},
+  "pilot120-refund_eligibility-07": {"friend": "friend's card"}
+ },
+ "excluded": {
+  "pilot-family-03": "the alternative slot-fri-0900 is never mentioned in the state, so nothing can point at it"
+ }
+}

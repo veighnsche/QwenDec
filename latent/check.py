@@ -33,15 +33,20 @@ def reference_loss(peft, model, trainer, t):
         ids = d["tokens"][row, :n].long().unsqueeze(0)
         trainer.gate.mask = (torch.arange(n, device=ids.device) >= d["gate_start"][row]).view(1, n, 1)
         embeds = model.model.embed_tokens(ids)
-        start, k = int(d["q_start"][row]), trainer.vectors.shape[1]
-        q = trainer.vectors[int(d["q_index"][row])].float() @ trainer.projection.T
-        embeds[0, start:start + k] = q.to(embeds.dtype)
+        if trainer.vectors is not None:  # a text arm has no question vectors
+            start, k = int(d["q_start"][row]), trainer.vectors.shape[1]
+            q = trainer.vectors[int(d["q_index"][row])].float() @ trainer.projection.T
+            embeds[0, start:start + k] = q.to(embeds.dtype)
         if "ptr_ids" in d:  # pointer as one vector, computed here case by case
             n_ptr = int(d["ptr_mask"][row].sum())
             embeds[0, start + k] = model.model.embed_tokens(d["ptr_ids"][row, :n_ptr].long()).float().mean(0) if n_ptr else 0.0
         logits = peft(inputs_embeds=embeds).logits[0, -1].float()
         logp = logits[trainer.letters[: int(d["valid"][row].sum())]].log_softmax(-1)
-        total += float(-(d["target"][row, : logp.shape[0]] * logp).sum())
+        target = d["target"][row, : logp.shape[0]]
+        if bool(d["credit_set"][row]):  # Choice: the acceptable set is credited as a whole
+            total += float(-logp[target > 0].logsumexp(-1))
+        else:
+            total += float(-(target * logp).sum())
         count += 1
     return total / count
 
@@ -67,14 +72,17 @@ def main():
     peft = PeftModel.from_pretrained(model, args.adapter, is_trainable=True)
     data = torch.load(args.data)
     data["meta"]["file_sha256"] = json.loads(Path(args.data).with_suffix(".json").read_text())["file_sha256"]
-    data["vectors"] = torch.load(ROOT / data["vectors_file"])["vectors"]
+    latent = "vectors_file" in data
+    if latent:
+        data["vectors"] = torch.load(ROOT / data["vectors_file"])["vectors"]
     trainer = Trainer(model, peft, data, device, recompute=not args.fp32)
-    print(f"trainable tensors {len(trainer.params)}, of which projection {tuple(trainer.projection.shape)}")
+    print(f"trainable tensors {len(trainer.params)}" + (f", of which projection {tuple(trainer.projection.shape)}" if latent else ""))
 
     if args.fp32:
         gen = torch.Generator(device=device).manual_seed(0)
         with torch.no_grad():
-            trainer.projection.add_(0.05 * torch.randn(trainer.projection.shape, device=device, generator=gen))
+            if latent:
+                trainer.projection.add_(0.05 * torch.randn(trainer.projection.shape, device=device, generator=gen))
         pairs = []
         for t in range(6):
             b = int(trainer.bucket_of_step[t])
