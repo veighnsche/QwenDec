@@ -32,10 +32,18 @@ On states that parse, the replayed-span arm is at the text arm's level: 927/928,
 
 Its 77 errors on states that do not parse are what put it 11 questions below rule 2. Those questions carry no pointer. The arm does worse there than pilot 1's 16-vector arm (177 against 214). Most of that drop is on Insufficient: 12/42, against 33/42 in pilot 1 and 36/42 for text.
 
-Two facts about those states, neither shown to be the cause:
+Most of those questions are worded in a way training never contains. All 8,276 training questions use the generated wording ("The eligibility rule is met for …", "Criterion: Both … and …"). In development, 184 of the 254 questions on states that do not parse are free-form, such as "Ana Popescu may use the rooftop greenhouse after hours this week", with a free-form criterion:
 
-- In training, states that do not parse are all Conflicting or Unresolved (660 questions). In development they also include 96 Assessed and 42 Insufficient questions, which the vectors alone must convey.
-- The arm fitted its training questions almost completely (mean training loss 0.0001 over the last 43 steps, against 0.32 for pilot 1's 16-vector arm).
+| Development, states that do not parse | Text arm | 4 vectors (pilot 1) | 16 vectors (pilot 1) | One vector | Replayed span |
+| --- | --- | --- | --- | --- | --- |
+| Templated wording (70) | 70 | 61 | 60 | 63 | 62 |
+| Free-form wording (184) | 176 | 129 | 154 | 122 | 115 |
+
+So 69 of the replayed-span arm's 78 errors are on free-form questions, delivered as vectors of a kind the arm never met in training. The text arm is not affected because the model already reads question text. Pilot 1's 16-vector arm carried more of them (154) than either pilot 2 arm.
+
+The arm also fitted its training questions almost completely (mean training loss 0.0001 over the last 43 steps, against 0.32 for pilot 1's 16-vector arm). Whether that is why it carries fewer free-form questions than pilot 1 was not tested.
+
+**A flaw in both pass rules.** The all-questions threshold counts these 184 questions, although no training question is free-form. On the other 998 questions the replayed-span arm has 989. The verdict stands as declared; the flaw is that rule 2 mixed "does the interface work" with "does it carry wordings it was never trained on", and the design did not say so.
 
 ### One vector: works on training names, not on development's
 
@@ -56,8 +64,8 @@ The pooled pointers explain the difference in part. A state's two pointer vector
 
 - A pointer to the item's tokens does bind a name-free question to the right item, where pilot 1's vectors alone were at chance. With the tokens replayed this holds on unseen, near-identical names (72/72) and follows the pointer when it is moved.
 - One pooled vector per item is enough for names seen in training (170/172) and not for development's two names (36/72).
-- The replayed-span arm still fails the rule, on questions that have no pointer. PILOT2.md's reading for "neither passes" was that question vectors and a pointed item do not combine. That reading does not fit: they combined on every state that has a pointer. What failed is the delivery of whole questions as vectors alone, on states that do not parse. That is pilot 1's open problem, and it got worse here (177 against 214).
-- Whether replaying the state's own tokens satisfies "never text" remains the owner's judgement.
+- The replayed-span arm still fails the rule, on questions that have no pointer. PILOT2.md's reading for "neither passes" was that question vectors and a pointed item do not combine. That reading does not fit: they combined on every state that has a pointer. What failed is mostly the delivery of free-form questions as vectors alone, a wording absent from training (115/184, against 154 in pilot 1 and 176 for text).
+- Vince decided after these results that replaying the state's own tokens satisfies "never text". So the replayed span is an allowed way to hand over a pointer, and the open problem is free-form questions.
 - As before: the pointer is given, not produced by the native side; Noul only; synthetic, templated cases.
 
 Under the rule nothing further is retried. A next step needs a new design with its own rule.

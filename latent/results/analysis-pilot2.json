@@ -72,5 +72,31 @@
     "max": 0.878
    }
   }
+ },
+ "question_wording": {
+  "training_questions": 8276,
+  "training_questions_free_form": 0,
+  "development_states_that_do_not_parse": {
+   "text": {
+    "free-form wording": "176/184",
+    "templated wording": "70/70"
+   },
+   "4 vectors (pilot 1)": {
+    "free-form wording": "129/184",
+    "templated wording": "61/70"
+   },
+   "16 vectors (pilot 1)": {
+    "free-form wording": "154/184",
+    "templated wording": "60/70"
+   },
+   "pointer as one vector": {
+    "free-form wording": "122/184",
+    "templated wording": "63/70"
+   },
+   "pointer as replayed span": {
+    "free-form wording": "115/184",
+    "templated wording": "62/70"
+   }
+  }
  }
 }

@@ -38,6 +38,8 @@ Neither pointer form can leak the answer. Both are built from token identities o
 
 **A decision for the owner.** The replayed-span arm puts a few of the state's own tokens in the fork. The request itself still carries only a range, and no text is generated. Whether that satisfies "requests cross as vectors, never text" is a judgement, not a measurement. If it does not, only the one-vector arm counts.
 
+Decided by Vince on 11 November 2026, after the results: it counts. Replaying a few of the state's own tokens in the fork is within "never text".
+
 ## Checks before training
 
 All passed on 11 November 2026, before the runs were started (`check_pointer.py`, `check.py`):
