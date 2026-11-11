@@ -3,7 +3,16 @@
  "steps_planned": 393,
  "skipped_steps": 0,
  "execution_complete": true,
- "learning_accepted": null,
+ "learning_accepted": {
+  "accepted": true,
+  "scope": "the request format for Noul: fixed request kinds as vectors plus a pointer whose tokens are replayed, as the basis for the next stage",
+  "left_open": "reliability across runs: the same design with another step order (pilot 3) scores 1049/1182 on development's own names against 1160 here",
+  "not_shown": "that fixed-encoder vectors can carry a question's content; with six requests they only tell six things apart",
+  "not_measured": "Choice and Score requests; a pointer produced by the native side",
+  "decided_by": "Vince",
+  "date": "2026-11-11",
+  "evidence": "latent/RESULTS4.md"
+ },
  "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
  "pilot_rule": {
   "passed": true,
@@ -17,6 +26,6 @@
   "outside_the_rule_near_identical_names": "1160/1182, 425/428 assessed twin pairs, 72/72",
   "judged": "2026-11-11, mechanically against latent/PILOT4.md",
   "see": "latent/RESULTS4.md",
-  "note": "the pilot rule is met; learning_accepted is the owner's decision and is left empty"
+  "note": "the pilot rule is met"
  }
 }

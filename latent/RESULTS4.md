@@ -62,4 +62,6 @@ So the step order alone moves the result a great deal on the cases that are unli
 - Two runs of the design differ widely on cases unlike training. Reliability across runs is not established.
 - Noul only. The pointer is given, not produced by the native side. The cases are synthetic and labelled by rule.
 
-`runs/pilot4-canonical/result.json` records the rule as met. Whether to accept the arm is the owner's decision and is left empty.
+## Accepted
+
+Vince accepted the request format on 11 November 2026 as the basis for the next stage: fixed request kinds as vectors, plus a pointer whose tokens are replayed. The acceptance is for the format on Noul. It leaves open the reliability across runs and does not cover Choice, Score, or a pointer produced by the native side (`runs/pilot4-canonical/result.json`).
