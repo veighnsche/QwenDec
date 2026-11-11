@@ -1,6 +1,6 @@
 # Latent question pilot 2 (Noul only): design and pass rule
 
-Written 11 November 2026, before any pilot 2 training. Approved by Vince the same day, both arms; started at 16:47.
+Written 11 November 2026, before any pilot 2 training. Approved by Vince the same day, both arms; started at 16:47. Outcome: neither arm passed, see [RESULTS2.md](RESULTS2.md).
 
 ## Question
 

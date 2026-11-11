@@ -1,0 +1,19 @@
+{
+ "steps_executed": 393,
+ "steps_planned": 393,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "passed": false,
+  "rule_1_assessed_twin_pairs": "407/428, needed 385: met",
+  "rule_2_all_questions": "1104/1182, needed 1115: not met, by 11 questions",
+  "rule_3_binding_prerequisites_differ": "72/72, needed 65: met",
+  "rule_4_answer_follows_moved_pointer": "72/72, needed 65: met",
+  "rule_5_zero_question_vectors": "0/428 assessed twin pairs: met",
+  "judged": "2026-11-11, mechanically against latent/PILOT2.md",
+  "see": "latent/RESULTS2.md",
+  "note": "one run per arm, nothing retried; pilot 2 is closed as not passed"
+ }
+}

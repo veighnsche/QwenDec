@@ -1,0 +1,76 @@
+{
+ "by_state_kind": {
+  "text": {
+   "states that do not parse": "246/254",
+   "states that do not parse, Assessed": "95/96",
+   "states that do not parse, Conflicting": "60/60",
+   "states that do not parse, Insufficient": "36/42",
+   "states that do not parse, Unresolved": "55/56",
+   "states that parse": "928/928",
+   "states that parse, Assessed": "760/760",
+   "states that parse, Insufficient": "168/168"
+  },
+  "16 vectors (pilot 1)": {
+   "states that do not parse": "214/254",
+   "states that do not parse, Assessed": "80/96",
+   "states that do not parse, Conflicting": "60/60",
+   "states that do not parse, Insufficient": "33/42",
+   "states that do not parse, Unresolved": "41/56",
+   "states that parse": "810/928",
+   "states that parse, Assessed": "654/760",
+   "states that parse, Insufficient": "156/168"
+  },
+  "pointer as one vector": {
+   "states that do not parse": "185/254",
+   "states that do not parse, Assessed": "66/96",
+   "states that do not parse, Conflicting": "60/60",
+   "states that do not parse, Insufficient": "28/42",
+   "states that do not parse, Unresolved": "31/56",
+   "states that parse": "798/928",
+   "states that parse, Assessed": "723/760",
+   "states that parse, Insufficient": "75/168"
+  },
+  "pointer as replayed span": {
+   "states that do not parse": "177/254",
+   "states that do not parse, Assessed": "69/96",
+   "states that do not parse, Conflicting": "59/60",
+   "states that do not parse, Insufficient": "12/42",
+   "states that do not parse, Unresolved": "37/56",
+   "states that parse": "927/928",
+   "states that parse, Assessed": "760/760",
+   "states that parse, Insufficient": "167/168"
+  }
+ },
+ "pointer_moved": {
+  "vector": {
+   "questions_with_pointer": 464,
+   "answers_changed": 0,
+   "largest_probability_change": 0.0372,
+   "other_questions_changed": 0
+  },
+  "span": {
+   "questions_with_pointer": 464,
+   "answers_changed": 240,
+   "largest_probability_change": 1.0,
+   "other_questions_changed": 0
+  }
+ },
+ "pointer_vectors": {
+  "train": {
+   "states": 952,
+   "cosine_between_a_states_two_pointers": {
+    "min": 0.011,
+    "median": 0.183,
+    "max": 0.5
+   }
+  },
+  "development": {
+   "states": 116,
+   "cosine_between_a_states_two_pointers": {
+    "min": 0.878,
+    "median": 0.878,
+    "max": 0.878
+   }
+  }
+ }
+}

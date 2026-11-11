@@ -99,4 +99,4 @@ Re-pooling the frozen model's states would not have helped either (`encoders.py`
 - Neither latent arm had converged after one pass (training loss 0.39 and 0.32 at the last step, against 0.0004 for text by step 100). Whether more training would produce binding was not tested.
 - In the target design the request comes from the native model's own state, not from an encoder reading question text. This pilot does not test that.
 
-A second pilot aimed at binding is designed in [PILOT2.md](PILOT2.md).
+A second pilot aimed at binding was designed in [PILOT2.md](PILOT2.md) and run the same day: [RESULTS2.md](RESULTS2.md).

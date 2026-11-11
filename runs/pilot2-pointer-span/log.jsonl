@@ -1,0 +1,8 @@
+{"step": 50, "mean_loss": 1.6058, "mean_grad_norm": 26.22, "skipped_total": 0, "s_per_step": 4.897, "host_cpu_percent": 0.08}
+{"step": 100, "mean_loss": 0.4917, "mean_grad_norm": 11.148, "skipped_total": 0, "s_per_step": 4.771, "host_cpu_percent": 0.04}
+{"step": 150, "mean_loss": 0.3079, "mean_grad_norm": 24.186, "skipped_total": 0, "s_per_step": 4.677, "host_cpu_percent": 0.04}
+{"step": 200, "mean_loss": 0.1778, "mean_grad_norm": 8.345, "skipped_total": 0, "s_per_step": 4.647, "host_cpu_percent": 0.04}
+{"step": 250, "mean_loss": 0.0861, "mean_grad_norm": 8.637, "skipped_total": 0, "s_per_step": 4.539, "host_cpu_percent": 0.04}
+{"step": 300, "mean_loss": 0.0512, "mean_grad_norm": 6.046, "skipped_total": 0, "s_per_step": 4.574, "host_cpu_percent": 0.04}
+{"step": 350, "mean_loss": 0.1213, "mean_grad_norm": 3.554, "skipped_total": 0, "s_per_step": 4.471, "host_cpu_percent": 0.04}
+{"step": 393, "mean_loss": 0.0001, "mean_grad_norm": 0.024, "skipped_total": 0, "s_per_step": 4.634, "host_cpu_percent": 0.04}

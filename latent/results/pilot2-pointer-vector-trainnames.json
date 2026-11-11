@@ -1,0 +1,37 @@
+{
+ "tag": "pilot2-pointer-vector-trainnames",
+ "mode": "latent",
+ "ablate": null,
+ "pointer": "vector",
+ "adapter": "runs/pilot2-pointer-vector/adapter",
+ "single_assessed_prerequisites_differ": "170/172 (99%)",
+ "answer_matches_other_prerequisite": "2/172 (1%)",
+ "accuracy": {
+  "all questions": "1178/1200 (98%)",
+  "kind and": "147/150 (98%)",
+  "kind and negated": "147/150 (98%)",
+  "kind or": "136/150 (91%)",
+  "kind or negated": "150/150 (100%)",
+  "kind pa": "150/150 (100%)",
+  "kind pa negated": "150/150 (100%)",
+  "kind pb": "149/150 (99%)",
+  "kind pb negated": "149/150 (99%)",
+  "status Assessed": "935/940 (99%)",
+  "status Insufficient": "243/260 (93%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "579/600 (96%)",
+  "assessed pairs, kind and": "124/127 (98%)",
+  "assessed pairs, kind or": "108/108 (100%)",
+  "assessed pairs, kind pa": "150/150 (100%)",
+  "assessed pairs, kind pb": "84/85 (99%)",
+  "assessed twin pairs": "466/470 (99%)"
+ },
+ "states_with_all_eight_right": "129/150 (86%)",
+ "answer_matches_twin_question": "5/940 (1%)",
+ "picks": {
+  "False": 487,
+  "True": 470,
+  "Insufficient": 243
+ }
+}
