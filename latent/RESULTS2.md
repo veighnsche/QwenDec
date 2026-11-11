@@ -68,4 +68,4 @@ The pooled pointers explain the difference in part. A state's two pointer vector
 - Vince decided after these results that replaying the state's own tokens satisfies "never text". So the replayed span is an allowed way to hand over a pointer, and the open problem is free-form questions.
 - As before: the pointer is given, not produced by the native side; Noul only; synthetic, templated cases.
 
-Under the rule nothing further is retried. A next step needs a new design with its own rule.
+Under the rule nothing further is retried. A third pilot with canonical requests is designed in [PILOT3.md](PILOT3.md).

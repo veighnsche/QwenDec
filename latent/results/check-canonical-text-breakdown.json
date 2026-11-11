@@ -1,0 +1,18 @@
+{
+ "own wording, trained (pilot 1 text arm)": {
+  "all questions": "1174/1182",
+  "at least one prerequisite": "232/232",
+  "single prerequisite (own wording in both)": "464/464",
+  "whole rule, free-form state": "176/184",
+  "whole rule, templated state": "282/282",
+  "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+ },
+ "canonical wording, same adapter, not trained on it": {
+  "all questions": "1155/1182",
+  "at least one prerequisite": "232/232",
+  "single prerequisite (own wording in both)": "464/464",
+  "whole rule, free-form state": "167/184",
+  "whole rule, templated state": "282/282",
+  "whole rule, templated state, prompt asks \"is it FALSE that\"": "10/20"
+ }
+}

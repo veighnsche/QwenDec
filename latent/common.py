@@ -41,8 +41,24 @@ def pointed(case, other=False):
     return a if (case["kind"] == "pa") != other else b
 
 
-def question_text(case, pointer=False):
-    """The question as words. With pointer=True a single-prerequisite question names no prerequisite."""
+# Pilot 3: one fixed wording per kind of question, with no name from the state in it.
+CANONICAL = {
+    "and": ("What the supplied rule allows or defines holds in this case", "the supplied rule applied to the supplied facts"),
+    "or": ("At least one prerequisite of the supplied rule holds", "either prerequisite alone is enough"),
+    "pa": ("The indicated prerequisite holds", "the indicated prerequisite alone"),
+}
+CANONICAL["pb"] = CANONICAL["pa"]
+
+
+def question_text(case, pointer=False, canonical=False):
+    """The question as words. With pointer=True a single-prerequisite question names no prerequisite.
+
+    With canonical=True the question is one of the fixed wordings above. A single-prerequisite
+    question needs its pointer to be canonical; without one it keeps its own wording.
+    """
+    if canonical and (case["kind"] in ("and", "or") or (pointer and pointed(case) is not None)):
+        proposition, criterion = CANONICAL[case["kind"]]
+        return f"Is this proposition true? {'Negation of: ' if case['negated'] else ''}{proposition}. Criterion: {criterion}."
     if pointer and pointed(case) is not None:
         target = RULE.match(case["rules"][0]).group(1)
         proposition = f"{'Negation of: ' if case['negated'] else ''}The indicated prerequisite holds for {target}"
@@ -82,7 +98,7 @@ def render(tok, case):
     return tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
 
 
-def tokenise(tok, case, mode, k=0, pad=0, pointer=None, other=False):
+def tokenise(tok, case, mode, k=0, pad=0, pointer=None, other=False, canonical=False):
     """Token ids, the first adapter-on position, and where the question vectors go (latent only).
 
     With pointer="vector" or "span" a fourth value is returned: the pointed token ids
@@ -96,7 +112,7 @@ def tokenise(tok, case, mode, k=0, pad=0, pointer=None, other=False):
         ids = head["input_ids"] + slot + tok(after, add_special_tokens=False)["input_ids"]
         offsets, q_start = head["offset_mapping"], len(head["input_ids"])
     else:
-        text = before + (question_text(case) if mode == "text" else "") + after
+        text = before + (question_text(case, canonical=canonical) if mode == "text" else "") + after
         enc = tok(text, add_special_tokens=False, return_offsets_mapping=True)
         ids, offsets, q_start = enc["input_ids"], enc["offset_mapping"], -1
     boundary = before.index(STATE_END) + 1

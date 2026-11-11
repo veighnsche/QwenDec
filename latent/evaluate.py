@@ -45,6 +45,7 @@ def main():
     ap.add_argument("--projection", help="trained projection file (latent mode)")
     ap.add_argument("--ablate", choices=("zero", "swap", "swap-pointer"))
     ap.add_argument("--pointer", choices=("vector", "span"), help="pilot 2: how the pointer reaches the fork")
+    ap.add_argument("--canonical", action="store_true", help="pilot 3: fixed wording per kind of question")
     ap.add_argument("--tag", required=True)
     args = ap.parse_args()
 
@@ -70,13 +71,14 @@ def main():
     with torch.no_grad():
         for case in cases:
             ids, gate_start, q_start, *span = tokenise(tok, case, args.mode, k if args.mode == "latent" else 0,
-                                                       pointer=args.pointer, other=args.ablate == "swap-pointer")
+                                                       pointer=args.pointer, other=args.ablate == "swap-pointer",
+                                                       canonical=args.canonical)
             ids = torch.tensor([ids], device=device)
             n = ids.shape[1]
             gate.mask = (torch.arange(n, device=device) >= gate_start).view(1, n, 1)
             if args.mode == "latent":
                 source = by_id[case["twin"]] if args.ablate == "swap" else case
-                q = vectors[index[question_text(source, bool(args.pointer))]].float()
+                q = vectors[index[question_text(source, bool(args.pointer), args.canonical)]].float()
                 if projection is not None:
                     q = q @ projection.T
                 if args.ablate == "zero":
@@ -127,7 +129,7 @@ def main():
             differ_right.append(right[c["id"]])
             follows_other.append(picks[c["id"]] == gold_index(sibling))
     report = {
-        "tag": args.tag, "mode": args.mode, "ablate": args.ablate, "pointer": args.pointer, "adapter": args.adapter,
+        "tag": args.tag, "mode": args.mode, "ablate": args.ablate, "pointer": args.pointer, "canonical": args.canonical, "adapter": args.adapter,
         "single_assessed_prerequisites_differ": rate(differ_right),
         # Only meaningful with --ablate swap-pointer: does the answer follow the pointer?
         "answer_matches_other_prerequisite": rate(follows_other),
