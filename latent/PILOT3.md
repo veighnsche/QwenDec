@@ -1,6 +1,6 @@
 # Latent question pilot 3 (Noul only): design and pass rule
 
-Written 11 November 2026, before any pilot 3 training. Approved by Vince the same day; started at 18:57.
+Written 11 November 2026, before any pilot 3 training. Approved by Vince the same day; started at 18:57. Outcome: did not pass, see [RESULTS3.md](RESULTS3.md).
 
 ## Question
 

@@ -1,0 +1,51 @@
+{
+ "by_type": {
+  "text, own wording (pilot 1)": {
+   "at least one prerequisite": "232/232",
+   "single prerequisite": "464/464",
+   "single prerequisite, negated": "232/232",
+   "single prerequisite, plain": "232/232",
+   "whole rule, free-form state": "176/184",
+   "whole rule, templated state": "282/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+  },
+  "text, canonical wording, not trained on it": {
+   "at least one prerequisite": "232/232",
+   "single prerequisite": "464/464",
+   "single prerequisite, negated": "232/232",
+   "single prerequisite, plain": "232/232",
+   "whole rule, free-form state": "167/184",
+   "whole rule, templated state": "282/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "10/20"
+  },
+  "replayed span (pilot 2)": {
+   "at least one prerequisite": "232/232",
+   "single prerequisite": "464/464",
+   "single prerequisite, negated": "232/232",
+   "single prerequisite, plain": "232/232",
+   "whole rule, free-form state": "115/184",
+   "whole rule, templated state": "273/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+  },
+  "canonical requests (pilot 3)": {
+   "at least one prerequisite": "232/232",
+   "single prerequisite": "382/464",
+   "single prerequisite, negated": "150/232",
+   "single prerequisite, plain": "232/232",
+   "whole rule, free-form state": "153/184",
+   "whole rule, templated state": "272/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "10/20"
+  }
+ },
+ "single_prerequisite": {
+  "pilot 3 errors": {
+   "wrong": 82,
+   "question is negated": 82,
+   "prerequisite holds, answered True": 81,
+   "equals the answer without the negation": 82,
+   "equals the other prerequisite's answer": 16,
+   "first prerequisite": 66,
+   "second prerequisite": 16
+  }
+ }
+}
