@@ -1,0 +1,20 @@
+{
+ "steps_executed": 418,
+ "steps_planned": 418,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "passed": true,
+  "panel": "data/latent/choice-development.jsonl",
+  "part_0_conclusive": "text arm 971/1001, needed 901: met",
+  "part_1_all_questions": "955/1001, needed 921 (text arm 971 less 5 points): met",
+  "part_2_kind_pairs_both_right": "352/374, needed 331 (90% of the text arm's 367): met",
+  "part_3_assessed_states_right_in_every_order": "109/112, needed 93 (90% of the text arm's 103): met",
+  "outside_the_rule": "select questions in listed order 216/230 (text arm 218; 225/232 for the starting adapter with each case's own question); single-letter names 591/594, other names 364/407; 29 of 46 errors pick an alternative where a status was right",
+  "judged": "2026-11-11, mechanically against latent/CHOICE.md (latent/choice_analyse.py)",
+  "see": "latent/RESULTS-CHOICE.md",
+  "note": "the pilot rule is met; acceptance of the Choice request format is the owner's decision"
+ }
+}

@@ -1,0 +1,193 @@
+{
+ "starting adapter, text": {
+  "summary": {
+   "all_questions": "889/1001",
+   "kind_pairs_both_right": "296/374",
+   "assessed_states_right_in_every_order": "105/112",
+   "select_questions_in_listed_order": "213/230"
+  },
+  "accuracy": {
+   "ruledout, 2 alternatives": "17/26",
+   "ruledout, 3 alternatives": "280/348",
+   "ruledout, other names, found by rule": "78/116",
+   "ruledout, other names, mapped by hand": "12/21",
+   "ruledout, single letters": "207/237",
+   "ruledout, source status Assessed": "267/274",
+   "ruledout, source status NoFeasibleChoice": "30/100",
+   "select, 2 alternatives": "100/126",
+   "select, 3 alternatives": "492/501",
+   "select, other names, found by rule": "163/198",
+   "select, other names, mapped by hand": "72/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "305/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "100/100",
+   "select, source status Unresolved": "54/69"
+  },
+  "assessed_states_right_in_every_order_by_naming": {
+   "other names, found by rule": "29/36",
+   "other names, mapped by hand": "11/11",
+   "single letters": "65/65"
+  },
+  "what_the_wrong_answers_were": {
+   "ruledout: a status picked where an alternative was right": 75,
+   "ruledout: the wrong alternative": 2,
+   "select: a status picked where an alternative was right": 14,
+   "select: an alternative picked where a status was right": 18,
+   "select: the wrong status": 3
+  },
+  "wrong_answers_by_family": {
+   "muse-economy-12-pilot-09": 11,
+   "pilot120-access_rules-09": 10,
+   "pilot120-access_rules-11": 9,
+   "pilot120-scheduling-11": 9,
+   "pilot120-issue_prioritization-09": 6,
+   "pilot120-scheduling-10": 6,
+   "pilot120-resource_allocation-10": 6,
+   "pilot120-refund_eligibility-11": 6,
+   "pilot120-demo_preparation-07": 5,
+   "pilot120-scheduling-02": 4,
+   "pilot120-refund_eligibility-02": 4,
+   "pilot120-refund_eligibility-06": 4,
+   "pilot120-issue_prioritization-11": 4,
+   "pilot120-demo_preparation-11": 3,
+   "pilot120-issue_prioritization-10": 3,
+   "pilot120-access_rules-08": 2,
+   "pilot120-issue_prioritization-02": 2,
+   "pilot120-demo_preparation-06": 2,
+   "pilot120-issue_prioritization-05": 2,
+   "pilot120-demo_preparation-09": 2,
+   "pilot120-resource_allocation-02": 2,
+   "pilot120-access_rules-06": 2,
+   "pilot120-resource_allocation-11": 2,
+   "pilot120-access_rules-02": 2,
+   "pilot120-scheduling-05": 2,
+   "pilot120-issue_prioritization-07": 2
+  }
+ },
+ "text arm": {
+  "summary": {
+   "all_questions": "971/1001",
+   "kind_pairs_both_right": "367/374",
+   "assessed_states_right_in_every_order": "103/112",
+   "select_questions_in_listed_order": "218/230"
+  },
+  "accuracy": {
+   "ruledout, 2 alternatives": "26/26",
+   "ruledout, 3 alternatives": "348/348",
+   "ruledout, other names, found by rule": "116/116",
+   "ruledout, other names, mapped by hand": "21/21",
+   "ruledout, single letters": "237/237",
+   "ruledout, source status Assessed": "274/274",
+   "ruledout, source status NoFeasibleChoice": "100/100",
+   "select, 2 alternatives": "112/126",
+   "select, 3 alternatives": "485/501",
+   "select, other names, found by rule": "171/198",
+   "select, other names, mapped by hand": "69/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "301/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "100/100",
+   "select, source status Unresolved": "63/69"
+  },
+  "assessed_states_right_in_every_order_by_naming": {
+   "other names, found by rule": "29/36",
+   "other names, mapped by hand": "9/11",
+   "single letters": "65/65"
+  },
+  "what_the_wrong_answers_were": {
+   "select: a status picked where an alternative was right": 18,
+   "select: an alternative picked where a status was right": 12
+  },
+  "wrong_answers_by_family": {
+   "pilot120-access_rules-09": 7,
+   "pilot120-issue_prioritization-09": 6,
+   "pilot120-scheduling-10": 6,
+   "pilot120-demo_preparation-07": 4,
+   "pilot120-refund_eligibility-06": 4,
+   "pilot120-refund_eligibility-08": 3
+  }
+ },
+ "latent arm": {
+  "summary": {
+   "all_questions": "955/1001",
+   "kind_pairs_both_right": "352/374",
+   "assessed_states_right_in_every_order": "109/112",
+   "select_questions_in_listed_order": "216/230"
+  },
+  "accuracy": {
+   "ruledout, 2 alternatives": "24/26",
+   "ruledout, 3 alternatives": "340/348",
+   "ruledout, other names, found by rule": "109/116",
+   "ruledout, other names, mapped by hand": "21/21",
+   "ruledout, single letters": "234/237",
+   "ruledout, source status Assessed": "268/274",
+   "ruledout, source status NoFeasibleChoice": "96/100",
+   "select, 2 alternatives": "108/126",
+   "select, 3 alternatives": "483/501",
+   "select, other names, found by rule": "162/198",
+   "select, other names, mapped by hand": "72/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "312/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "90/100",
+   "select, source status Unresolved": "56/69"
+  },
+  "assessed_states_right_in_every_order_by_naming": {
+   "other names, found by rule": "33/36",
+   "other names, mapped by hand": "11/11",
+   "single letters": "65/65"
+  },
+  "what_the_wrong_answers_were": {
+   "ruledout: a status picked where an alternative was right": 7,
+   "ruledout: the wrong alternative": 3,
+   "select: a status picked where an alternative was right": 7,
+   "select: an alternative picked where a status was right": 29
+  },
+  "wrong_answers_by_family": {
+   "pilot-family-08": 9,
+   "pilot120-access_rules-09": 6,
+   "pilot120-issue_prioritization-09": 6,
+   "pilot120-scheduling-10": 6,
+   "pilot120-issue_prioritization-10": 4,
+   "pilot120-refund_eligibility-06": 4,
+   "pilot120-access_rules-08": 3,
+   "pilot120-resource_allocation-10": 3,
+   "pilot120-demo_preparation-11": 2,
+   "pilot120-refund_eligibility-11": 2,
+   "pilot120-issue_prioritization-11": 1
+  }
+ },
+ "text arm against latent arm": {
+  "both right": 944,
+  "only text right": 27,
+  "only latent right": 11,
+  "both wrong": 19
+ },
+ "pass rule": {
+  "0_conclusive": {
+   "text arm": 971,
+   "needed": 901,
+   "met": true
+  },
+  "1_all_questions": {
+   "latent arm": 955,
+   "needed": 921,
+   "met": true
+  },
+  "2_kind_pairs_both_right": {
+   "latent arm": 352,
+   "needed": 331,
+   "met": true
+  },
+  "3_assessed_states_right_in_every_order": {
+   "latent arm": 109,
+   "needed": 93,
+   "met": true
+  },
+  "passed": true
+ }
+}

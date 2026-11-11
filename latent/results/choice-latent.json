@@ -1,0 +1,32 @@
+{
+ "tag": "choice-latent",
+ "mode": "latent",
+ "adapter": "runs/choice-latent/adapter",
+ "all_questions": "955/1001",
+ "kind_pairs_both_right": "352/374",
+ "assessed_states_right_in_every_order": "109/112",
+ "select_questions_in_listed_order": "216/230",
+ "accuracy": {
+  "all questions": "955/1001",
+  "alternatives named by single letters": "591/594",
+  "alternatives with other names": "364/407",
+  "kind ruledout": "364/374",
+  "kind ruledout, changed order": "237/245",
+  "kind ruledout, listed order": "127/129",
+  "kind select": "591/627",
+  "kind select, changed order": "375/397",
+  "kind select, listed order": "216/230",
+  "status of the question: Assessed": "676/693",
+  "status of the question: Conflicting": "60/66",
+  "status of the question: Insufficient": "73/73",
+  "status of the question: NoFeasibleChoice": "90/100",
+  "status of the question: Unresolved": "56/69"
+ },
+ "picks": {
+  "an alternative": 708,
+  "NoFeasibleChoice": 97,
+  "Insufficient": 73,
+  "Conflicting": 63,
+  "Unresolved": 60
+ }
+}

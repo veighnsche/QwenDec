@@ -1,0 +1,32 @@
+{
+ "tag": "choice-text",
+ "mode": "text",
+ "adapter": "runs/choice-text/adapter",
+ "all_questions": "971/1001",
+ "kind_pairs_both_right": "367/374",
+ "assessed_states_right_in_every_order": "103/112",
+ "select_questions_in_listed_order": "218/230",
+ "accuracy": {
+  "all questions": "971/1001",
+  "alternatives named by single letters": "594/594",
+  "alternatives with other names": "377/407",
+  "kind ruledout": "374/374",
+  "kind ruledout, changed order": "245/245",
+  "kind ruledout, listed order": "129/129",
+  "kind select": "597/627",
+  "kind select, changed order": "379/397",
+  "kind select, listed order": "218/230",
+  "status of the question: Assessed": "675/693",
+  "status of the question: Conflicting": "60/66",
+  "status of the question: Insufficient": "73/73",
+  "status of the question: NoFeasibleChoice": "100/100",
+  "status of the question: Unresolved": "63/69"
+ },
+ "picks": {
+  "an alternative": 687,
+  "Conflicting": 67,
+  "NoFeasibleChoice": 100,
+  "Unresolved": 71,
+  "Insufficient": 76
+ }
+}

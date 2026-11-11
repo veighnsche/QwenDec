@@ -1,6 +1,6 @@
 # Latent Choice request pilot: design and pass rule
 
-Written 11 November 2026, before any Choice training. Approved by Vince the same day; started at 21:59.
+Written 11 November 2026, before any Choice training. Approved by Vince the same day; started at 21:59. Outcome: the latent arm passed its rule, see [RESULTS-CHOICE.md](RESULTS-CHOICE.md).
 
 ## Question
 
