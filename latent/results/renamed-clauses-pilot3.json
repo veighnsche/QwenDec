@@ -1,0 +1,32 @@
+{
+ "tag": "renamed-clauses-pilot3",
+ "mode": "latent",
+ "ablate": null,
+ "pointer": "span",
+ "canonical": true,
+ "adapter": "runs/pilot3-canonical/adapter",
+ "single_assessed_prerequisites_differ": "71/72 (99%)",
+ "answer_matches_other_prerequisite": "1/72 (1%)",
+ "accuracy": {
+  "all questions": "462/464 (100%)",
+  "kind pa": "116/116 (100%)",
+  "kind pa negated": "114/116 (98%)",
+  "kind pb": "116/116 (100%)",
+  "kind pb negated": "116/116 (100%)",
+  "status Assessed": "378/380 (99%)",
+  "status Insufficient": "84/84 (100%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "230/232 (99%)",
+  "assessed pairs, kind pa": "114/116 (98%)",
+  "assessed pairs, kind pb": "74/74 (100%)",
+  "assessed twin pairs": "188/190 (99%)"
+ },
+ "states_with_all_eight_right": "114/116 (98%)",
+ "answer_matches_twin_question": "2/380 (1%)",
+ "picks": {
+  "True": 192,
+  "False": 188,
+  "Insufficient": 84
+ }
+}

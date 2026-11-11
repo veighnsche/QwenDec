@@ -1,0 +1,32 @@
+{
+ "tag": "renamed-nouns-pilot2-span",
+ "mode": "latent",
+ "ablate": null,
+ "pointer": "span",
+ "canonical": false,
+ "adapter": "runs/pilot2-pointer-span/adapter",
+ "single_assessed_prerequisites_differ": "72/72 (100%)",
+ "answer_matches_other_prerequisite": "0/72 (0%)",
+ "accuracy": {
+  "all questions": "464/464 (100%)",
+  "kind pa": "116/116 (100%)",
+  "kind pa negated": "116/116 (100%)",
+  "kind pb": "116/116 (100%)",
+  "kind pb negated": "116/116 (100%)",
+  "status Assessed": "380/380 (100%)",
+  "status Insufficient": "84/84 (100%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "232/232 (100%)",
+  "assessed pairs, kind pa": "116/116 (100%)",
+  "assessed pairs, kind pb": "74/74 (100%)",
+  "assessed twin pairs": "190/190 (100%)"
+ },
+ "states_with_all_eight_right": "116/116 (100%)",
+ "answer_matches_twin_question": "0/380 (0%)",
+ "picks": {
+  "True": 190,
+  "False": 190,
+  "Insufficient": 84
+ }
+}

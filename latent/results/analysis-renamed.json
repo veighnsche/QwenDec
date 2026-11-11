@@ -1,0 +1,62 @@
+{
+ "pilot 2, pointer as one vector": {
+  "original": {
+   "all": "344/464",
+   "plain": "172/232",
+   "negated": "172/232",
+   "prerequisites differ": "36/72"
+  },
+  "nouns": {
+   "all": "464/464",
+   "plain": "232/232",
+   "negated": "232/232",
+   "prerequisites differ": "72/72"
+  },
+  "clauses": {
+   "all": "441/464",
+   "plain": "221/232",
+   "negated": "220/232",
+   "prerequisites differ": "65/72"
+  }
+ },
+ "pilot 2, pointer as replayed span": {
+  "original": {
+   "all": "464/464",
+   "plain": "232/232",
+   "negated": "232/232",
+   "prerequisites differ": "72/72"
+  },
+  "nouns": {
+   "all": "464/464",
+   "plain": "232/232",
+   "negated": "232/232",
+   "prerequisites differ": "72/72"
+  },
+  "clauses": {
+   "all": "464/464",
+   "plain": "232/232",
+   "negated": "232/232",
+   "prerequisites differ": "72/72"
+  }
+ },
+ "pilot 3, canonical requests": {
+  "original": {
+   "all": "382/464",
+   "plain": "232/232",
+   "negated": "150/232",
+   "prerequisites differ": "56/72"
+  },
+  "nouns": {
+   "all": "464/464",
+   "plain": "232/232",
+   "negated": "232/232",
+   "prerequisites differ": "72/72"
+  },
+  "clauses": {
+   "all": "462/464",
+   "plain": "232/232",
+   "negated": "230/232",
+   "prerequisites differ": "71/72"
+  }
+ }
+}

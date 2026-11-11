@@ -1,0 +1,32 @@
+{
+ "tag": "renamed-clauses-pilot2-vector",
+ "mode": "latent",
+ "ablate": null,
+ "pointer": "vector",
+ "canonical": false,
+ "adapter": "runs/pilot2-pointer-vector/adapter",
+ "single_assessed_prerequisites_differ": "65/72 (90%)",
+ "answer_matches_other_prerequisite": "7/72 (10%)",
+ "accuracy": {
+  "all questions": "441/464 (95%)",
+  "kind pa": "116/116 (100%)",
+  "kind pa negated": "116/116 (100%)",
+  "kind pb": "105/116 (91%)",
+  "kind pb negated": "104/116 (90%)",
+  "status Assessed": "373/380 (98%)",
+  "status Insufficient": "68/84 (81%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "217/232 (94%)",
+  "assessed pairs, kind pa": "116/116 (100%)",
+  "assessed pairs, kind pb": "70/74 (95%)",
+  "assessed twin pairs": "186/190 (98%)"
+ },
+ "states_with_all_eight_right": "101/116 (87%)",
+ "answer_matches_twin_question": "7/380 (2%)",
+ "picks": {
+  "True": 202,
+  "False": 194,
+  "Insufficient": 68
+ }
+}

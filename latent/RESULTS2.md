@@ -58,7 +58,7 @@ On the 150 training states with distinct names it does bind:
 | Single-prerequisite questions, trained on | 308/308 | 197/308 | 308/308 | 308/308 |
 | Single assessed, the two prerequisites differ | 172/172 | 86/172 | 170/172 | 172/172 |
 
-The pooled pointers explain the difference in part. A state's two pointer vectors have cosine similarity 0.88 in development (the names differ in one of five tokens) and at most 0.50 in training (median 0.18). All 192 training names were seen in training, though on other questions. So this pilot does not show whether one pooled vector fails on unseen names in general or only on near-identical ones.
+The pooled pointers explain the difference in part. A state's two pointer vectors have cosine similarity 0.88 in development (the names differ in one of five tokens) and at most 0.50 in training (median 0.18). All 192 training names were seen in training, though on other questions. So this pilot does not show whether one pooled vector fails on unseen names in general or only on near-identical ones. A later check with development's prerequisites renamed shows it is the near-identical ones: 72/72 on distinct unseen noun phrases ([RESULTS3.md](RESULTS3.md)).
 
 ## What this does and does not show
 
