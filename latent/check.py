@@ -61,6 +61,7 @@ def main():
     ap.add_argument("--adapter", default=str(ROOT / "runs/fork-v1/adapter"))
     ap.add_argument("--fp32", action="store_true")
     ap.add_argument("--steps", type=int, default=6)
+    ap.add_argument("--at", type=int, nargs="*", help="steps for the FP32 check (default: the first six)")
     args = ap.parse_args()
 
     from peft import PeftModel
@@ -84,14 +85,14 @@ def main():
             if latent:
                 trainer.projection.add_(0.05 * torch.randn(trainer.projection.shape, device=device, generator=gen))
         pairs = []
-        for t in range(6):
+        for t in args.at or range(6):
             b = int(trainer.bucket_of_step[t])
             batch = trainer.buckets[b]["batch"]
             with torch.no_grad():
                 ours = float(trainer.loss_for(b, trainer.rows[t, :batch], trainer.weight[t, :batch]))
             pairs.append((reference_loss(peft, model, trainer, t), ours))
         worst = max(abs(a - b) / max(abs(a), 1e-9) for a, b in pairs)
-        print(f"FP32 loss check, steps 0-5 (independent per-case, batched step): "
+        print(f"FP32 loss check, steps {list(args.at or range(6))} (independent per-case, batched step): "
               f"{[(round(a, 5), round(b, 5)) for a, b in pairs]}; worst relative gap {worst:.1e}")
         return
 

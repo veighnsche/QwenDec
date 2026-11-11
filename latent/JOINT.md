@@ -1,6 +1,6 @@
 # One adapter for Noul and Choice requests: design and pass rule
 
-Written 11 November 2026, before any joint training. Not yet approved. Nothing is built and no model was run for this design.
+Written 11 November 2026, before any joint training. Vince approved building it the same day. The examples and scripts are built; the two checks that need the GPU and the run itself have not been done, because GPU use was closed for the day.
 
 ## Question
 
@@ -24,7 +24,7 @@ One latent arm. No new text arm: the text references are the two already measure
 - **Start:** `runs/fork-v1/adapter` and an identity projection, as in both pilots.
 - **Examples:** the union of the two training sets, unchanged: the 4,468 Noul examples (selection hash `0dffd3a6…`) and the 3,954 Choice examples (selection hash `9df5422f…`). 8,422 examples, one pass. Each operation gets exactly the examples its separate arm had.
 - **Requests:** the eight request vector sets from the fixed encoder, copied from the two existing files into one. Nothing is encoded again.
-- **Batches:** examples of both operations are grouped by length together, so a step can hold both. The order of steps is drawn with a new seed (5). About 800 steps.
+- **Batches:** examples of both operations are grouped by length together, so a step can hold both. The order of steps is drawn with a new seed (5). 810 steps: 265 hold both operations, 329 only Noul and 216 only Choice. Most Noul prompts are shorter than any Choice prompt, which is why many steps hold one operation.
 - **Settings:** as in the pilots: learning rate 5e-5, 50-step warm-up, weight decay 0.01, clip 1.0, stock numerics, deterministic kernels, the on-device loop.
 
 Prompts, pointers and the loss are those of the two pilots. A Choice example still credits its acceptable alternatives as a set.
@@ -69,12 +69,21 @@ Reported outside the rule:
 
 ## Checks before training
 
-To be run before the run starts and recorded here. The last two need the GPU:
+Done on 11 November 2026 without the GPU (`joint_prepare.py`, which reads its output back; no model is run):
 
-- The joint vector file equals the two existing files, row for row, and the eight request vector sets are pairwise distinct (cosines reported).
-- Every training row's tokens, pointer and target equal the row in the separate arm's prepared file, and the two selection hashes are unchanged.
-- FP32 loss, batched step against an independent per-case forward, on steps that hold both operations.
+| Check | Result |
+| --- | --- |
+| Every training row equals its row in the separate arm's prepared file: tokens with pointers, where the adapter turns on, target, options, request vectors | all 8,422, each present once and trained once |
+| The joint vector file equals the two existing files, end to end | equal; 6 Noul requests, then 2 Choice requests |
+| The two selection hashes | unchanged (`0dffd3a6…`, `9df5422f…`) |
+| The eight request vector sets differ | cosines from 0.57 to 0.85. The closest pair is the whole-rule request and its negation (0.85); no Noul request has a cosine above 0.66 with a Choice request |
+
+Still to do, on the GPU, before the run (`check_joint.sh`):
+
+- FP32 loss, batched step against an independent per-case forward, on one step per length, holding both operations where a length has both.
 - On-device loop against ordinary PyTorch, 6 steps: bit-identical.
+
+The run itself is `run_joint.sh`: training, then the five measurements.
 
 ## Limits
 
@@ -86,7 +95,7 @@ To be run before the run starts and recorded here. The last two need the GPU:
 
 ## Cost
 
-One training run of about 70 minutes and five measurements of about 5 minutes each on the RTX 3090. Preparing the joint examples and the run script needs no GPU; the checks above do.
+One training run of about 70 minutes and five measurements of about 5 minutes each on the RTX 3090. The two remaining checks take a few minutes more.
 
 ## A decision for the owner
 

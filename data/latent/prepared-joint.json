@@ -1,0 +1,88 @@
+{
+ "arm": "joint",
+ "examples": 8422,
+ "steps": 810,
+ "passes": 1,
+ "order_seed": 5,
+ "sources": [
+  {
+   "operation": "noul",
+   "file": "data/latent/prepared-canonical-span-k16-order4.pt",
+   "file_sha256": "66c07867f70322d63e8865a097f9c0c6c7b5b610be85dd593898026229e3b629",
+   "examples": 4468,
+   "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516",
+   "requests": 6,
+   "first_request": 0
+  },
+  {
+   "operation": "choice",
+   "file": "data/latent/prepared-choice-latent.pt",
+   "file_sha256": "d8c9ebe712d183928940d066cc8defa1a44652ba3590e3e25d2b5f068ad4964b",
+   "examples": 3954,
+   "selection_sha256": "9df5422fa4fad1d43557fbb33af510e0345d9299be972d896787843e67a8fefe",
+   "requests": 2,
+   "first_request": 6
+  }
+ ],
+ "steps_holding": {
+  "choice and noul": 265,
+  "choice": 216,
+  "noul": 329
+ },
+ "check_steps": [
+  2,
+  0,
+  11,
+  66,
+  24,
+  15
+ ],
+ "executed_positions": 3132096,
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3756,
+   "noul": 3756,
+   "choice": 0
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 3716,
+   "noul": 296,
+   "choice": 3420
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 393,
+   "noul": 283,
+   "choice": 110
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 115,
+   "noul": 115,
+   "choice": 0
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 340,
+   "noul": 18,
+   "choice": 322
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 102,
+   "noul": 0,
+   "choice": 102
+  }
+ ],
+ "rows_verified_against_sources": 8422,
+ "file_sha256": "8a83f9c4ca13f8a9a3fea253e269188e699fc9122d1f0e5b8c95b8ee20c9e641",
+ "vectors_sha256": "cf51c03bd4842d722fdc62e88e8ab6ba9a59edbbca3a6ba19240a62cac1a06a5"
+}
