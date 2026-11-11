@@ -1,0 +1,99 @@
+{
+ "train": {
+  "noul_states": 1282,
+  "states_with_eight_questions": 952,
+  "source_labels_contradicting_the_stated_facts": [],
+  "questions": 8276,
+  "by_status": {
+   "Assessed": 5892,
+   "Unresolved": 326,
+   "Conflicting": 334,
+   "Insufficient": 1724
+  },
+  "distinct_answers_per_state": {
+   "1": 330,
+   "2": 521,
+   "3": 431
+  },
+  "answers": {
+   "and -> Conflicting": 167,
+   "and -> Insufficient": 164,
+   "and -> Unresolved": 163,
+   "and -> false": 519,
+   "and -> true": 269,
+   "and neg -> Conflicting": 167,
+   "and neg -> Insufficient": 164,
+   "and neg -> Unresolved": 163,
+   "and neg -> false": 269,
+   "and neg -> true": 519,
+   "or -> Insufficient": 267,
+   "or -> true": 685,
+   "or neg -> Insufficient": 267,
+   "or neg -> false": 685,
+   "pa -> false": 267,
+   "pa -> true": 685,
+   "pa neg -> false": 685,
+   "pa neg -> true": 267,
+   "pb -> Insufficient": 431,
+   "pb -> false": 252,
+   "pb -> true": 269,
+   "pb neg -> Insufficient": 431,
+   "pb neg -> false": 269,
+   "pb neg -> true": 252
+  }
+ },
+ "development": {
+  "noul_states": 243,
+  "states_with_eight_questions": 116,
+  "source_labels_contradicting_the_stated_facts": [
+   "development-25ff26555b2a33c8",
+   "development-4a7bad75b6ef386b",
+   "development-d699bcbfdd377336",
+   "development-9c98038a2ce6787d",
+   "development-ef11d4d1cdb0d29e",
+   "development-9bf11c17a1cd9e2f",
+   "development-46a4efd282019942",
+   "development-d97288792727ae94",
+   "development-8fae590bf57b1223",
+   "development-8ab93bf830c682da"
+  ],
+  "questions": 1182,
+  "by_status": {
+   "Assessed": 856,
+   "Insufficient": 210,
+   "Conflicting": 60,
+   "Unresolved": 56
+  },
+  "distinct_answers_per_state": {
+   "1": 79,
+   "2": 122,
+   "3": 42
+  },
+  "answers": {
+   "and -> Conflicting": 30,
+   "and -> Insufficient": 55,
+   "and -> Unresolved": 28,
+   "and -> false": 41,
+   "and -> true": 89,
+   "and neg -> Conflicting": 30,
+   "and neg -> Insufficient": 55,
+   "and neg -> Unresolved": 28,
+   "and neg -> false": 89,
+   "and neg -> true": 41,
+   "or -> Insufficient": 8,
+   "or -> true": 108,
+   "or neg -> Insufficient": 8,
+   "or neg -> false": 108,
+   "pa -> false": 8,
+   "pa -> true": 108,
+   "pa neg -> false": 108,
+   "pa neg -> true": 8,
+   "pb -> Insufficient": 42,
+   "pb -> false": 18,
+   "pb -> true": 56,
+   "pb neg -> Insufficient": 42,
+   "pb neg -> false": 56,
+   "pb neg -> true": 18
+  }
+ }
+}

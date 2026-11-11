@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+
+# Model weights are downloaded separately (see README)
+Qwen3.5-4B/
+decision-4b/
+
+# Derived tensors, checkpoints and trained weights
+*.pt
+*.safetensors
+runs/**/adapter/
+runs/*.log

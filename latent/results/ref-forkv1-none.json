@@ -1,0 +1,37 @@
+{
+ "tag": "ref-forkv1-none",
+ "mode": "none",
+ "ablate": null,
+ "adapter": "runs/fork-v1/adapter",
+ "accuracy": {
+  "all questions": "646/1182 (55%)",
+  "kind and": "106/116 (91%)",
+  "kind and negated": "44/116 (38%)",
+  "kind or": "46/116 (40%)",
+  "kind or negated": "28/116 (24%)",
+  "kind pa": "54/116 (47%)",
+  "kind pa negated": "28/116 (24%)",
+  "kind pb": "98/116 (84%)",
+  "kind pb negated": "44/116 (38%)",
+  "status Assessed": "360/856 (42%)",
+  "status Conflicting": "60/60 (100%)",
+  "status Insufficient": "172/210 (82%)",
+  "status Unresolved": "54/56 (96%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "143/591 (24%)",
+  "assessed pairs, kind and": "0/82 (0%)",
+  "assessed pairs, kind or": "0/108 (0%)",
+  "assessed pairs, kind pa": "0/116 (0%)",
+  "assessed pairs, kind pb": "0/74 (0%)",
+  "assessed twin pairs": "0/428 (0%)"
+ },
+ "states_with_all_eight_right": "0/116 (0%)",
+ "picks": {
+  "True": 434,
+  "False": 326,
+  "Insufficient": 308,
+  "Conflicting": 60,
+  "Unresolved": 54
+ }
+}

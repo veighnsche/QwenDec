@@ -1,0 +1,303 @@
+{
+ "full": {
+  "noul_values": {
+   "correct": 120,
+   "of": 130,
+   "rate": 0.923,
+   "interval95": [
+    0.864,
+    0.958
+   ],
+   "always_majority_rate": 0.531,
+   "brier": 0.0768,
+   "brier_of_training_constant": 0.2849,
+   "brier_skill": 0.73
+  },
+  "choice_values": {
+   "correct": 114,
+   "of": 114,
+   "rate": 1.0,
+   "interval95": [
+    0.967,
+    1.0
+   ],
+   "chance_rate": 0.4942
+  },
+  "choice_reversed_order": {
+   "same_identity_selected": {
+    "correct": 88,
+    "of": 114,
+    "rate": 0.772,
+    "interval95": [
+     0.687,
+     0.839
+    ]
+   },
+   "correct_when_reversed": {
+    "correct": 114,
+    "of": 114,
+    "rate": 1.0,
+    "interval95": [
+     0.967,
+     1.0
+    ]
+   }
+  },
+  "score_values": {
+   "cases": 119,
+   "interior_cases": 67,
+   "mean_distance": 0.0866,
+   "mean_distance_interior": 0.1526,
+   "mean_distance_of_training_constant": 0.346,
+   "within_0.05": {
+    "correct": 69,
+    "of": 119,
+    "rate": 0.58,
+    "interval95": [
+     0.49,
+     0.665
+    ]
+   },
+   "within_0.05_interior": {
+    "correct": 17,
+    "of": 67,
+    "rate": 0.254,
+    "interval95": [
+     0.165,
+     0.369
+    ]
+   }
+  },
+  "noul_with_status": {
+   "status_right": {
+    "correct": 213,
+    "of": 243,
+    "rate": 0.877,
+    "interval95": [
+     0.829,
+     0.912
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 203,
+    "of": 243,
+    "rate": 0.835,
+    "interval95": [
+     0.784,
+     0.877
+    ]
+   },
+   "always_assessed_status_rate": 0.535
+  },
+  "choice_with_status": {
+   "status_right": {
+    "correct": 167,
+    "of": 232,
+    "rate": 0.72,
+    "interval95": [
+     0.659,
+     0.774
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 167,
+    "of": 232,
+    "rate": 0.72,
+    "interval95": [
+     0.659,
+     0.774
+    ]
+   },
+   "always_assessed_status_rate": 0.491
+  },
+  "score_with_status": {
+   "status_right": {
+    "correct": 161,
+    "of": 199,
+    "rate": 0.809,
+    "interval95": [
+     0.749,
+     0.858
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 116,
+    "of": 199,
+    "rate": 0.583,
+    "interval95": [
+     0.513,
+     0.649
+    ]
+   },
+   "always_assessed_status_rate": 0.598
+  }
+ },
+ "fork": {
+  "noul_values": {
+   "correct": 120,
+   "of": 130,
+   "rate": 0.923,
+   "interval95": [
+    0.864,
+    0.958
+   ],
+   "always_majority_rate": 0.531,
+   "brier": 0.0795,
+   "brier_of_training_constant": 0.2849,
+   "brier_skill": 0.721
+  },
+  "choice_values": {
+   "correct": 114,
+   "of": 114,
+   "rate": 1.0,
+   "interval95": [
+    0.967,
+    1.0
+   ],
+   "chance_rate": 0.4942
+  },
+  "choice_reversed_order": {
+   "same_identity_selected": {
+    "correct": 83,
+    "of": 114,
+    "rate": 0.728,
+    "interval95": [
+     0.64,
+     0.801
+    ]
+   },
+   "correct_when_reversed": {
+    "correct": 114,
+    "of": 114,
+    "rate": 1.0,
+    "interval95": [
+     0.967,
+     1.0
+    ]
+   }
+  },
+  "score_values": {
+   "cases": 119,
+   "interior_cases": 67,
+   "mean_distance": 0.1001,
+   "mean_distance_interior": 0.1762,
+   "mean_distance_of_training_constant": 0.346,
+   "within_0.05": {
+    "correct": 67,
+    "of": 119,
+    "rate": 0.563,
+    "interval95": [
+     0.473,
+     0.649
+    ]
+   },
+   "within_0.05_interior": {
+    "correct": 15,
+    "of": 67,
+    "rate": 0.224,
+    "interval95": [
+     0.141,
+     0.337
+    ]
+   }
+  },
+  "noul_with_status": {
+   "status_right": {
+    "correct": 204,
+    "of": 243,
+    "rate": 0.84,
+    "interval95": [
+     0.788,
+     0.88
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 194,
+    "of": 243,
+    "rate": 0.798,
+    "interval95": [
+     0.743,
+     0.844
+    ]
+   },
+   "always_assessed_status_rate": 0.535
+  },
+  "choice_with_status": {
+   "status_right": {
+    "correct": 165,
+    "of": 232,
+    "rate": 0.711,
+    "interval95": [
+     0.65,
+     0.766
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 165,
+    "of": 232,
+    "rate": 0.711,
+    "interval95": [
+     0.65,
+     0.766
+    ]
+   },
+   "always_assessed_status_rate": 0.491
+  },
+  "score_with_status": {
+   "status_right": {
+    "correct": 160,
+    "of": 199,
+    "rate": 0.804,
+    "interval95": [
+     0.743,
+     0.853
+    ]
+   },
+   "status_and_value_right": {
+    "correct": 111,
+    "of": 199,
+    "rate": 0.558,
+    "interval95": [
+     0.488,
+     0.625
+    ]
+   },
+   "always_assessed_status_rate": 0.598
+  }
+ },
+ "paired": {
+  "Choice / reversed": {
+   "both right": 114
+  },
+  "Choice / status": {
+   "both right": 152,
+   "both wrong": 52,
+   "gained in fork": 13,
+   "lost in fork": 15
+  },
+  "Choice / values": {
+   "both right": 114
+  },
+  "Noul / status": {
+   "both right": 194,
+   "both wrong": 40,
+   "lost in fork": 9
+  },
+  "Noul / values": {
+   "both right": 120,
+   "both wrong": 10
+  },
+  "Score / status": {
+   "both right": 110,
+   "both wrong": 82,
+   "lost in fork": 6,
+   "gained in fork": 1
+  },
+  "Score / values": {
+   "both right": 60,
+   "both wrong": 43,
+   "lost in fork": 9,
+   "gained in fork": 7
+  }
+ }
+}

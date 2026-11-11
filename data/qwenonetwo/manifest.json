@@ -1,0 +1,52 @@
+{
+ "source": "/home/vince/QwenOneTwo/data/training-collections-20261105",
+ "locked_file_read": false,
+ "files": {
+  "train": {
+   "source_file": "train-examples.jsonl",
+   "source_sha256": "0d17c52dd5dfc34a20c58759d7ffd8857fbd9927b4aa7d89f2c74ee40c006ff3",
+   "source_records": 8000,
+   "distinct_cases": 3830,
+   "families": 288,
+   "unreviewed_labels": 0,
+   "cells": {
+    "Choice/Assessed": 563,
+    "Choice/Conflicting": 171,
+    "Choice/Insufficient": 176,
+    "Choice/NoFeasibleChoice": 164,
+    "Choice/Unresolved": 176,
+    "Noul/Assessed": 788,
+    "Noul/Conflicting": 167,
+    "Noul/Insufficient": 164,
+    "Noul/Unresolved": 163,
+    "Score/Assessed": 779,
+    "Score/Conflicting": 175,
+    "Score/Insufficient": 176,
+    "Score/Unresolved": 168
+   }
+  },
+  "development": {
+   "source_file": "development-examples.jsonl",
+   "source_sha256": "b8acb25305d55e954e63816d55460fdfec5783c0b2001ae19051cd167d6fe535",
+   "source_records": 1000,
+   "distinct_cases": 674,
+   "families": 120,
+   "unreviewed_labels": 0,
+   "cells": {
+    "Choice/Assessed": 114,
+    "Choice/Conflicting": 26,
+    "Choice/Insufficient": 29,
+    "Choice/NoFeasibleChoice": 36,
+    "Choice/Unresolved": 27,
+    "Noul/Assessed": 130,
+    "Noul/Conflicting": 30,
+    "Noul/Insufficient": 55,
+    "Noul/Unresolved": 28,
+    "Score/Assessed": 119,
+    "Score/Conflicting": 29,
+    "Score/Insufficient": 25,
+    "Score/Unresolved": 26
+   }
+  }
+ }
+}

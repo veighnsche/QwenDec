@@ -1,0 +1,15 @@
+{
+ "steps_executed": 1034,
+ "steps_planned": 1034,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": {
+  "accepted": true,
+  "scope": "Noul, Choice and status detection, on the development cases in fork mode",
+  "left_open": "Score: interior values got worse (within 0.05: 15/67 before, 3/67 after)",
+  "not_measured": "retention of the adapter's general decision skill on its original public sources",
+  "decided_by": "Vince",
+  "date": "2026-11-11",
+  "evidence": "baseline/results-fork-fork-v1.json against baseline/results-fork.json"
+ }
+}

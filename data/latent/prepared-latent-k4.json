@@ -1,0 +1,50 @@
+{
+ "arm": "latent-k4",
+ "examples": 4468,
+ "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516",
+ "steps": 389,
+ "passes": 1,
+ "seed": 20261111,
+ "answers": {
+  "Insufficient": 868,
+  "True": 1467,
+  "False": 1473,
+  "Conflicting": 334,
+  "Unresolved": 326
+ },
+ "prompt_tokens_mean": 294.0,
+ "executed_positions": 1504576,
+ "buckets": [
+  {
+   "length": 256,
+   "batch": 16,
+   "rows": 52
+  },
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3868
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 132
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 330
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 72
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 14
+  }
+ ],
+ "file_sha256": "b4e7e4007c95623e6dbbe6b47cdb0a143abce4c9a3219228f3e212a7a72e0b0e"
+}

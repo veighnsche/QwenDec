@@ -1,0 +1,93 @@
+{
+ "cases_file": "/home/vince/Projects/QwenDec/data/qwenonetwo/train.jsonl",
+ "cases_sha256": "684688a0cc1a90ea3ef0bf927ea2a92123a8a9a66908f44f0f67200838c5cb08",
+ "cases": 3830,
+ "passes": 2,
+ "seed": 20261110,
+ "steps": 1034,
+ "positions_per_step_budget": 4096,
+ "real_positions": 3645498,
+ "executed_positions": 3918976,
+ "padding_share": 0.07,
+ "prompt_tokens": {
+  "min": 271,
+  "max": 856,
+  "mean": 475.9
+ },
+ "adapter_on_share": 0.665,
+ "choice_right_answer_listed_first": {
+  "true": 561,
+  "false": 565
+ },
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 1642
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 672
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 2154
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 278
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 34
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 1332
+  },
+  {
+   "length": 704,
+   "batch": 5,
+   "rows": 1276
+  },
+  {
+   "length": 768,
+   "batch": 5,
+   "rows": 62
+  },
+  {
+   "length": 832,
+   "batch": 4,
+   "rows": 186
+  },
+  {
+   "length": 896,
+   "batch": 4,
+   "rows": 24
+  }
+ ],
+ "letter_token_ids": [
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47
+ ],
+ "file_sha256": "d4c79c9c317af558382395bd8daab5a341ea39f1c7bb3eebde90f2e5020059ba"
+}

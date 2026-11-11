@@ -1,0 +1,20 @@
+{
+ "data": "/home/vince/Projects/QwenDec/data/prepared/train-v1.pt",
+ "data_sha256": "d4c79c9c317af558382395bd8daab5a341ea39f1c7bb3eebde90f2e5020059ba",
+ "steps": 1034,
+ "passes": 2,
+ "base_model": "Qwen3.5-4B",
+ "start_adapter_sha256": "907b5c40ad80b840b0356a9d2b29710c527010ba715ab3dd168dca4f6bceda9e",
+ "lr": 5e-05,
+ "warmup": 50,
+ "weight_decay": 0.01,
+ "clip": 1.0,
+ "betas": [
+  0.9,
+  0.999
+ ],
+ "autocast": false,
+ "recompute": true,
+ "deterministic": true,
+ "torch": "2.15.0+cu132"
+}

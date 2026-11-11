@@ -1,0 +1,50 @@
+{
+ "arm": "text",
+ "examples": 4468,
+ "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516",
+ "steps": 406,
+ "passes": 1,
+ "seed": 20261111,
+ "answers": {
+  "Insufficient": 868,
+  "True": 1467,
+  "False": 1473,
+  "Conflicting": 334,
+  "Unresolved": 326
+ },
+ "prompt_tokens_mean": 323.2,
+ "executed_positions": 1570688,
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3153
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 883
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 211
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 181
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 38
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 2
+  }
+ ],
+ "file_sha256": "b91964261b21681b3d17f07d604af87afa9ab149ea837eed04c69eab22e0e136"
+}

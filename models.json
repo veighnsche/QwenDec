@@ -1,0 +1,164 @@
+{
+  "created_at_utc": "2026-11-09T23:11:10.788457+00:00",
+  "models": [
+    {
+      "repo": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "path": "/home/vince/Projects/QwenDec/Qwen3.5-4B",
+      "total_bytes": 9342905899,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 11544,
+          "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "README.md",
+          "bytes": 77661,
+          "sha256": "1406be1b6b8fd8a6545870da516912804756593628a1d0fb0a7965211e82a7bb",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "chat_template.jinja",
+          "bytes": 7756,
+          "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "config.json",
+          "bytes": 3161,
+          "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "merges.txt",
+          "bytes": 3353259,
+          "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "model.safetensors-00001-of-00002.safetensors",
+          "bytes": 5329398688,
+          "sha256": "26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61",
+          "verification": "upstream LFS SHA256"
+        },
+        {
+          "path": "model.safetensors-00002-of-00002.safetensors",
+          "bytes": 3990429408,
+          "sha256": "cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+          "verification": "upstream LFS SHA256"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "bytes": 76196,
+          "sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "preprocessor_config.json",
+          "bytes": 390,
+          "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 12807982,
+          "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+          "verification": "upstream LFS SHA256"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 16710,
+          "sha256": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "video_preprocessor_config.json",
+          "bytes": 385,
+          "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "vocab.json",
+          "bytes": 6722759,
+          "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        }
+      ]
+    },
+    {
+      "repo": "evalengine/decision-4b",
+      "revision": "aadc55517ae8bfb1264fd5932ec452b939361e47",
+      "path": "/home/vince/Projects/QwenDec/decision-4b",
+      "total_bytes": 65042061,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 11355,
+          "sha256": "faed6815ea11f8b1dd2486b27a6712a01f22d1bf5b674f55a77782cd7febaf4c",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "NOTICE",
+          "bytes": 2411,
+          "sha256": "53f8152941b3ca1df1f41ea3615487ca9ed06d20b43cecc8e56d519e214b95e6",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "README.md",
+          "bytes": 5506,
+          "sha256": "53c663f894caffbbdd1e497d57b70c2b8d1b2ea756b6a195f6787cd4c77fb029",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "SOURCES.json",
+          "bytes": 6846,
+          "sha256": "c622778c425d85ed341c9c05e46388baf1f192efe2fa7ebea27fd6771061a430",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "SOURCE_REVIEW.md",
+          "bytes": 4641,
+          "sha256": "974a6cb9c638a05d66ee242a8fb8e7cdbce5ac298f615224f77c220463103cdc",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "adapter_config.json",
+          "bytes": 1294,
+          "sha256": "486e3bb2761e30171d732af6b4e9a31a5d6b9d978abc8c6e34ef57ce9fb6f70a",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "adapter_model.safetensors",
+          "bytes": 64996408,
+          "sha256": "907b5c40ad80b840b0356a9d2b29710c527010ba715ab3dd168dca4f6bceda9e",
+          "verification": "upstream LFS SHA256"
+        },
+        {
+          "path": "evaluation/benchmark.csv",
+          "bytes": 978,
+          "sha256": "b1ec1b53bb97d960019095d7866990d1feadfab1c93f29d5828cf24dc0c4598a",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "licenses/QWEN-LICENSE",
+          "bytes": 11544,
+          "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        },
+        {
+          "path": "licenses/TEV-LICENSE",
+          "bytes": 1078,
+          "sha256": "78c317bb617d8048bdc3504d92fb728839940c1f30f76fb368d845b657299337",
+          "verification": "upstream Git blob SHA1 plus local SHA256"
+        }
+      ]
+    }
+  ],
+  "all_files_SHA256_verified": true,
+  "standalone_files_not_cache_symlinks": true,
+  "source_cache_preserved": true,
+  "model_execution": false,
+  "source_download_receipt": "/home/vince/QwenOneTwo/docs/evidence/qwen35-4b-download-2026-11-10.json"
+}
