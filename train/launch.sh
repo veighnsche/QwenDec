@@ -5,7 +5,7 @@
 set -euo pipefail
 
 name="$1"
-cd /home/vince/Projects/QwenDec
+cd "$(dirname "$(readlink -f "$0")")/.."
 export CUDA_VISIBLE_DEVICES=GPU-225509c3-d702-6c27-de03-76b5e99b33b1
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 run="runs/$name"

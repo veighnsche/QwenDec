@@ -1,0 +1,8 @@
+{
+ "steps_executed": 406,
+ "steps_planned": 406,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule"
+}

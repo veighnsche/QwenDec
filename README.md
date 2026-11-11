@@ -21,7 +21,7 @@ Requests and results are meant to cross as vectors, never as generated text. The
 | Training with no CPU in the loop | [gpu_loop/](gpu_loop/) | A full training step runs as an on-device loop: one launch, the host sleeps |
 | Baseline of the unchanged adapter | [baseline/](baseline/) | How decision-4b does on the project's cases, with the state read adapter-on and adapter-off |
 | Fork-mode training | [train/](train/) | The adapter trained to decide from a natively read state; one run, `fork-v1` |
-| Latent question pilot | [latent/](latent/) | In progress: a Noul question delivered as 4 vectors instead of text |
+| Latent question pilot | [latent/](latent/) | A Noul question delivered as 4 vectors instead of text: did not pass (83% against 99% for text). A 16-vector run is in progress |
 
 Not built: the native side (deciding when to call, forming a request, using the result), the allowance predictor, the runtime and its accounting, and Choice or Score over vectors.
 
@@ -92,7 +92,7 @@ hf download Qwen/Qwen3.5-4B --revision 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a 
 hf download evalengine/decision-4b --revision aadc55517ae8bfb1264fd5932ec452b939361e47 --local-dir decision-4b
 ```
 
-The scripts select one specific GPU by UUID (`RTX3090_UUID` in `gpu_loop/model.py`) and refuse to run anywhere else, CPU included. Change that constant for your card. Two launch scripts contain an absolute project path.
+The scripts select one specific GPU by UUID (`RTX3090_UUID` in `gpu_loop/model.py`) and refuse to run anywhere else, CPU included. Change that constant for your card.
 
 ```bash
 export CUDA_VISIBLE_DEVICES=<your GPU UUID> CUBLAS_WORKSPACE_CONFIG=:4096:8

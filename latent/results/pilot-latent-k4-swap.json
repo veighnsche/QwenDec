@@ -1,0 +1,38 @@
+{
+ "tag": "pilot-latent-k4-swap",
+ "mode": "latent",
+ "ablate": "swap",
+ "adapter": "runs/pilot-latent-k4/adapter",
+ "accuracy": {
+  "all questions": "298/1182 (25%)",
+  "kind and": "34/116 (29%)",
+  "kind and negated": "43/116 (37%)",
+  "kind or": "8/116 (7%)",
+  "kind or negated": "10/116 (9%)",
+  "kind pa": "0/116 (0%)",
+  "kind pa negated": "18/116 (16%)",
+  "kind pb": "26/116 (22%)",
+  "kind pb negated": "13/116 (11%)",
+  "status Assessed": "73/856 (9%)",
+  "status Conflicting": "60/60 (100%)",
+  "status Insufficient": "127/210 (60%)",
+  "status Unresolved": "38/56 (68%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "104/591 (18%)",
+  "assessed pairs, kind and": "0/82 (0%)",
+  "assessed pairs, kind or": "0/108 (0%)",
+  "assessed pairs, kind pa": "0/116 (0%)",
+  "assessed pairs, kind pb": "0/74 (0%)",
+  "assessed twin pairs": "4/428 (1%)"
+ },
+ "states_with_all_eight_right": "0/116 (0%)",
+ "answer_matches_twin_question": "760/856 (89%)",
+ "picks": {
+  "False": 520,
+  "True": 413,
+  "Conflicting": 61,
+  "Insufficient": 150,
+  "Unresolved": 38
+ }
+}

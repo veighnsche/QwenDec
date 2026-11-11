@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Train the text arm, then the latent arm, then measure both. One pass each.
 set -euo pipefail
-cd /home/vince/Projects/QwenDec
+cd "$(dirname "$(readlink -f "$0")")/.."
 export CUDA_VISIBLE_DEVICES=GPU-225509c3-d702-6c27-de03-76b5e99b33b1 CUBLAS_WORKSPACE_CONFIG=:4096:8
 k="${1:-4}"
 py=.venv/bin/python
