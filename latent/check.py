@@ -36,6 +36,9 @@ def reference_loss(peft, model, trainer, t):
         start, k = int(d["q_start"][row]), trainer.vectors.shape[1]
         q = trainer.vectors[int(d["q_index"][row])].float() @ trainer.projection.T
         embeds[0, start:start + k] = q.to(embeds.dtype)
+        if "ptr_ids" in d:  # pointer as one vector, computed here case by case
+            n_ptr = int(d["ptr_mask"][row].sum())
+            embeds[0, start + k] = model.model.embed_tokens(d["ptr_ids"][row, :n_ptr].long()).float().mean(0) if n_ptr else 0.0
         logits = peft(inputs_embeds=embeds).logits[0, -1].float()
         logp = logits[trainer.letters[: int(d["valid"][row].sum())]].log_softmax(-1)
         total += float(-(d["target"][row, : logp.shape[0]] * logp).sum())

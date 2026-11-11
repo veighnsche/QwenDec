@@ -28,6 +28,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=("text", "latent"), required=True)
     ap.add_argument("--k", type=int, default=0)
+    ap.add_argument("--pointer", choices=("vector", "span"), help="pilot 2: how the pointer reaches the fork")
     ap.add_argument("--positions-per-step", type=int, default=4096)
     ap.add_argument("--seed", type=int, default=20261111)
     args = ap.parse_args()
@@ -48,14 +49,16 @@ def main():
 
     index = None
     if args.mode == "latent":
-        store = torch.load(ROOT / f"data/latent/question-vectors-k{args.k}.pt")
+        vectors_file = f"data/latent/question-vectors-k{args.k}{'-pointer' if args.pointer else ''}.pt"
+        store = torch.load(ROOT / vectors_file)
         index = store["index"]
     pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
     rows = []
     for c in chosen:
-        ids, gate_start, q_start = tokenise(tok, c, args.mode, args.k, pad)
+        ids, gate_start, q_start, *span = tokenise(tok, c, args.mode, args.k, pad, pointer=args.pointer)
         rows.append({"ids": ids, "gate_start": gate_start, "q_start": q_start, "gold": gold_index(c),
-                     "q_index": index[question_text(c)] if index else -1})
+                     "q_index": index[question_text(c, bool(args.pointer))] if index else -1,
+                     "pointer": span[0] if span else []})
 
     buckets = []
     for length in sorted({-(-len(r["ids"]) // CHUNK) * CHUNK for r in rows}):
@@ -76,6 +79,14 @@ def main():
             "q_start": torch.tensor([r["q_start"] for r in members]),
             "q_index": torch.tensor([r["q_index"] for r in members]),
         })
+        if args.pointer == "vector":  # the pointed token ids, for the mean embedding computed on the GPU
+            width = max(1, max(len(r["pointer"]) for r in members))
+            ptr_ids = torch.full((n, width), pad, dtype=torch.int32)
+            ptr_mask = torch.zeros(n, width)
+            for i, r in enumerate(members):
+                ptr_ids[i, : len(r["pointer"])] = torch.tensor(r["pointer"], dtype=torch.int32)
+                ptr_mask[i, : len(r["pointer"])] = 1.0
+            buckets[-1].update(ptr_ids=ptr_ids, ptr_mask=ptr_mask)
 
     schedule = []
     for b, bucket in enumerate(buckets):
@@ -90,19 +101,20 @@ def main():
         step_rows[t, : len(members)] = torch.tensor(members)
         step_weight[t, : len(members)] = 1.0
 
-    name = "text" if args.mode == "text" else f"latent-k{args.k}"
+    name = "text" if args.mode == "text" else f"pointer-{args.pointer}-k{args.k}" if args.pointer else f"latent-k{args.k}"
     out = ROOT / f"data/latent/prepared-{name}.pt"
     meta = {
         "arm": name, "examples": len(chosen), "selection_sha256": selection, "steps": len(schedule), "passes": 1,
         "seed": args.seed, "answers": dict(Counter(str(VALUES[r["gold"]]) for r in rows)),
         "prompt_tokens_mean": round(sum(len(r["ids"]) for r in rows) / len(rows), 1),
+        "examples_with_pointer": sum(bool(r["pointer"]) for r in rows),
         "executed_positions": sum(buckets[b]["length"] * buckets[b]["batch"] for b, _ in schedule),
         "buckets": [{"length": b["length"], "batch": b["batch"], "rows": b["tokens"].shape[0]} for b in buckets],
     }
     data = {"meta": meta, "buckets": buckets, "bucket_of_step": torch.tensor([b for b, _ in schedule]),
             "rows": step_rows, "weight": step_weight, "letters": torch.arange(32, 32 + MAX_OPTIONS)}
     if args.mode == "latent":
-        data["vectors_file"] = f"data/latent/question-vectors-k{args.k}.pt"
+        data["vectors_file"] = vectors_file
         data["k"] = args.k
     torch.save(data, out)
     meta["file_sha256"] = hashlib.sha256(out.read_bytes()).hexdigest()

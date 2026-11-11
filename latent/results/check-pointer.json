@@ -1,0 +1,22 @@
+{
+ "train": {
+  "questions": 8276,
+  "with_pointer": 3808,
+  "distinct_names": 192,
+  "pointer_tokens_min_median_max": [
+   2,
+   5,
+   9
+  ]
+ },
+ "development": {
+  "questions": 1182,
+  "with_pointer": 464,
+  "distinct_names": 2,
+  "pointer_tokens_min_median_max": [
+   5,
+   5,
+   5
+  ]
+ }
+}

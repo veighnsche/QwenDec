@@ -1,0 +1,46 @@
+{
+ "arm": "pointer-vector-k16",
+ "examples": 4468,
+ "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516",
+ "steps": 392,
+ "passes": 1,
+ "seed": 20261111,
+ "answers": {
+  "Insufficient": 868,
+  "True": 1467,
+  "False": 1473,
+  "Conflicting": 334,
+  "Unresolved": 326
+ },
+ "prompt_tokens_mean": 307.0,
+ "examples_with_pointer": 1874,
+ "executed_positions": 1515584,
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3752
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 300
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 288
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 110
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 18
+  }
+ ],
+ "file_sha256": "3420aec40df4d5dd2a5796218cc3eb8be56a2525928dc82074854b69654b1604"
+}

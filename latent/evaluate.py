@@ -8,6 +8,10 @@ model that ignores the question cannot get both of an assessed pair right.
 Latent mode replaces K question positions with vectors from the fixed encoder,
 passed through the trained projection. `--ablate zero` feeds zero vectors;
 `--ablate swap` feeds the vectors of the twin question on the same state.
+
+With `--pointer vector` or `--pointer span` (pilot 2) a single-prerequisite question
+names no prerequisite and the request points at the name in the state.
+`--ablate swap-pointer` points at the other prerequisite instead.
 """
 
 import argparse
@@ -23,7 +27,7 @@ ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "gpu_loop"))
 sys.path.insert(0, str(ROOT / "train"))
 sys.path.insert(0, str(HERE))
-from common import VALUES, gold_index, question_text, tokenise  # noqa: E402
+from common import VALUES, gold_index, pointed, question_text, tokenise  # noqa: E402
 from model import load_text_model, require_gpu  # noqa: E402
 from step import Gate  # noqa: E402
 
@@ -39,7 +43,8 @@ def main():
     ap.add_argument("--cases", default=str(ROOT / "data/latent/noul-development.jsonl"))
     ap.add_argument("--vectors", help="question vectors file (latent mode)")
     ap.add_argument("--projection", help="trained projection file (latent mode)")
-    ap.add_argument("--ablate", choices=("zero", "swap"))
+    ap.add_argument("--ablate", choices=("zero", "swap", "swap-pointer"))
+    ap.add_argument("--pointer", choices=("vector", "span"), help="pilot 2: how the pointer reaches the fork")
     ap.add_argument("--tag", required=True)
     args = ap.parse_args()
 
@@ -64,19 +69,23 @@ def main():
     rows = []
     with torch.no_grad():
         for case in cases:
-            ids, gate_start, q_start = tokenise(tok, case, args.mode, k if args.mode == "latent" else 0)
+            ids, gate_start, q_start, *span = tokenise(tok, case, args.mode, k if args.mode == "latent" else 0,
+                                                       pointer=args.pointer, other=args.ablate == "swap-pointer")
             ids = torch.tensor([ids], device=device)
             n = ids.shape[1]
             gate.mask = (torch.arange(n, device=device) >= gate_start).view(1, n, 1)
             if args.mode == "latent":
                 source = by_id[case["twin"]] if args.ablate == "swap" else case
-                q = vectors[index[question_text(source)]].float()
+                q = vectors[index[question_text(source, bool(args.pointer))]].float()
                 if projection is not None:
                     q = q @ projection.T
                 if args.ablate == "zero":
                     q = torch.zeros_like(q)
                 embeds = model.model.embed_tokens(ids)
                 embeds[0, q_start:q_start + k] = q.to(embeds.dtype)
+                if args.pointer == "vector":  # mean input embedding of the pointed tokens, zero when there is no pointer
+                    embeds[0, q_start + k] = (model.model.embed_tokens(torch.tensor(span[0], device=device)).float().mean(0)
+                                              if span[0] else 0.0)
                 logits = peft(inputs_embeds=embeds).logits[0, -1]
             else:
                 logits = peft(input_ids=ids).logits[0, -1]
@@ -106,8 +115,22 @@ def main():
     for c in cases:
         if c["parsed"]:
             state[c["base_id"]].append(right[c["id"]])
+    # Binding: single-prerequisite questions in states whose two prerequisites have different answers.
+    # The sibling is the same question about the other prerequisite.
+    picks = {r["id"]: r["pick"] for r in rows}
+    differ_right, follows_other = [], []
+    for c in cases:
+        if pointed(c) is None or c["status"] != "Assessed":
+            continue
+        sibling = by_id.get(f"{c['base_id']}-{'pb' if c['kind'] == 'pa' else 'pa'}{'-neg' if c['negated'] else ''}")
+        if sibling and sibling["status"] == "Assessed" and sibling["p_true"] != c["p_true"]:
+            differ_right.append(right[c["id"]])
+            follows_other.append(picks[c["id"]] == gold_index(sibling))
     report = {
-        "tag": args.tag, "mode": args.mode, "ablate": args.ablate, "adapter": args.adapter,
+        "tag": args.tag, "mode": args.mode, "ablate": args.ablate, "pointer": args.pointer, "adapter": args.adapter,
+        "single_assessed_prerequisites_differ": rate(differ_right),
+        # Only meaningful with --ablate swap-pointer: does the answer follow the pointer?
+        "answer_matches_other_prerequisite": rate(follows_other),
         "accuracy": {k: rate(v) for k, v in sorted(groups.items())},
         "both_twins_right": {k: rate(v) for k, v in sorted(pairs.items())},
         "states_with_all_eight_right": rate([all(v) for v in state.values()]),

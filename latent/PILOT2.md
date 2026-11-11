@@ -1,6 +1,6 @@
 # Latent question pilot 2 (Noul only): design and pass rule
 
-Written 11 November 2026, before any pilot 2 training. Not yet approved to run.
+Written 11 November 2026, before any pilot 2 training. Approved by Vince the same day, both arms; started at 16:47.
 
 ## Question
 
@@ -39,6 +39,19 @@ Neither pointer form can leak the answer. Both are built from token identities o
 **A decision for the owner.** The replayed-span arm puts a few of the state's own tokens in the fork. The request itself still carries only a range, and no text is generated. Whether that satisfies "requests cross as vectors, never text" is a judgement, not a measurement. If it does not, only the one-vector arm counts.
 
 ## Checks before training
+
+All passed on 11 November 2026, before the runs were started (`check_pointer.py`, `check.py`):
+
+| Check | Result |
+| --- | --- |
+| Pointer ranges decode to the name (leading space aside) | 3,808 training and 464 development questions, both prerequisites each |
+| Sibling questions have identical name-free text, which never contains the name | all |
+| FP32 loss, batched step against an independent per-case forward | worst relative gap 1.3e-06 (one vector), 4.3e-06 (replayed span) |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical, both arms |
+
+Two details fixed while building, before training: in the one-vector arm a question with no pointer has a zero vector in the pointer position, and the name-free questions were encoded into their own vector file (792 distinct questions).
+
+What was checked:
 
 - Every pointer range decodes to exactly the prerequisite's name, in every parsed state of both splits.
 - Single-prerequisite questions about the two prerequisites of one state have identical question vectors, so only the pointer can tell them apart.

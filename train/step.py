@@ -117,6 +117,14 @@ class Trainer:
             q = self.vectors.index_select(0, d["q_index"].index_select(0, rows)).float() @ self.projection.T
             where = d["q_start"].index_select(0, rows)[:, None] + self.k_range[None, :]
             embeds = embeds.scatter(1, where[..., None].expand(-1, -1, embeds.shape[-1]), q.to(embeds.dtype))
+            if "ptr_ids" in d:
+                # Pointer as one vector: the mean input embedding of the pointed tokens, in the position
+                # after the K vectors. Not projected. A question with no pointer gets a zero vector.
+                mask = d["ptr_mask"].index_select(0, rows)
+                tokens = self.text.embed_tokens(d["ptr_ids"].index_select(0, rows).long()).float()
+                mean = (tokens * mask[..., None]).sum(1) / mask.sum(1, keepdim=True).clamp(min=1.0)
+                at = (d["q_start"].index_select(0, rows) + self.k_range.numel())[:, None, None]
+                embeds = embeds.scatter(1, at.expand(-1, 1, embeds.shape[-1]), mean[:, None].to(embeds.dtype))
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=self.autocast):
             hidden = lean_hidden(self.text, ids, self.cos[:, : d["length"]], self.sin[:, : d["length"]],
                                  self.recompute, inputs_embeds=embeds)
