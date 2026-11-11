@@ -10,6 +10,10 @@ are already trained. Labels do not change: only the names do.
   clauses  distinct clauses ending in "holds", none of them a training name
 
 Twelve name pairs per version, assigned to states in turn. Tokenizer only, no model.
+
+A third version, "panel4", is the whole development set for pilot 4: every question,
+with the prerequisites of the states that parse renamed to twelve further pairs (six
+noun phrases, six clauses) used nowhere else. States that do not parse are unchanged.
 """
 
 import json
@@ -46,6 +50,14 @@ NAMES = {
         ("the data backup condition holds", "the access badge requirement holds"),
         ("the warranty period condition holds", "the proof of purchase requirement holds"),
     ],
+    "panel4": [
+        ("stamped entry voucher", "tested smoke alarm"), ("the quorum condition holds", "the signed lease requirement holds"),
+        ("labelled storage crate", "confirmed guest list"), ("the curfew condition holds", "the vaccination record requirement holds"),
+        ("inspected ladder rungs", "archived meeting minutes"), ("the noise limit condition holds", "the spare key requirement holds"),
+        ("calibrated kitchen scale", "printed route map"), ("the seating plan condition holds", "the allergy notice requirement holds"),
+        ("replaced water filter", "collected permission slips"), ("the tide table condition holds", "the lifeguard cover requirement holds"),
+        ("mounted wall bracket", "translated safety leaflet"), ("the invoice total condition holds", "the purchase order requirement holds"),
+    ],
 }
 
 
@@ -63,24 +75,30 @@ def main():
     for c in map(json.loads, open(ROOT / "data/latent/noul-train.jsonl")):
         if c["parsed"]:
             seen |= {n.lower() for n in RULE.match(c["rules"][0]).groups()[1:]}
-    cases = [c for c in map(json.loads, open(ROOT / "data/latent/noul-development.jsonl")) if pointed(c) is not None]
-    states = sorted({c["base_id"] for c in cases})
+    everything = [json.loads(x) for x in open(ROOT / "data/latent/noul-development.jsonl")]
+    states = sorted({c["base_id"] for c in everything if c["parsed"]})
+    used = [n.lower() for pairs in NAMES.values() for p in pairs for n in p]
+    assert len(used) == len(set(used)), "a new name is used twice"
     report = {}
     for version, pairs in NAMES.items():
         assert not {n.lower() for p in pairs for n in p} & seen, "a new name occurs in training"
         out = []
-        for c in cases:
+        for c in everything if version == "panel4" else [c for c in everything if pointed(c) is not None]:
+            if not c["parsed"]:
+                out.append(c)
+                continue
             pair = pairs[states.index(c["base_id"]) % len(pairs)]
             new = {k: swap(c[k], pair) if k in ("prompt", "facts", "rules", "proposition", "criterion") else c[k] for k in c}
             assert OLD[0] not in json.dumps(new) and OLD[1] not in json.dumps(new)
-            before, _ = render(tok, new).split(MARK)
-            head = tok(before, add_special_tokens=False, return_offsets_mapping=True)
-            for other in (False, True):  # the pointer still decodes to the name
-                assert tok.decode(pointer_tokens(before, head, new, other)).strip() == pointed(new, other)
+            if pointed(new) is not None:
+                before, _ = render(tok, new).split(MARK)
+                head = tok(before, add_special_tokens=False, return_offsets_mapping=True)
+                for other in (False, True):  # the pointer still decodes to the name
+                    assert tok.decode(pointer_tokens(before, head, new, other)).strip() == pointed(new, other)
             out.append(new)
-        path = ROOT / f"data/latent/noul-development-renamed-{version}.jsonl"
-        path.write_text("".join(json.dumps(c) + "\n" for c in out))
-        report[version] = {"questions": len(out), "states": len(states), "name_pairs": len(pairs)}
+        name = "noul-development-panel4" if version == "panel4" else f"noul-development-renamed-{version}"
+        (ROOT / f"data/latent/{name}.jsonl").write_text("".join(json.dumps(c) + "\n" for c in out))
+        report[version] = {"questions": len(out), "states_renamed": len(states), "name_pairs": len(pairs)}
     print(json.dumps(report))
 
 

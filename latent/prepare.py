@@ -32,6 +32,7 @@ def main():
     ap.add_argument("--canonical", action="store_true", help="pilot 3: one fixed wording per kind of question")
     ap.add_argument("--positions-per-step", type=int, default=4096)
     ap.add_argument("--seed", type=int, default=20261111)
+    ap.add_argument("--order-seed", type=int, help="pilot 4: same examples, a different order of steps")
     args = ap.parse_args()
 
     from transformers import AutoTokenizer
@@ -47,6 +48,8 @@ def main():
         group = by_state[base]
         chosen += rng.sample(group, 4) if len(group) == 8 else group
     selection = hashlib.sha256("\n".join(c["id"] for c in chosen).encode()).hexdigest()
+    if args.order_seed is not None:  # the selection above is unchanged; only batching and step order differ
+        rng = random.Random(args.order_seed)
 
     index = None
     if args.mode == "latent":
@@ -104,10 +107,12 @@ def main():
 
     name = ("text" if args.mode == "text" else f"canonical-{args.pointer}-k{args.k}" if args.canonical
             else f"pointer-{args.pointer}-k{args.k}" if args.pointer else f"latent-k{args.k}")
+    if args.order_seed is not None:
+        name += f"-order{args.order_seed}"
     out = ROOT / f"data/latent/prepared-{name}.pt"
     meta = {
         "arm": name, "examples": len(chosen), "selection_sha256": selection, "steps": len(schedule), "passes": 1,
-        "seed": args.seed, "answers": dict(Counter(str(VALUES[r["gold"]]) for r in rows)),
+        "seed": args.seed, "order_seed": args.order_seed, "answers": dict(Counter(str(VALUES[r["gold"]]) for r in rows)),
         "prompt_tokens_mean": round(sum(len(r["ids"]) for r in rows) / len(rows), 1),
         "examples_with_pointer": sum(bool(r["pointer"]) for r in rows),
         "executed_positions": sum(buckets[b]["length"] * buckets[b]["batch"] for b, _ in schedule),

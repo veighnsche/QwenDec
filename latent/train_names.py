@@ -23,7 +23,8 @@ ROOT = HERE.parent
 SAMPLE = ROOT / "data/latent/noul-train-sample.jsonl"
 SEED = 20261111  # the selection seed of prepare.py
 TAGS = ("diag-trainnames-text", "diag-trainnames-latent-k16",
-        "pilot2-pointer-vector-trainnames", "pilot2-pointer-span-trainnames", "pilot3-canonical-trainnames")
+        "pilot2-pointer-vector-trainnames", "pilot2-pointer-span-trainnames", "pilot3-canonical-trainnames",
+        "pilot4-canonical-trainnames")
 
 
 def trained_on():
