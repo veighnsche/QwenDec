@@ -76,6 +76,6 @@ Nearly all errors of both trained arms are on names unlike training: all 30 of t
 - Choice only, from `fork-v1`. The Noul requests were not trained alongside, so one adapter serving both is not shown.
 - The request always points at every alternative, the pointers are given rather than produced by the native side, and the cases are synthetic.
 
-## Open for the owner
+## Accepted
 
-Whether to accept this request format for Choice is Vince's decision. The verdict above is the mechanical application of the rule (`runs/choice-latent/result.json`).
+Vince accepted the request format on 11 November 2026 as the basis for the next stage: fixed request kinds as vectors, plus one replayed pointer per alternative, with the properties left in the state. The acceptance is for the format on Choice. It leaves open the reliability across runs and the weaker recognition that no alternative should be picked, and does not cover Noul and Choice in one adapter, Score, or a pointer produced by the native side (`runs/choice-latent/result.json`).
