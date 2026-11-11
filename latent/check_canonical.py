@@ -41,5 +41,41 @@ def main():
     print(json.dumps(out, indent=1))
 
 
+def vectors():
+    """Every question of both splits maps to one of the six requests, and the six vector sets differ."""
+    import sys
+
+    import torch
+
+    sys.path.insert(0, str(ROOT / "gpu_loop"))
+    sys.path.insert(0, str(HERE))
+    from common import pointed, question_text
+    from model import require_gpu
+
+    device = require_gpu()
+    store = torch.load(ROOT / "data/latent/question-vectors-k16-canonical.pt")
+    index, v = store["index"], store["vectors"].to(device).float()
+    used = {split: dict() for split in ("train", "development")}
+    for split in used:
+        for c in map(json.loads, open(ROOT / f"data/latent/noul-{split}.jsonl")):
+            text = question_text(c, True, True)
+            assert text in index, text
+            assert (pointed(c) is not None) == text.startswith(("Is this proposition true? The indicated",
+                                                                "Is this proposition true? Negation of: The indicated"))
+            used[split][text] = used[split].get(text, 0) + 1
+    flat = torch.nn.functional.normalize((v - v.mean(0, keepdim=True)).flatten(1), dim=1)
+    cosine = flat @ flat.T
+    off = cosine[~torch.eye(len(v), dtype=torch.bool, device=device)]
+    smallest_gap = min(float((v[a] - v[b]).abs().max()) for a in range(len(v)) for b in range(a + 1, len(v)))
+    out = {"requests": len(index), "questions_per_request": used,
+           "largest_cosine_between_two_requests_after_removing_the_mean": round(float(off.max()), 3),
+           "smallest_largest_difference_between_two_requests": round(smallest_gap, 4)}
+    assert len(index) == 6 and smallest_gap > 0
+    (HERE / "results/check-canonical-vectors.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out, indent=1))
+
+
 if __name__ == "__main__":
-    main()
+    import sys as _sys
+
+    vectors() if _sys.argv[1:] == ["vectors"] else main()

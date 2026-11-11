@@ -1,0 +1,23 @@
+{
+ "requests": 6,
+ "questions_per_request": {
+  "train": {
+   "Is this proposition true? What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": 1282,
+   "Is this proposition true? Negation of: What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": 1282,
+   "Is this proposition true? At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": 952,
+   "Is this proposition true? Negation of: At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": 952,
+   "Is this proposition true? The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": 1904,
+   "Is this proposition true? Negation of: The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": 1904
+  },
+  "development": {
+   "Is this proposition true? What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": 243,
+   "Is this proposition true? Negation of: What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": 243,
+   "Is this proposition true? At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": 116,
+   "Is this proposition true? Negation of: At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": 116,
+   "Is this proposition true? The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": 232,
+   "Is this proposition true? Negation of: The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": 232
+  }
+ },
+ "largest_cosine_between_two_requests_after_removing_the_mean": 0.285,
+ "smallest_largest_difference_between_two_requests": 0.1095
+}

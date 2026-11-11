@@ -1,6 +1,6 @@
 # Latent question pilot 3 (Noul only): design and pass rule
 
-Written 11 November 2026, before any pilot 3 training. Not approved or run yet.
+Written 11 November 2026, before any pilot 3 training. Approved by Vince the same day; started at 18:57.
 
 ## Question
 
@@ -50,9 +50,15 @@ References, all already measured: pilot 1's text arm (1,174/1,182, 427/428 asses
 
 ## Checks before training
 
-- The six requests' vectors are distinct, and every question of both splits maps to one of them.
-- Pointer ranges are unchanged from pilot 2's audit.
-- FP32 loss check and bit-identity of the on-device loop on the new prepared file.
+All passed on 11 November 2026, before the run was started (`check_canonical.py vectors`, `check_pointer.py`, `check.py`):
+
+| Check | Result |
+| --- | --- |
+| Every question of both splits maps to one of six requests | 8,276 training and 1,182 development questions |
+| The six vector sets differ | largest cosine between two requests 0.29 after removing the mean |
+| Pointer ranges decode to the prerequisite's name | unchanged from pilot 2, all questions |
+| FP32 loss, batched step against an independent per-case forward | worst relative gap 3.3e-06 |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical |
 
 ## Pass rule, on the development variants
 

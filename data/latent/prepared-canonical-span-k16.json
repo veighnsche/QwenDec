@@ -1,0 +1,46 @@
+{
+ "arm": "canonical-span-k16",
+ "examples": 4468,
+ "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516",
+ "steps": 393,
+ "passes": 1,
+ "seed": 20261111,
+ "answers": {
+  "Insufficient": 868,
+  "True": 1467,
+  "False": 1473,
+  "Conflicting": 334,
+  "Unresolved": 326
+ },
+ "prompt_tokens_mean": 307.9,
+ "examples_with_pointer": 1874,
+ "executed_positions": 1519680,
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3756
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 296
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 283
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 115
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 18
+  }
+ ],
+ "file_sha256": "e9ebf09f853eb02ea41642b6867db84179fe1f03b72ad78968e4931c06f1ff27"
+}
