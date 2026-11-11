@@ -1,5 +1,7 @@
 # QwenDec
 
+**Attempt #2** · [Failed attempt #1: QwenOneTwo](https://github.com/veighnsche/QwenOneTwo)
+
 Work in progress toward a language model that makes its own internal decisions without leaving its hidden state.
 
 The target is one inference job in which [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) thinks and answers natively, while a decision LoRA ([evalengine/decision-4b](https://huggingface.co/evalengine/decision-4b)) is switched on only to evaluate three kinds of internal request on the live model state:
