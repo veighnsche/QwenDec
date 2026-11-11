@@ -1,0 +1,66 @@
+{
+ "full": {
+  "all": "225/232",
+  "status Assessed": "114/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "36/36",
+  "status Unresolved": "23/27"
+ },
+ "full, reversed order": {
+  "all": "224/232",
+  "status Assessed": "112/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "36/36",
+  "status Unresolved": "24/27"
+ },
+ "names only": {
+  "all": "225/232",
+  "status Assessed": "114/114",
+  "status Conflicting": "22/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "36/36",
+  "status Unresolved": "24/27"
+ },
+ "names only, reversed order": {
+  "all": "194/232",
+  "status Assessed": "84/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "34/36",
+  "status Unresolved": "24/27"
+ },
+ "no question": {
+  "all": "221/232",
+  "status Assessed": "110/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "36/36",
+  "status Unresolved": "23/27"
+ },
+ "no question, reversed order": {
+  "all": "221/232",
+  "status Assessed": "112/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "36/36",
+  "status Unresolved": "21/27"
+ },
+ "no question, names": {
+  "all": "216/232",
+  "status Assessed": "111/114",
+  "status Conflicting": "21/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "33/36",
+  "status Unresolved": "22/27"
+ },
+ "no question, names, reversed order": {
+  "all": "183/232",
+  "status Assessed": "75/114",
+  "status Conflicting": "23/26",
+  "status Insufficient": "29/29",
+  "status NoFeasibleChoice": "33/36",
+  "status Unresolved": "23/27"
+ }
+}

@@ -62,6 +62,10 @@ So the step order alone moves the result a great deal on the cases that are unli
 - Two runs of the design differ widely on cases unlike training. Reliability across runs is not established.
 - Noul only. The pointer is given, not produced by the native side. The cases are synthetic and labelled by rule.
 
+## Correction, added after the run
+
+Part 6 of the rule could not fail. With the vectors zeroed, a question and its negation have identical inputs, so they get the same answer and are never both right; 0/428 follows by construction, here and in every earlier pilot. The pass does not depend on it: that the vectors are used is shown by part 1, where 425 of 428 pairs that differ only in their vectors are both answered right.
+
 ## Accepted
 
 Vince accepted the request format on 11 November 2026 as the basis for the next stage: fixed request kinds as vectors, plus a pointer whose tokens are replayed. The acceptance is for the format on Noul. It leaves open the reliability across runs and does not cover Choice, Score, or a pointer produced by the native side (`runs/pilot4-canonical/result.json`).
