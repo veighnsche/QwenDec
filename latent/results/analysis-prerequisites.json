@@ -1,0 +1,57 @@
+{
+ "4 vectors": {
+  "single_prerequisite_assessed": {
+   "prerequisites agree": {
+    "right": "224/224",
+    "wrong_picks": {}
+   },
+   "prerequisites differ": {
+    "right": "36/72",
+    "wrong_picks": {
+     "False": 36
+    }
+   },
+   "other prerequisite not stated": {
+    "right": "64/84",
+    "wrong_picks": {
+     "Insufficient": 20
+    }
+   }
+  },
+  "cosine_first_vs_second_same_state": {
+   "mean": 0.977,
+   "min": 0.964,
+   "max": 0.988
+  },
+  "cosine_first_prerequisite_across_states_mean": 0.517,
+  "states": 116
+ },
+ "16 vectors": {
+  "single_prerequisite_assessed": {
+   "prerequisites agree": {
+    "right": "224/224",
+    "wrong_picks": {}
+   },
+   "prerequisites differ": {
+    "right": "35/72",
+    "wrong_picks": {
+     "True": 31,
+     "False": 6
+    }
+   },
+   "other prerequisite not stated": {
+    "right": "15/84",
+    "wrong_picks": {
+     "Insufficient": 69
+    }
+   }
+  },
+  "cosine_first_vs_second_same_state": {
+   "mean": 0.981,
+   "min": 0.971,
+   "max": 0.99
+  },
+  "cosine_first_prerequisite_across_states_mean": 0.495,
+  "states": 116
+ }
+}

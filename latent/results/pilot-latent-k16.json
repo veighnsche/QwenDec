@@ -1,0 +1,38 @@
+{
+ "tag": "pilot-latent-k16",
+ "mode": "latent",
+ "ablate": null,
+ "adapter": "runs/pilot-latent-k16/adapter",
+ "accuracy": {
+  "all questions": "1024/1182 (87%)",
+  "kind and": "116/116 (100%)",
+  "kind and negated": "116/116 (100%)",
+  "kind or": "116/116 (100%)",
+  "kind or negated": "116/116 (100%)",
+  "kind pa": "78/116 (67%)",
+  "kind pa negated": "61/116 (53%)",
+  "kind pb": "95/116 (82%)",
+  "kind pb negated": "112/116 (97%)",
+  "status Assessed": "734/856 (86%)",
+  "status Conflicting": "60/60 (100%)",
+  "status Insufficient": "189/210 (90%)",
+  "status Unresolved": "41/56 (73%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "485/591 (82%)",
+  "assessed pairs, kind and": "82/82 (100%)",
+  "assessed pairs, kind or": "108/108 (100%)",
+  "assessed pairs, kind pa": "61/116 (53%)",
+  "assessed pairs, kind pb": "61/74 (82%)",
+  "assessed twin pairs": "345/428 (81%)"
+ },
+ "states_with_all_eight_right": "56/116 (48%)",
+ "answer_matches_twin_question": "53/856 (6%)",
+ "picks": {
+  "True": 452,
+  "False": 371,
+  "Insufficient": 258,
+  "Conflicting": 60,
+  "Unresolved": 41
+ }
+}

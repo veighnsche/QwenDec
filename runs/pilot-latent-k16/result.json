@@ -1,0 +1,18 @@
+{
+ "steps_executed": 394,
+ "steps_planned": 394,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "passed": false,
+  "rule_1_assessed_twin_pairs": "345/428, needed 385",
+  "rule_2_all_questions": "1024/1182 (87%), text arm 1174/1182 (99%)",
+  "rule_3a_zero_vectors": "0/428, met",
+  "rule_3b_swapped_vectors": "734/856 (86%), needed 90%",
+  "judged": "2026-11-11, mechanically against latent/PILOT.md",
+  "see": "latent/RESULTS.md",
+  "note": "this was the one further run the rule allows; the pilot is closed as not passed"
+ }
+}

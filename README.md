@@ -21,7 +21,7 @@ Requests and results are meant to cross as vectors, never as generated text. The
 | Training with no CPU in the loop | [gpu_loop/](gpu_loop/) | A full training step runs as an on-device loop: one launch, the host sleeps |
 | Baseline of the unchanged adapter | [baseline/](baseline/) | How decision-4b does on the project's cases, with the state read adapter-on and adapter-off |
 | Fork-mode training | [train/](train/) | The adapter trained to decide from a natively read state; one run, `fork-v1` |
-| Latent question pilot | [latent/](latent/) | A Noul question delivered as 4 vectors instead of text: did not pass (83% against 99% for text). A 16-vector run is in progress |
+| Latent question pilot | [latent/](latent/) | A Noul question delivered as 4 or 16 vectors instead of text: did not pass (83% and 87% right, against 99% for text). The fixed encoder nearly erases which prerequisite is asked about |
 
 Not built: the native side (deciding when to call, forming a request, using the result), the allowance predictor, the runtime and its accounting, and Choice or Score over vectors.
 
