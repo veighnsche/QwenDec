@@ -1,0 +1,34 @@
+{
+ "tag": "diag-trainnames-latent-k16",
+ "mode": "latent",
+ "ablate": null,
+ "adapter": "runs/pilot-latent-k16/adapter",
+ "accuracy": {
+  "all questions": "964/1200 (80%)",
+  "kind and": "139/150 (93%)",
+  "kind and negated": "149/150 (99%)",
+  "kind or": "150/150 (100%)",
+  "kind or negated": "149/150 (99%)",
+  "kind pa": "124/150 (83%)",
+  "kind pa negated": "92/150 (61%)",
+  "kind pb": "61/150 (41%)",
+  "kind pb negated": "100/150 (67%)",
+  "status Assessed": "798/940 (85%)",
+  "status Insufficient": "166/260 (64%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "409/600 (68%)",
+  "assessed pairs, kind and": "116/127 (91%)",
+  "assessed pairs, kind or": "108/108 (100%)",
+  "assessed pairs, kind pa": "74/150 (49%)",
+  "assessed pairs, kind pb": "43/85 (51%)",
+  "assessed twin pairs": "341/470 (73%)"
+ },
+ "states_with_all_eight_right": "42/150 (28%)",
+ "answer_matches_twin_question": "97/940 (10%)",
+ "picks": {
+  "False": 383,
+  "True": 606,
+  "Insufficient": 211
+ }
+}

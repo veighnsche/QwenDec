@@ -1,0 +1,20 @@
+{
+ "diag-trainnames-text": {
+  "held back, single prerequisite": "292/292",
+  "held back, whole rule": "308/308",
+  "single assessed, other prerequisite not stated": "130/130",
+  "single assessed, prerequisites agree": "168/168",
+  "single assessed, prerequisites differ": "172/172",
+  "trained on, single prerequisite": "308/308",
+  "trained on, whole rule": "292/292"
+ },
+ "diag-trainnames-latent-k16": {
+  "held back, single prerequisite": "180/292",
+  "held back, whole rule": "301/308",
+  "single assessed, other prerequisite not stated": "85/130",
+  "single assessed, prerequisites agree": "168/168",
+  "single assessed, prerequisites differ": "86/172",
+  "trained on, single prerequisite": "197/308",
+  "trained on, whole rule": "286/292"
+ }
+}

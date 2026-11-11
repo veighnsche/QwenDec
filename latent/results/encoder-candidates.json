@@ -1,0 +1,180 @@
+{
+ "questions": 160,
+ "states": 116,
+ "unrelated_pairs": 12720,
+ "pairs": {
+  "first vs second prerequisite": 40,
+  "question vs its negation": 80,
+  "rule met vs at least one": 20
+ },
+ "separation": [
+  {
+   "layer": 0,
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.33,
+   "question vs its negation": 0.769,
+   "rule met vs at least one": 0.749
+  },
+  {
+   "layer": 0,
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.251,
+   "question vs its negation": 0.94,
+   "rule met vs at least one": 0.538
+  },
+  {
+   "layer": 0,
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.0,
+   "question vs its negation": 0.0,
+   "rule met vs at least one": 0.0
+  },
+  {
+   "layer": 0,
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.304,
+   "question vs its negation": 0.0,
+   "rule met vs at least one": 0.29
+  },
+  {
+   "layer": 4,
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.232,
+   "question vs its negation": 0.779,
+   "rule met vs at least one": 0.735
+  },
+  {
+   "layer": 4,
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.191,
+   "question vs its negation": 0.936,
+   "rule met vs at least one": 0.596
+  },
+  {
+   "layer": 4,
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.123,
+   "question vs its negation": 0.174,
+   "rule met vs at least one": 0.307
+  },
+  {
+   "layer": 4,
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.256,
+   "question vs its negation": 0.215,
+   "rule met vs at least one": 0.408
+  },
+  {
+   "layer": 8,
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.284,
+   "question vs its negation": 0.753,
+   "rule met vs at least one": 0.791
+  },
+  {
+   "layer": 8,
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.225,
+   "question vs its negation": 0.923,
+   "rule met vs at least one": 0.662
+  },
+  {
+   "layer": 8,
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.248,
+   "question vs its negation": 0.337,
+   "rule met vs at least one": 0.5
+  },
+  {
+   "layer": 8,
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.289,
+   "question vs its negation": 0.367,
+   "rule met vs at least one": 0.51
+  },
+  {
+   "layer": 16,
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.302,
+   "question vs its negation": 0.822,
+   "rule met vs at least one": 0.754
+  },
+  {
+   "layer": 16,
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.236,
+   "question vs its negation": 0.921,
+   "rule met vs at least one": 0.65
+  },
+  {
+   "layer": 16,
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.265,
+   "question vs its negation": 0.454,
+   "rule met vs at least one": 0.578
+  },
+  {
+   "layer": 16,
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.297,
+   "question vs its negation": 0.456,
+   "rule met vs at least one": 0.55
+  },
+  {
+   "layer": 24,
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.227,
+   "question vs its negation": 0.743,
+   "rule met vs at least one": 0.84
+  },
+  {
+   "layer": 24,
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.195,
+   "question vs its negation": 0.918,
+   "rule met vs at least one": 0.669
+  },
+  {
+   "layer": 24,
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.171,
+   "question vs its negation": 0.341,
+   "rule met vs at least one": 0.502
+  },
+  {
+   "layer": 24,
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.256,
+   "question vs its negation": 0.318,
+   "rule met vs at least one": 0.515
+  },
+  {
+   "layer": "final",
+   "pooling": "spans-4",
+   "first vs second prerequisite": 0.174,
+   "question vs its negation": 0.634,
+   "rule met vs at least one": 0.732
+  },
+  {
+   "layer": "final",
+   "pooling": "spans-16",
+   "first vs second prerequisite": 0.146,
+   "question vs its negation": 0.881,
+   "rule met vs at least one": 0.607
+  },
+  {
+   "layer": "final",
+   "pooling": "last-4",
+   "first vs second prerequisite": 0.157,
+   "question vs its negation": 0.341,
+   "rule met vs at least one": 0.547
+  },
+  {
+   "layer": "final",
+   "pooling": "last-16",
+   "first vs second prerequisite": 0.206,
+   "question vs its negation": 0.309,
+   "rule met vs at least one": 0.5
+  }
+ ]
+}

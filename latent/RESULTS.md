@@ -71,13 +71,32 @@ Assessed single-prerequisite questions, split by what the state says about the t
 
 When the two prerequisites differ, both arms are at chance. When the other prerequisite is not stated, the wrong answers are all "Insufficient", which is the right answer to the other prerequisite's question.
 
-The cause is visible in the fixed encoder's output, before any training. The two questions differ in one word, "first" against "second". After removing the mean over all questions, the vectors for the two questions of one state have cosine similarity 0.98 (range 0.96 to 0.99, same for 4 and 16 vectors). Vectors for the same kind of question about different states have 0.5. Averaging hidden states over spans keeps the kind of question and the subject and nearly erases the one word that matters.
+More vectors fixed the questions about the whole rule (450 to 464 of 464) and left the single-prerequisite questions unchanged (345 to 346 of 464). So the number of vectors was not the limit.
 
-So the number of vectors was not the limit. More vectors fixed the questions about the whole rule (450 to 464 of 464) and left the single-prerequisite questions unchanged (345 to 346 of 464).
+### It is not only "first" against "second"
+
+On development the two questions of a state differ in one word, and the fixed encoder gives them nearly the same vectors: cosine similarity 0.98 after removing the mean question (range 0.96 to 0.99, same for 4 and 16 vectors). That looked like the cause. A later check shows it is not the whole cause.
+
+Training states use 192 distinct prerequisite names, such as "kitchen booking for instructor" and "pantry stock check by aide". Development states all use "the first documented prerequisite holds" and "the second documented prerequisite holds". The trained arms were measured on 150 training states with all eight questions, half trained on and half held back (`train_names.py`, output in `results/analysis-train-names.json`):
+
+| 150 training states, distinct names | Text arm | 16 vectors |
+| --- | --- | --- |
+| Whole-rule questions, held back | 308/308 | 301/308 |
+| Single-prerequisite questions, held back | 292/292 | 180/292 |
+| Single-prerequisite questions, trained on | 308/308 | 197/308 |
+| Single assessed, the two prerequisites differ | 172/172 | 86/172 |
+
+With distinct names the two questions' vectors are clearly different (cosine 0.58, range 0.17 to 0.86), and the 16-vector arm is still exactly at chance when the prerequisites differ, even on questions it was trained on.
+
+So the failure is binding. The vectors tell the adapter what kind of question is asked. They do not let it find which item in the state the question is about, whether the names differ by one word or entirely.
+
+Re-pooling the frozen model's states would not have helped either (`encoders.py`, output in `results/encoder-candidates.json`). Across six layers and four poolings, the one-word pair is never further apart than 0.33 of the typical distance between two questions, against 0.15 to 0.17 for the pilot's encoder and 0.6 to 0.9 for the pairs the arms did learn.
 
 ## What this does and does not show
 
 - A question delivered as vectors does steer the decision: zero vectors and swapped vectors both change the answers as they should.
-- This encoder, span averages of the frozen model's final states, loses a distinction the task needs. That is a finding about the encoder, not about vectors as an interface.
-- Neither latent arm had converged after one pass (training loss 0.39 and 0.32 at the last step, against 0.0004 for text by step 100). Whether more training would separate vectors that are 0.98 alike was not tested.
+- Vectors from this encoder carry the kind of question. They do not bind a named item to its place in the state.
+- Neither latent arm had converged after one pass (training loss 0.39 and 0.32 at the last step, against 0.0004 for text by step 100). Whether more training would produce binding was not tested.
 - In the target design the request comes from the native model's own state, not from an encoder reading question text. This pilot does not test that.
+
+A second pilot aimed at binding is designed in [PILOT2.md](PILOT2.md).
