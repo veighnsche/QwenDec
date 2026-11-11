@@ -1,0 +1,42 @@
+{
+ "tag": "pilot4-canonical-swap-pointer",
+ "mode": "latent",
+ "ablate": "swap-pointer",
+ "pointer": "span",
+ "canonical": true,
+ "adapter": "runs/pilot4-canonical/adapter",
+ "single_assessed_prerequisites_differ": "0/72 (0%)",
+ "answer_matches_other_prerequisite": "72/72 (100%)",
+ "accuracy": {
+  "all questions": "922/1182 (78%)",
+  "kind and": "116/116 (100%)",
+  "kind and negated": "116/116 (100%)",
+  "kind or": "116/116 (100%)",
+  "kind or negated": "116/116 (100%)",
+  "kind pa": "56/116 (48%)",
+  "kind pa negated": "56/116 (48%)",
+  "kind pb": "56/116 (48%)",
+  "kind pb negated": "56/116 (48%)",
+  "status Assessed": "697/856 (81%)",
+  "status Conflicting": "60/60 (100%)",
+  "status Insufficient": "120/210 (57%)",
+  "status Unresolved": "45/56 (80%)"
+ },
+ "both_twins_right": {
+  "all twin pairs": "458/591 (77%)",
+  "assessed pairs, kind and": "82/82 (100%)",
+  "assessed pairs, kind or": "108/108 (100%)",
+  "assessed pairs, kind pa": "56/116 (48%)",
+  "assessed pairs, kind pb": "56/74 (76%)",
+  "assessed twin pairs": "347/428 (81%)"
+ },
+ "states_with_all_eight_right": "56/116 (48%)",
+ "answer_matches_twin_question": "75/856 (9%)",
+ "picks": {
+  "True": 438,
+  "False": 433,
+  "Insufficient": 205,
+  "Conflicting": 61,
+  "Unresolved": 45
+ }
+}

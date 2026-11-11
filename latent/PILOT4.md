@@ -1,6 +1,6 @@
 # Latent question pilot 4 (Noul only): design and pass rule
 
-Written 11 November 2026, before the pilot 4 run. Vince decided the same day that near-identical item names are reported separately instead of being part of the pass rule; this run follows from that decision. Started at 20:34.
+Written 11 November 2026, before the pilot 4 run. Vince decided the same day that near-identical item names are reported separately instead of being part of the pass rule; this run follows from that decision. Started at 20:34. Outcome: passed, see [RESULTS4.md](RESULTS4.md).
 
 ## Question
 

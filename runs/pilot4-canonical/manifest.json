@@ -1,0 +1,22 @@
+{
+ "start_adapter": "runs/fork-v1/adapter",
+ "question_vectors": "data/latent/question-vectors-k16-canonical.pt",
+ "data": "data/latent/prepared-canonical-span-k16-order4.pt",
+ "data_sha256": "66c07867f70322d63e8865a097f9c0c6c7b5b610be85dd593898026229e3b629",
+ "steps": 393,
+ "passes": 1,
+ "base_model": "Qwen3.5-4B",
+ "start_adapter_sha256": "356763acea05a85f7fd598215e1c54d75a977a988c3865f3cea8c928960f0d1f",
+ "lr": 5e-05,
+ "warmup": 50,
+ "weight_decay": 0.01,
+ "clip": 1.0,
+ "betas": [
+  0.9,
+  0.999
+ ],
+ "autocast": false,
+ "recompute": true,
+ "deterministic": true,
+ "torch": "2.15.0+cu132"
+}

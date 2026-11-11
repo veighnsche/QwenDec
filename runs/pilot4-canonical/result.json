@@ -1,0 +1,22 @@
+{
+ "steps_executed": 393,
+ "steps_planned": 393,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "passed": true,
+  "panel": "data/latent/noul-development-panel4.jsonl",
+  "rule_1_assessed_twin_pairs": "425/428, needed 385: met",
+  "rule_2_all_questions": "1162/1182, needed 1115: met",
+  "rule_3_free_form_questions": "165/184, needed 151: met",
+  "rule_4_binding_prerequisites_differ": "72/72, needed 65: met",
+  "rule_5_answer_follows_moved_pointer": "72/72, needed 65: met",
+  "rule_6_zero_question_vectors": "0/428 assessed twin pairs: met",
+  "outside_the_rule_near_identical_names": "1160/1182, 425/428 assessed twin pairs, 72/72",
+  "judged": "2026-11-11, mechanically against latent/PILOT4.md",
+  "see": "latent/RESULTS4.md",
+  "note": "the pilot rule is met; learning_accepted is the owner's decision and is left empty"
+ }
+}
