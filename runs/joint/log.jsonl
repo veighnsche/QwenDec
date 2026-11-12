@@ -1,0 +1,17 @@
+{"step": 50, "mean_loss": 1.8545, "mean_grad_norm": 34.565, "skipped_total": 0, "s_per_step": 4.721, "host_cpu_percent": 0.1}
+{"step": 100, "mean_loss": 0.2984, "mean_grad_norm": 13.724, "skipped_total": 0, "s_per_step": 4.655, "host_cpu_percent": 0.04}
+{"step": 150, "mean_loss": 0.1344, "mean_grad_norm": 5.242, "skipped_total": 0, "s_per_step": 4.843, "host_cpu_percent": 0.04}
+{"step": 200, "mean_loss": 0.1665, "mean_grad_norm": 7.722, "skipped_total": 0, "s_per_step": 4.734, "host_cpu_percent": 0.04}
+{"step": 250, "mean_loss": 0.1288, "mean_grad_norm": 7.923, "skipped_total": 0, "s_per_step": 4.911, "host_cpu_percent": 0.04}
+{"step": 300, "mean_loss": 0.0597, "mean_grad_norm": 7.229, "skipped_total": 0, "s_per_step": 4.976, "host_cpu_percent": 0.04}
+{"step": 350, "mean_loss": 0.0652, "mean_grad_norm": 4.39, "skipped_total": 0, "s_per_step": 4.739, "host_cpu_percent": 0.04}
+{"step": 400, "mean_loss": 0.1236, "mean_grad_norm": 6.277, "skipped_total": 0, "s_per_step": 5.017, "host_cpu_percent": 0.04}
+{"step": 450, "mean_loss": 0.0087, "mean_grad_norm": 1.397, "skipped_total": 0, "s_per_step": 4.969, "host_cpu_percent": 0.04}
+{"step": 500, "mean_loss": 0.0258, "mean_grad_norm": 14.936, "skipped_total": 0, "s_per_step": 5.015, "host_cpu_percent": 0.04}
+{"step": 550, "mean_loss": 0.0072, "mean_grad_norm": 0.986, "skipped_total": 0, "s_per_step": 4.964, "host_cpu_percent": 0.04}
+{"step": 600, "mean_loss": 0.0, "mean_grad_norm": 0.005, "skipped_total": 0, "s_per_step": 4.867, "host_cpu_percent": 0.04}
+{"step": 650, "mean_loss": 0.0, "mean_grad_norm": 0.021, "skipped_total": 0, "s_per_step": 4.799, "host_cpu_percent": 0.04}
+{"step": 700, "mean_loss": 0.024, "mean_grad_norm": 6.324, "skipped_total": 0, "s_per_step": 5.158, "host_cpu_percent": 0.04}
+{"step": 750, "mean_loss": 0.0124, "mean_grad_norm": 0.957, "skipped_total": 0, "s_per_step": 4.975, "host_cpu_percent": 0.04}
+{"step": 800, "mean_loss": 0.0, "mean_grad_norm": 0.001, "skipped_total": 0, "s_per_step": 4.985, "host_cpu_percent": 0.04}
+{"step": 810, "mean_loss": 0.0, "mean_grad_norm": 0.0, "skipped_total": 0, "s_per_step": 4.675, "host_cpu_percent": 0.04}

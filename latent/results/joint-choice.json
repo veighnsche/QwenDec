@@ -1,0 +1,32 @@
+{
+ "tag": "joint-choice",
+ "mode": "latent",
+ "adapter": "runs/joint/adapter",
+ "all_questions": "929/1001",
+ "kind_pairs_both_right": "342/374",
+ "assessed_states_right_in_every_order": "105/112",
+ "select_questions_in_listed_order": "212/230",
+ "accuracy": {
+  "all questions": "929/1001",
+  "alternatives named by single letters": "588/594",
+  "alternatives with other names": "341/407",
+  "kind ruledout": "351/374",
+  "kind ruledout, changed order": "230/245",
+  "kind ruledout, listed order": "121/129",
+  "kind select": "578/627",
+  "kind select, changed order": "366/397",
+  "kind select, listed order": "212/230",
+  "status of the question: Assessed": "653/693",
+  "status of the question: Conflicting": "60/66",
+  "status of the question: Insufficient": "73/73",
+  "status of the question: NoFeasibleChoice": "91/100",
+  "status of the question: Unresolved": "52/69"
+ },
+ "picks": {
+  "an alternative": 694,
+  "Conflicting": 68,
+  "NoFeasibleChoice": 91,
+  "Insufficient": 92,
+  "Unresolved": 56
+ }
+}

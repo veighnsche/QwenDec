@@ -1,0 +1,244 @@
+{
+ "noul": {
+  "text arm, new panel": {
+   "assessed twin pairs": "427/428",
+   "prerequisites differ": "72/72",
+   "all questions": "1174/1182",
+   "at least one prerequisite": "232/232",
+   "gold status Assessed, free-form question": "75/76",
+   "gold status Assessed, other question": "780/780",
+   "gold status Conflicting, free-form question": "40/40",
+   "gold status Conflicting, other question": "20/20",
+   "gold status Insufficient, free-form question": "36/42",
+   "gold status Insufficient, other question": "168/168",
+   "gold status Unresolved, free-form question": "25/26",
+   "gold status Unresolved, other question": "30/30",
+   "single prerequisite": "464/464",
+   "status Assessed": "855/856",
+   "status Conflicting": "60/60",
+   "status Insufficient": "204/210",
+   "status Unresolved": "55/56",
+   "whole rule, free-form state": "176/184",
+   "whole rule, templated state": "282/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+  },
+  "pilot 4, new panel": {
+   "assessed twin pairs": "425/428",
+   "prerequisites differ": "72/72",
+   "all questions": "1162/1182",
+   "at least one prerequisite": "232/232",
+   "gold status Assessed, free-form question": "74/76",
+   "gold status Assessed, other question": "779/780",
+   "gold status Conflicting, free-form question": "40/40",
+   "gold status Conflicting, other question": "20/20",
+   "gold status Insufficient, free-form question": "36/42",
+   "gold status Insufficient, other question": "168/168",
+   "gold status Unresolved, free-form question": "15/26",
+   "gold status Unresolved, other question": "30/30",
+   "single prerequisite": "464/464",
+   "status Assessed": "853/856",
+   "status Conflicting": "60/60",
+   "status Insufficient": "204/210",
+   "status Unresolved": "45/56",
+   "whole rule, free-form state": "165/184",
+   "whole rule, templated state": "281/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+  },
+  "joint, new panel": {
+   "assessed twin pairs": "406/428",
+   "prerequisites differ": "72/72",
+   "all questions": "1128/1182",
+   "at least one prerequisite": "232/232",
+   "gold status Assessed, free-form question": "74/76",
+   "gold status Assessed, other question": "757/780",
+   "gold status Conflicting, free-form question": "40/40",
+   "gold status Conflicting, other question": "20/20",
+   "gold status Insufficient, free-form question": "32/42",
+   "gold status Insufficient, other question": "168/168",
+   "gold status Unresolved, free-form question": "7/26",
+   "gold status Unresolved, other question": "30/30",
+   "single prerequisite": "464/464",
+   "status Assessed": "831/856",
+   "status Conflicting": "60/60",
+   "status Insufficient": "200/210",
+   "status Unresolved": "37/56",
+   "whole rule, free-form state": "153/184",
+   "whole rule, templated state": "272/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "7/20"
+  },
+  "pilot 4, development's own names": {
+   "assessed twin pairs": "425/428",
+   "prerequisites differ": "72/72",
+   "all questions": "1160/1182",
+   "at least one prerequisite": "230/232",
+   "gold status Assessed, free-form question": "74/76",
+   "gold status Assessed, other question": "779/780",
+   "gold status Conflicting, free-form question": "40/40",
+   "gold status Conflicting, other question": "20/20",
+   "gold status Insufficient, free-form question": "36/42",
+   "gold status Insufficient, other question": "166/168",
+   "gold status Unresolved, free-form question": "15/26",
+   "gold status Unresolved, other question": "30/30",
+   "single prerequisite": "464/464",
+   "status Assessed": "853/856",
+   "status Conflicting": "60/60",
+   "status Insufficient": "202/210",
+   "status Unresolved": "45/56",
+   "whole rule, free-form state": "165/184",
+   "whole rule, templated state": "281/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "20/20"
+  },
+  "joint, development's own names": {
+   "assessed twin pairs": "411/428",
+   "prerequisites differ": "72/72",
+   "all questions": "1136/1182",
+   "at least one prerequisite": "232/232",
+   "gold status Assessed, free-form question": "74/76",
+   "gold status Assessed, other question": "765/780",
+   "gold status Conflicting, free-form question": "40/40",
+   "gold status Conflicting, other question": "20/20",
+   "gold status Insufficient, free-form question": "32/42",
+   "gold status Insufficient, other question": "168/168",
+   "gold status Unresolved, free-form question": "7/26",
+   "gold status Unresolved, other question": "30/30",
+   "single prerequisite": "464/464",
+   "status Assessed": "839/856",
+   "status Conflicting": "60/60",
+   "status Insufficient": "200/210",
+   "status Unresolved": "37/56",
+   "whole rule, free-form state": "153/184",
+   "whole rule, templated state": "272/282",
+   "whole rule, templated state, prompt asks \"is it FALSE that\"": "15/20"
+  }
+ },
+ "choice": {
+  "text arm": {
+   "all questions": "971/1001",
+   "kind pairs both right": "367/374",
+   "assessed states right in every order": "103/112",
+   "select questions in listed order": "218/230",
+   "ruledout, other names, found by rule": "116/116",
+   "ruledout, other names, mapped by hand": "21/21",
+   "ruledout, single letters": "237/237",
+   "ruledout, source status Assessed": "274/274",
+   "ruledout, source status NoFeasibleChoice": "100/100",
+   "select, other names, found by rule": "171/198",
+   "select, other names, mapped by hand": "69/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "301/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "100/100",
+   "select, source status Unresolved": "63/69",
+   "what the wrong answers were": {
+    "select: a status picked where an alternative was right": 18,
+    "select: an alternative picked where a status was right": 12
+   },
+   "states with a wrong answer": 14
+  },
+  "choice pilot": {
+   "all questions": "955/1001",
+   "kind pairs both right": "352/374",
+   "assessed states right in every order": "109/112",
+   "select questions in listed order": "216/230",
+   "ruledout, other names, found by rule": "109/116",
+   "ruledout, other names, mapped by hand": "21/21",
+   "ruledout, single letters": "234/237",
+   "ruledout, source status Assessed": "268/274",
+   "ruledout, source status NoFeasibleChoice": "96/100",
+   "select, other names, found by rule": "162/198",
+   "select, other names, mapped by hand": "72/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "312/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "90/100",
+   "select, source status Unresolved": "56/69",
+   "what the wrong answers were": {
+    "ruledout: a status picked where an alternative was right": 7,
+    "ruledout: the wrong alternative": 3,
+    "select: a status picked where an alternative was right": 7,
+    "select: an alternative picked where a status was right": 29
+   },
+   "states with a wrong answer": 24
+  },
+  "joint": {
+   "all questions": "929/1001",
+   "kind pairs both right": "342/374",
+   "assessed states right in every order": "105/112",
+   "select questions in listed order": "212/230",
+   "ruledout, other names, found by rule": "99/116",
+   "ruledout, other names, mapped by hand": "21/21",
+   "ruledout, single letters": "231/237",
+   "ruledout, source status Assessed": "259/274",
+   "ruledout, source status NoFeasibleChoice": "92/100",
+   "select, other names, found by rule": "154/198",
+   "select, other names, mapped by hand": "67/72",
+   "select, single letters": "357/357",
+   "select, source status Assessed": "302/319",
+   "select, source status Conflicting": "60/66",
+   "select, source status Insufficient": "73/73",
+   "select, source status NoFeasibleChoice": "91/100",
+   "select, source status Unresolved": "52/69",
+   "what the wrong answers were": {
+    "ruledout: a status picked where an alternative was right": 8,
+    "ruledout: the wrong alternative": 15,
+    "select: a status picked where an alternative was right": 17,
+    "select: an alternative picked where a status was right": 26,
+    "select: the wrong status": 6
+   },
+   "states with a wrong answer": 26
+  },
+  "choice pilot against joint": {
+   "both right": 926,
+   "only choice pilot right": 29,
+   "only joint right": 3,
+   "both wrong": 43
+  }
+ },
+ "pass rule": {
+  "N1 assessed twin pairs": {
+   "needed": 385,
+   "measured": 406,
+   "met": true
+  },
+  "N2 all questions": {
+   "needed": 1115,
+   "measured": 1128,
+   "met": true
+  },
+  "N3 free-form questions": {
+   "needed": 151,
+   "measured": 153,
+   "met": true
+  },
+  "N4 prerequisites differ": {
+   "needed": 65,
+   "measured": 72,
+   "met": true
+  },
+  "N5 answer follows moved pointer": {
+   "needed": 65,
+   "measured": 72,
+   "met": true
+  },
+  "C1 all questions": {
+   "needed": 921,
+   "measured": 929,
+   "met": true
+  },
+  "C2 kind pairs both right": {
+   "needed": 331,
+   "measured": 342,
+   "met": true
+  },
+  "C3 assessed states right in every order": {
+   "needed": 93,
+   "measured": 105,
+   "met": true
+  },
+  "noul met": true,
+  "choice met": true,
+  "passed": true
+ }
+}
