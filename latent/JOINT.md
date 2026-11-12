@@ -1,6 +1,6 @@
 # One adapter for Noul and Choice requests: design and pass rule
 
-Written 11 November 2026, before any joint training. Vince approved building it the same day. The examples and scripts were built that day without the GPU. The run was started on 12 November at 14:13, after the two GPU checks passed.
+Written 11 November 2026, before any joint training. Vince approved building it the same day. The examples and scripts were built that day without the GPU. The run was started on 12 November at 14:11, after the two GPU checks passed.
 
 ## Question
 
