@@ -1,6 +1,6 @@
 # One adapter for Noul and Choice requests: design and pass rule
 
-Written 11 November 2026, before any joint training. Vince approved building it the same day. The examples and scripts are built; the two checks that need the GPU and the run itself have not been done, because GPU use was closed for the day.
+Written 11 November 2026, before any joint training. Vince approved building it the same day. The examples and scripts were built that day without the GPU. The run was started on 12 November at 14:13, after the two GPU checks passed.
 
 ## Question
 
@@ -78,10 +78,12 @@ Done on 11 November 2026 without the GPU (`joint_prepare.py`, which reads its ou
 | The two selection hashes | unchanged (`0dffd3a6…`, `9df5422f…`) |
 | The eight request vector sets differ | cosines from 0.57 to 0.85. The closest pair is the whole-rule request and its negation (0.85); no Noul request has a cosine above 0.66 with a Choice request |
 
-Still to do, on the GPU, before the run (`check_joint.sh`):
+Done on the GPU on 12 November 2026, before the run was started (`check_joint.sh`):
 
-- FP32 loss, batched step against an independent per-case forward, on one step per length, holding both operations where a length has both.
-- On-device loop against ordinary PyTorch, 6 steps: bit-identical.
+| Check | Result |
+| --- | --- |
+| FP32 loss, batched step against an independent per-case forward, one step per length, holding both operations where a length has both | worst relative gap 9.8e-06 |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical |
 
 The run itself is `run_joint.sh`: training, then the five measurements.
 
