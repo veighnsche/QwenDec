@@ -107,6 +107,78 @@
   "in-between pairs whose two answers add up to 1, within 0.1": "41/67",
   "in-between pairs whose two answers differ": "56/67"
  },
+ "starting adapter, text without rubric": {
+  "all questions": "224/398",
+  "status or end of the scale": "206/264",
+  "in between": "18/134",
+  "steering pairs both right": "16/110",
+  "steering pairs by target": {
+   "end of the scale": "13/52",
+   "in between": "3/58"
+  },
+  "mean distance of picked level": {
+   "end of the scale": 0.375,
+   "in between": 0.3039
+  },
+  "accuracy": {
+   "end of the scale, kind complement": "13/52",
+   "end of the scale, kind score": "52/52",
+   "end of the scale, rule wording as in training": "24/48",
+   "end of the scale, rule wording unlike training": "41/56",
+   "in between, kind complement": "7/67",
+   "in between, kind score": "11/67",
+   "in between, rule wording as in training": "8/54",
+   "in between, rule wording unlike training": "10/80",
+   "status, kind complement": "70/80",
+   "status, kind score": "71/80",
+   "status, rule wording as in training": "64/64",
+   "status, rule wording unlike training": "77/96"
+  },
+  "in-between questions by distance of the picked level": {
+   "within 0.05": "18/134",
+   "within 0.1": "41/134",
+   "within 0.15": "50/134",
+   "within 0.2": "60/134"
+  },
+  "in-between pairs whose two answers add up to 1, within 0.1": "10/64",
+  "in-between pairs whose two answers differ": "16/64"
+ },
+ "text arm without rubric": {
+  "all questions": "294/398",
+  "status or end of the scale": "235/264",
+  "in between": "59/134",
+  "steering pairs both right": "66/110",
+  "steering pairs by target": {
+   "end of the scale": "47/52",
+   "in between": "19/58"
+  },
+  "mean distance of picked level": {
+   "end of the scale": 0.0481,
+   "in between": 0.1298
+  },
+  "accuracy": {
+   "end of the scale, kind complement": "47/52",
+   "end of the scale, kind score": "52/52",
+   "end of the scale, rule wording as in training": "48/48",
+   "end of the scale, rule wording unlike training": "51/56",
+   "in between, kind complement": "32/67",
+   "in between, kind score": "27/67",
+   "in between, rule wording as in training": "29/54",
+   "in between, rule wording unlike training": "30/80",
+   "status, kind complement": "68/80",
+   "status, kind score": "68/80",
+   "status, rule wording as in training": "64/64",
+   "status, rule wording unlike training": "72/96"
+  },
+  "in-between questions by distance of the picked level": {
+   "within 0.05": "59/134",
+   "within 0.1": "90/134",
+   "within 0.15": "92/134",
+   "within 0.2": "94/134"
+  },
+  "in-between pairs whose two answers add up to 1, within 0.1": "36/64",
+  "in-between pairs whose two answers differ": "52/64"
+ },
  "text arm against latent arm, status": {
   "both right": 130,
   "only text right": 12,
@@ -151,6 +223,14 @@
  "in-between values count as working (at least half)": {
   "starting adapter, text": false,
   "text arm": true,
-  "latent arm": false
+  "latent arm": false,
+  "starting adapter, text without rubric": false,
+  "text arm without rubric": false
+ },
+ "follow-up reading, stated in advance": {
+  "in-between questions right": 59,
+  "text arm": 69,
+  "latent arm": 28,
+  "reading": "both contribute"
  }
 }

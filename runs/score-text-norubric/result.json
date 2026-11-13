@@ -1,0 +1,17 @@
+{
+ "steps_executed": 393,
+ "steps_planned": 393,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "follow_up_reading": {
+  "in_between": "59/134 (text arm 69, latent arm 28)",
+  "reading_stated_in_advance": "35 to 62: both contribute",
+  "split": "of the 41 questions between the text arm and the latent arm, 10 go with the rubric and 31 with words instead of vectors",
+  "all_questions": "294/398",
+  "steering_pairs_both_right": "66/110",
+  "judged": "2026-11-13, against latent/SCORE-NORUBRIC.md (latent/score_analyse.py)",
+  "see": "latent/RESULTS-SCORE.md"
+ }
+}

@@ -60,7 +60,38 @@ The text arm reads two things the latent arm does not: the rubric as words, and 
 - **The rubric.** It restates the rule, for example "completed bins divided by required bins", inside the part of the prompt where the adapter is on. The state itself is read with the adapter off.
 - **The words.** The question and rubric take about 60 positions with the adapter on, where the latent request has 16.
 
-Before training, neither mattered: `fork-v1` on the 199 cases has 133 with question and rubric, 130 without the rubric and 131 without any question (`results/score-refs.json`). After training they matter a great deal. One further arm would separate the two: the fixed wording as words, without the rubric.
+Before training, neither mattered: `fork-v1` on the 199 cases has 133 with question and rubric, 130 without the rubric and 131 without any question (`results/score-refs.json`). After training they matter a great deal. One further arm would separate the two: the fixed wording as words, without the rubric. That arm was run next; see the follow-up below.
+
+## Follow-up: a text arm without the rubric
+
+Design and readings: [SCORE-NORUBRIC.md](SCORE-NORUBRIC.md), pushed before the run. Run on 13 November 2026, 12:28 to 13:06, one run, all 393 steps executed, nothing retried.
+
+The arm reads the fixed wording as words and no rubric. It differs from the latent arm only in how the same two requests arrive: about 25 word positions instead of 16 vectors.
+
+| Questions | Text arm | Text arm, no rubric | Latent arm |
+| --- | --- | --- | --- |
+| All (398) | 310 | 294 | 254 |
+| Answer is a status (160) | 142 | 136 | 132 |
+| Answer is an end of the scale (104) | 99 | 99 | 94 |
+| Answer is in between (134) | 69 | 59 | 28 |
+| In between, within 0.1 | 101 | 90 | 46 |
+| In between, rule worded as in training (54) | 31 | 29 | 10 |
+| In between, rule worded unlike training (80) | 38 | 30 | 18 |
+| Steering pairs, both right (110) | 65 | 66 | 47 |
+
+**Reading, as stated in advance:** 59 lies between 35 and 62, so both contribute.
+
+They do not contribute equally. Of the 41 in-between questions between the text arm and the latent arm, 10 go with the rubric and 31 with the question arriving as words instead of vectors.
+
+- **The rubric helps where the rule is unlike training** (38 against 30) and hardly at all where it is like training (31 against 29).
+- **Most of the gap is the vectors.** With the same two requests and no rubric in either, words get 59 in-between values and vectors 28.
+- Measured against the pilot's own rule, the no-rubric text arm would meet parts 1 and 2 (294 against 291 needed, 66 against 59) and miss part 3 by four questions (59 against 63).
+
+Why vectors do worse here, when the same form passed for Noul and Choice, is not shown by this run. Two things differ between the arms and are not separated: the number of positions (25 against 16), and that the latent arm has to learn to read its vectors through a new projection in the same single pass. Its loss starts far higher (1.35 over the first 50 steps, against 0.24) and is still higher at the end (0.09 against 0.08).
+
+## A question for the owner
+
+The no-rubric text arm's question is not generated text. It is one of two fixed word sequences, chosen by the kind of request. A runtime could insert the fixed sequence for the chosen kind exactly as it inserts 16 vectors. Whether that is within "requests cross as vectors, never text" is a judgement, like the replayed pointer was.
 
 ## Reported outside the rule
 
@@ -71,7 +102,7 @@ Before training, neither mattered: `fork-v1` on the 199 cases has 133 with quest
 
 ## What this does and does not show
 
-- A Score request as a fixed kind of question in 16 vectors, with the rubric left in the state, is not enough. This is the first of the three operations where the accepted format does not carry over.
+- A Score request as a fixed kind of question in 16 vectors, with the rubric left in the state, is not enough. The follow-up puts most of the shortfall on the 16 vectors, not on the missing rubric. This is the first of the three operations where the accepted format does not carry over.
 - The vectors still do their part: the two requests are told apart.
 - Score values are not out of reach for this adapter. A Score-only text run got half of the in-between values within 0.05 and three quarters within 0.1.
 - One run per arm. The earlier pilots showed that two runs of one design can differ widely.

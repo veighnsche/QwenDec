@@ -1,0 +1,56 @@
+{
+ "tag": "score-ref-forkv1-text-norubric",
+ "mode": "text",
+ "rubric": false,
+ "adapter": "runs/fork-v1/adapter",
+ "all_questions": "224/398",
+ "status_or_end_of_the_scale": "206/264",
+ "in_between": "18/134",
+ "steering_pairs_both_right": "16/110",
+ "steering_pairs_by_target": {
+  "end of the scale": "13/52",
+  "in between": "3/58"
+ },
+ "accuracy": {
+  "all questions": "224/398",
+  "in between": "18/134",
+  "kind complement": "90/199",
+  "kind complement, end of the scale": "13/52",
+  "kind complement, in between": "7/67",
+  "kind score": "134/199",
+  "kind score, end of the scale": "52/52",
+  "kind score, in between": "11/67",
+  "rubric adds a midpoint": "9/24",
+  "rule wording as in training": "96/166",
+  "rule wording unlike training": "128/232",
+  "status of the question: Assessed": "83/238",
+  "status of the question: Conflicting": "54/58",
+  "status of the question: Insufficient": "49/50",
+  "status of the question: Unresolved": "38/52",
+  "status or end of the scale": "206/264",
+  "target: end of the scale": "65/104",
+  "target: in between": "18/134",
+  "target: status": "141/160"
+ },
+ "mean_distance_of_picked_level": {
+  "end of the scale": 0.375,
+  "in between": 0.3039
+ },
+ "assessed_questions_answered_with_a_status": 6,
+ "picks": {
+  "1.0": 55,
+  "0.0": 51,
+  "Insufficient": 49,
+  "Conflicting": 56,
+  "Unresolved": 44,
+  "0.4": 18,
+  "0.1": 53,
+  "0.7": 6,
+  "0.3": 9,
+  "0.6": 9,
+  "0.5": 20,
+  "0.2": 19,
+  "0.9": 5,
+  "0.8": 4
+ }
+}

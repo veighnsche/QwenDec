@@ -14,7 +14,9 @@ ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "baseline"))
 from measure_decision4b import interval_distance  # noqa: E402
 
-ARMS = {"starting adapter, text": "score-ref-forkv1-text", "text arm": "score-text", "latent arm": "score-latent"}
+ARMS = {"starting adapter, text": "score-ref-forkv1-text", "text arm": "score-text", "latent arm": "score-latent",
+        # follow-up (SCORE-NORUBRIC.md): the fixed wording as words, without the rubric
+        "starting adapter, text without rubric": "score-ref-forkv1-text-norubric", "text arm without rubric": "score-text-norubric"}
 
 
 def count(s):
@@ -82,6 +84,10 @@ def main():
     }
     report["in-between values count as working (at least half)"] = {
         name: count(report[name]["in between"]) * 2 >= between for name in ARMS}
+    got = count(report["text arm without rubric"]["in between"])
+    report["follow-up reading, stated in advance"] = {
+        "in-between questions right": got, "text arm": count(t["in between"]), "latent arm": count(l["in between"]),
+        "reading": ("the rubric is not needed" if got >= 63 else "the rubric is what matters" if got <= 34 else "both contribute")}
     (HERE / "results/analysis-score.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report, indent=1))
 
