@@ -1,0 +1,47 @@
+{
+ "arm": "score-text",
+ "examples": 2596,
+ "selection_sha256": "14aad5668abfb07f7ad5b51f9a474f4e82a09c7e4f814189608865d260d0f120",
+ "steps": 440,
+ "passes": 1,
+ "seed": 20261113,
+ "kinds": {
+  "score": 1298,
+  "complement": 1298
+ },
+ "targets": {
+  "end of the scale": 1036,
+  "status": 1038,
+  "in between": 522
+ },
+ "prompt_tokens_mean": 608.4,
+ "executed_positions": 1691648,
+ "buckets": [
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 268
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 2056
+  },
+  {
+   "length": 704,
+   "batch": 5,
+   "rows": 2
+  },
+  {
+   "length": 768,
+   "batch": 5,
+   "rows": 231
+  },
+  {
+   "length": 832,
+   "batch": 4,
+   "rows": 39
+  }
+ ],
+ "file_sha256": "4b018ad76cb1b7c959a6197fb73e6e2d219fbd184999f84928afe85d72664185"
+}

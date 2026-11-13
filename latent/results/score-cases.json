@@ -1,0 +1,60 @@
+{
+ "train": {
+  "cases": 1298,
+  "questions": 2596,
+  "kinds": {
+   "score": 1298,
+   "complement": 1298
+  },
+  "status": {
+   "Assessed": 1558,
+   "Insufficient": 352,
+   "Unresolved": 336,
+   "Conflicting": 350
+  },
+  "questions_by_target": {
+   "end of the scale": 1036,
+   "status": 1038,
+   "in between": 522
+  },
+  "assessed_pairs": 779,
+  "assessed_pairs_with_no_shared_level": {
+   "end of the scale": 518,
+   "in between": 172
+  },
+  "distinct_in_between_values": 33,
+  "questions_with_rule_wording_in_training": 2596,
+  "questions_whose_rubric_adds_a_midpoint": 0,
+  "complements_mirror_their_case": true,
+  "statuses_unchanged": true
+ },
+ "development": {
+  "cases": 199,
+  "questions": 398,
+  "kinds": {
+   "score": 199,
+   "complement": 199
+  },
+  "status": {
+   "Assessed": 238,
+   "Insufficient": 50,
+   "Conflicting": 58,
+   "Unresolved": 52
+  },
+  "questions_by_target": {
+   "end of the scale": 104,
+   "status": 160,
+   "in between": 134
+  },
+  "assessed_pairs": 119,
+  "assessed_pairs_with_no_shared_level": {
+   "end of the scale": 52,
+   "in between": 58
+  },
+  "distinct_in_between_values": 71,
+  "questions_with_rule_wording_in_training": 166,
+  "questions_whose_rubric_adds_a_midpoint": 24,
+  "complements_mirror_their_case": true,
+  "statuses_unchanged": true
+ }
+}

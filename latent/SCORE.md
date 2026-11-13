@@ -1,6 +1,6 @@
 # Latent Score request pilot: design and pass rule
 
-Written 12 November 2026, before any Score request training. Not yet approved. Nothing is built and no model was run for this design; the figures below come from the case files and from per-case outputs that already existed.
+Written 12 November 2026, before any Score request training; its figures come from the case files and from per-case outputs that already existed. Vince said to go ahead on 13 November. The variants, both arms and the scripts were built that day without the GPU. The GPU steps (encoding the two requests, two checks, the references and the runs) have not been done.
 
 ## Question
 
@@ -65,7 +65,7 @@ Both start from `runs/fork-v1/adapter`, on the same 2,596 examples, one pass, wi
 | Text (reference) | the fixed wording as words | as words, the adapter's own format |
 | Latent | the fixed wording as 16 vectors (two distinct requests) | not given; the state's rule holds it |
 
-Options are the same in both: the eleven levels, then the three status options. An assessed target is trained as in `fork-v1`: the two levels around it, weighted so the expected level equals the target.
+Options are the same in both: the eleven levels, then the three status options. Each level is described as "A value of 0.3." The adapter's own wording, "A score of 0.3 on the rubric", would be wrong for a complement question. An assessed target is trained as in `fork-v1`: the two levels around it, weighted so the expected level equals the target.
 
 ## References before training
 
@@ -105,10 +105,24 @@ Also reported: each status, the ends of the scale, mean distance to the target, 
 
 ## Checks before training
 
-- The two requests' vector sets differ (cosine reported), and both differ from the eight existing ones.
-- Every complement target mirrors its case's target, and statuses are unchanged.
+Done on 13 November 2026 without the GPU (`score_cases.py` and the tokenizer; no model is run):
+
+| Check | Result |
+| --- | --- |
+| Every complement target mirrors its case's target, and statuses are unchanged | all 1,298 training and 199 development cases |
+| The trained target's expected level equals the target, and its heavier level counts as right | all 1,558 training and 238 development assessed questions |
+| Both arms read the same state and turn the adapter on at the same place; the latent prompt holds no rubric | all 2,994 questions |
+| The counts in this design | as stated: 2,596 and 398 questions, 690 and 110 steering pairs, 264 and 134 development questions by kind of target |
+
+Of the 398 development questions, 166 have a rule wording that training has and 232 do not. 24 have a rubric that adds a midpoint.
+
+Still to do on the GPU before training (`check_score.sh`):
+
+- Encode the two requests with the fixed encoder; their vector sets must differ from each other and from the eight existing ones (cosines reported).
 - FP32 loss, batched step against an independent per-case forward, both arms.
 - On-device loop against ordinary PyTorch, 6 steps: bit-identical, both arms.
+
+The run itself is `run_score.sh`: the references, then each arm's training and measurement.
 
 ## A correction to an earlier figure
 
@@ -125,7 +139,7 @@ The earlier Score measure compared the distance to the target with 0.05 exactly.
 
 ## Cost
 
-About 25 minutes of training per arm, a few minutes for each measurement and for the references: roughly one hour on the RTX 3090. Building the variants and the two arms needs no GPU.
+The prompts are longer than the estimate this design was first written with (about 600 tokens, because of the fourteen options). The text arm is 440 steps and the latent arm 389: about 35 and 30 minutes of training. With the references, the measurements and the checks, roughly 90 minutes on the RTX 3090.
 
 ## Decisions for the owner
 
