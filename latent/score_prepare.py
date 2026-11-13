@@ -30,6 +30,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=("text", "latent"), required=True)
     ap.add_argument("--k", type=int, default=16)
+    ap.add_argument("--no-rubric", action="store_true", help="follow-up arm: the text question without the rubric")
     ap.add_argument("--positions-per-step", type=int, default=4096)
     ap.add_argument("--seed", type=int, default=20261113)
     args = ap.parse_args()
@@ -44,7 +45,7 @@ def main():
 
     rows = []
     for c in cases:
-        ids, gate_start, q_start = tokenise(tok, c, args.mode, args.k, pad)
+        ids, gate_start, q_start = tokenise(tok, c, args.mode, args.k, pad, rubric=not args.no_rubric)
         rows.append({"ids": ids, "gate_start": gate_start, "q_start": q_start, "weights": target(c),
                      "q_index": REQUESTS.index(request_text(c)) if args.mode == "latent" else -1})
 
@@ -81,7 +82,8 @@ def main():
         step_rows[t, : len(members)] = torch.tensor(members)
         step_weight[t, : len(members)] = 1.0
 
-    name = f"score-{args.mode}"
+    assert not (args.no_rubric and args.mode == "latent"), "the latent arm never has a rubric"
+    name = f"score-{args.mode}" + ("-norubric" if args.no_rubric else "")
     out = ROOT / f"data/latent/prepared-{name}.pt"
     meta = {
         "arm": name, "examples": len(cases), "selection_sha256": selection, "steps": len(schedule), "passes": 1,

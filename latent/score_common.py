@@ -4,6 +4,7 @@ The prompt is the adapter's own format: state, question, options (the eleven lev
 then the status options). The arms differ in the question only:
   text    the fixed wording as words, followed by the rubric as words
   latent  K positions for the question vectors; no rubric, the state's rule holds it
+A follow-up arm reads the fixed wording as words without the rubric (rubric=False).
 The state is read with the adapter off; the adapter turns on at the end of the state.
 
 There are two kinds of request. "score" asks for the score. "complement" asks for one
@@ -37,8 +38,10 @@ def request_text(case):
     return WORDING[case["kind"]] + CRITERION
 
 
-def question_text(case):
-    """What the text arm reads: the fixed wording and the case's rubric."""
+def question_text(case, rubric=True):
+    """What the text arm reads: the fixed wording and, unless rubric=False, the case's rubric."""
+    if not rubric:
+        return request_text(case)
     rubric = "; ".join(f"{k}: {v}" for k, v in case["rubric"].items())
     return f"{request_text(case)} Rubric: {rubric}."
 
@@ -71,19 +74,19 @@ def is_right(case, pick):
     return not isinstance(picked, str) and picked in right_levels(case["interval"])
 
 
-def render(tok, case, latent):
+def render(tok, case, latent, rubric=True):
     options = [{"label": LETTERS[i], "key": f"{x:.1f}", "description": f"A value of {x:.1f}."} for i, x in enumerate(LEVELS)]
     options += [{"label": LETTERS[len(LEVELS) + j], "key": STATUS_OPTIONS[s][0], "description": STATUS_OPTIONS[s][1]}
                 for j, s in enumerate(STATUSES)]
-    task = {"state": state_text(case), "question": MARK if latent else question_text(case), "options": options}
+    task = {"state": state_text(case), "question": MARK if latent else question_text(case, rubric), "options": options}
     messages = [{"role": "system", "content": SYSTEM},
                 {"role": "user", "content": json.dumps(task, ensure_ascii=False)}]
     return tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
 
 
-def tokenise(tok, case, mode, k=0, pad=0):
+def tokenise(tok, case, mode, k=0, pad=0, rubric=True):
     """Token ids, the first adapter-on position, and where the question vectors go (-1 for text)."""
-    text = render(tok, case, mode == "latent")
+    text = render(tok, case, mode == "latent", rubric)
     if mode == "text":
         enc = tok(text, add_special_tokens=False, return_offsets_mapping=True)
         ids, offsets, q_start = enc["input_ids"], enc["offset_mapping"], -1

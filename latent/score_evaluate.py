@@ -42,6 +42,7 @@ def main():
     ap.add_argument("--cases", default=str(ROOT / "data/latent/score-development.jsonl"))
     ap.add_argument("--vectors", default=str(ROOT / "data/latent/question-vectors-k16-score.pt"))
     ap.add_argument("--projection", help="trained projection file (latent mode)")
+    ap.add_argument("--no-rubric", action="store_true", help="follow-up arm: the text question without the rubric")
     ap.add_argument("--tag", required=True)
     args = ap.parse_args()
 
@@ -67,7 +68,7 @@ def main():
     rows = []
     with torch.no_grad():
         for case in cases:
-            ids, gate_start, q_start = tokenise(tok, case, args.mode, k)
+            ids, gate_start, q_start = tokenise(tok, case, args.mode, k, rubric=not args.no_rubric)
             ids = torch.tensor([ids], device=device)
             n = ids.shape[1]
             gate.mask = (torch.arange(n, device=device) >= gate_start).view(1, n, 1)
@@ -108,7 +109,7 @@ def main():
             pairs["all"].append(both)
             pairs[c["target_type"]].append(both)
     report = {
-        "tag": args.tag, "mode": args.mode, "adapter": args.adapter,
+        "tag": args.tag, "mode": args.mode, "rubric": args.mode == "text" and not args.no_rubric, "adapter": args.adapter,
         "all_questions": rate(groups["all questions"]),
         "status_or_end_of_the_scale": rate(groups["status or end of the scale"]),
         "in_between": rate(groups["in between"]),
