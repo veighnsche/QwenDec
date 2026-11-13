@@ -71,6 +71,8 @@ def pointer_tokens(before, head, case, other=False):
     name = pointed(case, other)
     if name is None:
         return []
+    if "produced" in case:  # native side: the pointers the reader on the model's states produced, as token ids
+        return list(case["produced"]["a" if (case["kind"] == "pa") != other else "b"])
     _, a, b = RULE.match(case["rules"][0]).groups()
     escape = lambda s: json.dumps(s, ensure_ascii=False)[1:-1]  # the state sits inside a JSON string
     marker = "both prerequisites hold: "

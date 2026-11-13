@@ -1,6 +1,6 @@
 # Native side, step 1: forming a request from the model's own reading of the state
 
-Written 13 November 2026. Not yet approved. Nothing is built and no model was run for this design; the figures come from the case files.
+Written 13 November 2026; the figures come from the case files. Vince approved it the same day, with the narrower scope and the native model frozen. The labels, the head, its training loop and the scoring were then built without the GPU. Nothing that runs a model has been run: the head's code is untested until the GPU is free.
 
 ## Question
 
@@ -57,9 +57,23 @@ Two things make development hard:
 
 ## Training
 
-- All 3,830 training states, except a tenth held out by family to tell "the head cannot learn this" from "it does not carry over to development".
-- 20 passes, AdamW, learning rate 1e-3. The final weights are the only candidate; nothing is chosen on development.
+- All 3,830 training states, except a tenth held out by family (409 states, leaving 3,421) to tell "the head cannot learn this" from "it does not carry over to development".
+- 20 passes in batches of 32 (2,140 steps), AdamW, learning rate 1e-3, weight decay 0.01, clip 1.0. The final weights are the only candidate; nothing is chosen on development.
 - The native states are computed once on the GPU. The head's training runs on the GPU with the host out of the loop, as for the adapter.
+
+## Built, and checked without the GPU
+
+Done on 13 November 2026 (`labels.py`, `judge.py`, the tokenizer; no model is run):
+
+| Check | Result |
+| --- | --- |
+| Every item's token range reads as its name and lies inside the state | all 5,654 training and 859 development items; 4 development ones carry a neighbouring mark, as before |
+| The native pass is the same tokens whatever the operation | it is built from the state alone |
+| Scoring with a made-up reader that produces exactly the labels | 672 of 672 operations, 346 of 346 item sets, and end to end exactly the adapter's own 1,141, 960 and 301 |
+| With that reader, the rewritten panels give the adapter the same prompts as the handed panels | all 1,182 Noul questions in both pointer directions, all 1,001 Choice questions |
+| Scoring with a reader spoiled in known ways | loses exactly the states and questions that were spoiled |
+
+Still to do on the GPU: the loop check (`run_native.sh check`), then the run (`run_native.sh`). Score needs no new adapter run: a Score request has no pointers, so the adapter's answers are those it gave with handed requests, and a question counts only if the operation was produced right.
 
 ## Pass rule, on the development states
 

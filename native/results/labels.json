@@ -1,0 +1,78 @@
+{
+ "train": {
+  "states": 3830,
+  "by_operation": {
+   "Noul": {
+    "states": 1282,
+    "with_items": 952,
+    "items": {
+     "2": 952,
+     "0": 330
+    },
+    "held_out": 138
+   },
+   "Choice": {
+    "states": 1250,
+    "with_items": 1250,
+    "items": {
+     "3": 1250
+    },
+    "held_out": 130
+   },
+   "Score": {
+    "states": 1298,
+    "with_items": 0,
+    "items": {
+     "0": 1298
+    },
+    "held_out": 141
+   }
+  },
+  "tokens_read_mean": 159.6,
+  "tokens_read_max": 423,
+  "tokens_read_total": 611082,
+  "item_tokens_min_max": [
+   1,
+   9
+  ],
+  "items": 5654,
+  "items_carrying_a_neighbouring_mark": 0
+ },
+ "development": {
+  "states": 672,
+  "by_operation": {
+   "Noul": {
+    "states": 243,
+    "with_items": 116,
+    "items": {
+     "0": 127,
+     "2": 116
+    }
+   },
+   "Choice": {
+    "states": 230,
+    "with_items": 230,
+    "items": {
+     "3": 167,
+     "2": 63
+    }
+   },
+   "Score": {
+    "states": 199,
+    "with_items": 0,
+    "items": {
+     "0": 199
+    }
+   }
+  },
+  "tokens_read_mean": 136.9,
+  "tokens_read_max": 287,
+  "tokens_read_total": 91997,
+  "item_tokens_min_max": [
+   1,
+   7
+  ],
+  "items": 859,
+  "items_carrying_a_neighbouring_mark": 4
+ }
+}
