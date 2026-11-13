@@ -1,6 +1,6 @@
 # Latent Score request pilot: design and pass rule
 
-Written 12 November 2026, before any Score request training; its figures come from the case files and from per-case outputs that already existed. Vince said to go ahead on 13 November. The variants, both arms and the scripts were built that day without the GPU. The GPU steps (encoding the two requests, two checks, the references and the runs) have not been done.
+Written 12 November 2026, before any Score request training; its figures come from the case files and from per-case outputs that already existed. Vince said to go ahead on 13 November. The variants, both arms and the scripts were built that day without the GPU. The runs were started on 13 November at 11:00, after the GPU checks passed.
 
 ## Question
 
@@ -116,11 +116,13 @@ Done on 13 November 2026 without the GPU (`score_cases.py` and the tokenizer; no
 
 Of the 398 development questions, 166 have a rule wording that training has and 232 do not. 24 have a rubric that adds a midpoint.
 
-Still to do on the GPU before training (`check_score.sh`):
+Done on the GPU on 13 November 2026, before the runs were started (`check_score.sh`):
 
-- Encode the two requests with the fixed encoder; their vector sets must differ from each other and from the eight existing ones (cosines reported).
-- FP32 loss, batched step against an independent per-case forward, both arms.
-- On-device loop against ordinary PyTorch, 6 steps: bit-identical, both arms.
+| Check | Result |
+| --- | --- |
+| The two requests' vector sets differ | cosine 0.75 between them; between 0.54 and 0.80 with the eight Noul and Choice requests |
+| FP32 loss, batched step against an independent per-case forward | text: worst relative gap 1.1e-05; latent: 4.8e-06 |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical, both arms |
 
 The run itself is `run_score.sh`: the references, then each arm's training and measurement.
 
