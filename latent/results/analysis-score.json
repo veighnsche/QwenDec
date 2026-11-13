@@ -1,0 +1,156 @@
+{
+ "starting adapter, text": {
+  "all questions": "217/398",
+  "status or end of the scale": "196/264",
+  "in between": "21/134",
+  "steering pairs both right": "6/110",
+  "steering pairs by target": {
+   "end of the scale": "3/52",
+   "in between": "3/58"
+  },
+  "mean distance of picked level": {
+   "end of the scale": 0.4712,
+   "in between": 0.2908
+  },
+  "accuracy": {
+   "end of the scale, kind complement": "3/52",
+   "end of the scale, kind score": "52/52",
+   "end of the scale, rule wording as in training": "24/48",
+   "end of the scale, rule wording unlike training": "31/56",
+   "in between, kind complement": "10/67",
+   "in between, kind score": "11/67",
+   "in between, rule wording as in training": "9/54",
+   "in between, rule wording unlike training": "12/80",
+   "status, kind complement": "70/80",
+   "status, kind score": "71/80",
+   "status, rule wording as in training": "64/64",
+   "status, rule wording unlike training": "77/96"
+  },
+  "in-between questions by distance of the picked level": {
+   "within 0.05": "21/134",
+   "within 0.1": "45/134",
+   "within 0.15": "54/134",
+   "within 0.2": "65/134"
+  },
+  "in-between pairs whose two answers add up to 1, within 0.1": "12/66",
+  "in-between pairs whose two answers differ": "18/66"
+ },
+ "text arm": {
+  "all questions": "310/398",
+  "status or end of the scale": "241/264",
+  "in between": "69/134",
+  "steering pairs both right": "65/110",
+  "steering pairs by target": {
+   "end of the scale": "47/52",
+   "in between": "18/58"
+  },
+  "mean distance of picked level": {
+   "end of the scale": 0.0481,
+   "in between": 0.0908
+  },
+  "accuracy": {
+   "end of the scale, kind complement": "47/52",
+   "end of the scale, kind score": "52/52",
+   "end of the scale, rule wording as in training": "48/48",
+   "end of the scale, rule wording unlike training": "51/56",
+   "in between, kind complement": "34/67",
+   "in between, kind score": "35/67",
+   "in between, rule wording as in training": "31/54",
+   "in between, rule wording unlike training": "38/80",
+   "status, kind complement": "71/80",
+   "status, kind score": "71/80",
+   "status, rule wording as in training": "64/64",
+   "status, rule wording unlike training": "78/96"
+  },
+  "in-between questions by distance of the picked level": {
+   "within 0.05": "69/134",
+   "within 0.1": "101/134",
+   "within 0.15": "107/134",
+   "within 0.2": "115/134"
+  },
+  "in-between pairs whose two answers add up to 1, within 0.1": "44/64",
+  "in-between pairs whose two answers differ": "48/64"
+ },
+ "latent arm": {
+  "all questions": "254/398",
+  "status or end of the scale": "226/264",
+  "in between": "28/134",
+  "steering pairs both right": "47/110",
+  "steering pairs by target": {
+   "end of the scale": "42/52",
+   "in between": "5/58"
+  },
+  "mean distance of picked level": {
+   "end of the scale": 0.0962,
+   "in between": 0.2513
+  },
+  "accuracy": {
+   "end of the scale, kind complement": "42/52",
+   "end of the scale, kind score": "52/52",
+   "end of the scale, rule wording as in training": "48/48",
+   "end of the scale, rule wording unlike training": "46/56",
+   "in between, kind complement": "15/67",
+   "in between, kind score": "13/67",
+   "in between, rule wording as in training": "10/54",
+   "in between, rule wording unlike training": "18/80",
+   "status, kind complement": "66/80",
+   "status, kind score": "66/80",
+   "status, rule wording as in training": "64/64",
+   "status, rule wording unlike training": "68/96"
+  },
+  "in-between questions by distance of the picked level": {
+   "within 0.05": "28/134",
+   "within 0.1": "46/134",
+   "within 0.15": "56/134",
+   "within 0.2": "73/134"
+  },
+  "in-between pairs whose two answers add up to 1, within 0.1": "41/67",
+  "in-between pairs whose two answers differ": "56/67"
+ },
+ "text arm against latent arm, status": {
+  "both right": 130,
+  "only text right": 12,
+  "only latent right": 2,
+  "both wrong": 16
+ },
+ "text arm against latent arm, end of the scale": {
+  "both right": 94,
+  "only text right": 5,
+  "only latent right": 0,
+  "both wrong": 5
+ },
+ "text arm against latent arm, in between": {
+  "both right": 23,
+  "only text right": 46,
+  "only latent right": 5,
+  "both wrong": 60
+ },
+ "pass rule": {
+  "0 conclusive": {
+   "text arm": 241,
+   "needed": 238,
+   "met": true
+  },
+  "1 all questions": {
+   "latent arm": 254,
+   "needed": 291,
+   "met": false
+  },
+  "2 steering pairs both right": {
+   "latent arm": 47,
+   "needed": 59,
+   "met": false
+  },
+  "3 in-between values": {
+   "latent arm": 28,
+   "needed": 63,
+   "met": false
+  },
+  "passed": false
+ },
+ "in-between values count as working (at least half)": {
+  "starting adapter, text": false,
+  "text arm": true,
+  "latent arm": false
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "steps_executed": 389,
+ "steps_planned": 389,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "passed": false,
+  "panel": "data/latent/score-development.jsonl",
+  "part_0_conclusive": "text arm 241/264, needed 238: met",
+  "part_1_all_questions": "254/398, needed 291 (text arm 310 less 5 points): not met",
+  "part_2_steering_pairs_both_right": "47/110, needed 59 (90% of the text arm's 65): not met",
+  "part_3_in_between_values": "28/134, needed 63 (text arm 69 less 5 points): not met",
+  "outside_the_rule": "at the ends of the scale the two requests are told apart (complement 42/52, text arm 47/52); in-between answers differ between the two requests in 56/67 pairs but are far from the target (mean distance 0.25, text arm 0.09)",
+  "judged": "2026-11-13, mechanically against latent/SCORE.md (latent/score_analyse.py)",
+  "see": "latent/RESULTS-SCORE.md",
+  "note": "the pilot rule is not met; nothing is retried"
+ }
+}

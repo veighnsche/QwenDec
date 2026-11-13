@@ -1,0 +1,20 @@
+{
+ "full": {
+  "all": "133/199",
+  "target: a status": "70/80",
+  "target: an end of the scale": "52/52",
+  "target: in between": "11/67"
+ },
+ "no rubric": {
+  "all": "130/199",
+  "target: a status": "67/80",
+  "target: an end of the scale": "52/52",
+  "target: in between": "11/67"
+ },
+ "no question": {
+  "all": "131/199",
+  "target: a status": "68/80",
+  "target: an end of the scale": "52/52",
+  "target: in between": "11/67"
+ }
+}

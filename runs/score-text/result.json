@@ -1,0 +1,18 @@
+{
+ "steps_executed": 440,
+ "steps_planned": 440,
+ "skipped_steps": 0,
+ "execution_complete": true,
+ "learning_accepted": null,
+ "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
+ "pilot_rule": {
+  "role": "reference arm; it sets the thresholds and is not itself judged",
+  "part_0_conclusive": "241/264 questions whose answer is a status or an end of the scale, needed 238: met",
+  "all_questions": "310/398",
+  "steering_pairs_both_right": "65/110",
+  "in_between": "69/134",
+  "in_between_values_count_as_working": "yes by the threshold stated in advance (at least 67 of 134), by 2 questions; the starting adapter has 21/134",
+  "judged": "2026-11-13, mechanically against latent/SCORE.md (latent/score_analyse.py)",
+  "see": "latent/RESULTS-SCORE.md"
+ }
+}
