@@ -14,6 +14,8 @@ Requests and results are meant to cross as vectors, never as generated text. The
 
 **Most of that target is not built.** What exists is listed below, with what each piece does and does not show.
 
+A 20-page progress report of the state on 12 November 2026 is in [report/QwenDec-progress-report.pdf](report/QwenDec-progress-report.pdf).
+
 ## What exists
 
 | Piece | Folder | What it shows |
@@ -81,6 +83,7 @@ data/         the cases (JSONL); prepared tensors are regenerated, not stored
 data_import/  how the cases were brought in
 runs/         manifests, logs and results of training runs (no weights)
 docs/         requirements
+report/       the progress report as a PDF, with its Typst source and fonts
 ```
 
 ## Reproducing
