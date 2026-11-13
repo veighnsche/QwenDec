@@ -1,6 +1,6 @@
 # One adapter for Noul, Choice and Score, with fixed word-sequence requests: design and pass rule
 
-Written 13 November 2026, before any training for it; the token counts come from the tokenizer alone. Vince decided the same day that part S3 stays in the rule. The rows and scripts were then built without the GPU. The two GPU checks and the run have not been done and wait for his go-ahead.
+Written 13 November 2026, before any training for it; the token counts come from the tokenizer alone. Vince decided the same day that part S3 stays in the rule. The rows and scripts were then built without the GPU. The run was started on 13 November at 13:52, on his go-ahead and after the two GPU checks passed.
 
 ## Question
 
@@ -103,10 +103,12 @@ Done on 13 November 2026 without the GPU (`words_prepare.py`, which reads its ou
 | Every training row is what the measurement scripts build in word mode for a training question | all 11,018 |
 | The three source files are the ones the vector arms trained on | hashes match |
 
-Still to do on the GPU before training (`run_words.sh check`):
+Done on the GPU on 13 November 2026, before the run was started (`run_words.sh check`):
 
-- FP32 loss, batched step against an independent per-case forward, one step per prompt length, the one holding the most operations.
-- On-device loop against ordinary PyTorch, 6 steps: bit-identical.
+| Check | Result |
+| --- | --- |
+| FP32 loss, batched step against an independent per-case forward, one step per prompt length, the one holding the most operations | worst relative gap 2.8e-05 |
+| On-device loop against ordinary PyTorch, 6 steps | bit-identical |
 
 The run itself is `run_words.sh`: training, then the six measurements.
 
