@@ -89,9 +89,13 @@ They do not contribute equally. Of the 41 in-between questions between the text 
 
 Why vectors do worse here, when the same form passed for Noul and Choice, is not shown by this run. Two things differ between the arms and are not separated: the number of positions (25 against 16), and that the latent arm has to learn to read its vectors through a new projection in the same single pass. Its loss starts far higher (1.35 over the first 50 steps, against 0.23) and is still higher at the end (0.09 against 0.08).
 
-## A question for the owner
+## The owner's decision on fixed word sequences
 
 The no-rubric text arm's question is not generated text. It is one of two fixed word sequences, chosen by the kind of request. A runtime could insert the fixed sequence for the chosen kind exactly as it inserts 16 vectors. Whether that is within "requests cross as vectors, never text" is a judgement, like the replayed pointer was.
+
+Decided by Vince on 13 November 2026: it counts. A fixed word sequence per kind of request, never generated, is within "never text".
+
+This makes the no-rubric format a candidate Score request. It is not a passed one: it was run as a follow-up with readings, not against a pass rule, and by the pilot's rule it misses part 3 by four questions on one run.
 
 ## Reported outside the rule
 

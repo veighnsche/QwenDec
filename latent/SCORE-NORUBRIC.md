@@ -1,6 +1,6 @@
 # Score pilot follow-up: a text arm without the rubric
 
-Written 13 November 2026, after the Score pilot ([RESULTS-SCORE.md](RESULTS-SCORE.md)) and before this run. Approved by Vince the same day. Started at 12:28. Outcome: 59 of 134, so both contribute, the vectors far more than the rubric; see [RESULTS-SCORE.md](RESULTS-SCORE.md).
+Written 13 November 2026, after the Score pilot ([RESULTS-SCORE.md](RESULTS-SCORE.md)) and before this run. Approved by Vince the same day. Started at 12:28. Outcome: 59 of 134, so both contribute, the vectors far more than the rubric; see [RESULTS-SCORE.md](RESULTS-SCORE.md). Vince decided the same day that a fixed word sequence per kind of request counts as "never text".
 
 ## Question
 

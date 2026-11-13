@@ -13,5 +13,12 @@
   "steering_pairs_both_right": "66/110",
   "judged": "2026-11-13, against latent/SCORE-NORUBRIC.md (latent/score_analyse.py)",
   "see": "latent/RESULTS-SCORE.md"
+ },
+ "owner_decision": {
+  "decision": "a fixed word sequence per kind of request, never generated, is within 'requests cross as vectors, never text'",
+  "scope": "what forms a request may take; it does not accept this arm as a passed Score request format",
+  "decided_by": "Vince",
+  "date": "2026-11-13",
+  "evidence": "latent/RESULTS-SCORE.md"
  }
 }
