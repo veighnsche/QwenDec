@@ -1,6 +1,6 @@
 # Latent Score request pilot: design and pass rule
 
-Written 12 November 2026, before any Score request training; its figures come from the case files and from per-case outputs that already existed. Vince said to go ahead on 13 November. The variants, both arms and the scripts were built that day without the GPU. The runs were started on 13 November at 11:00, after the GPU checks passed.
+Written 12 November 2026, before any Score request training; its figures come from the case files and from per-case outputs that already existed. Vince said to go ahead on 13 November. The variants, both arms and the scripts were built that day without the GPU. The runs were started on 13 November at 10:59, after the GPU checks passed.
 
 ## Question
 
