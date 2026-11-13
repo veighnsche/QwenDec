@@ -1,6 +1,6 @@
 # One adapter for Noul, Choice and Score, with fixed word-sequence requests: design and pass rule
 
-Written 13 November 2026, before any training for it; the token counts come from the tokenizer alone. Vince decided the same day that part S3 stays in the rule. The rows and scripts were then built without the GPU. The run was started on 13 November at 13:52, on his go-ahead and after the two GPU checks passed.
+Written 13 November 2026, before any training for it; the token counts come from the tokenizer alone. Vince decided the same day that part S3 stays in the rule. The rows and scripts were then built without the GPU. The run was started on 13 November at 13:52, on his go-ahead and after the two GPU checks passed. Outcome: all eleven parts met, the Score parts narrowly; see [RESULTS-WORDS.md](RESULTS-WORDS.md).
 
 ## Question
 

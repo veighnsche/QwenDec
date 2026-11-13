@@ -1,0 +1,32 @@
+{
+ "tag": "words-choice",
+ "mode": "words",
+ "adapter": "runs/words/adapter",
+ "all_questions": "960/1001",
+ "kind_pairs_both_right": "358/374",
+ "assessed_states_right_in_every_order": "109/112",
+ "select_questions_in_listed_order": "216/230",
+ "accuracy": {
+  "all questions": "960/1001",
+  "alternatives named by single letters": "594/594",
+  "alternatives with other names": "366/407",
+  "kind ruledout": "365/374",
+  "kind ruledout, changed order": "239/245",
+  "kind ruledout, listed order": "126/129",
+  "kind select": "595/627",
+  "kind select, changed order": "379/397",
+  "kind select, listed order": "216/230",
+  "status of the question: Assessed": "677/693",
+  "status of the question: Conflicting": "60/66",
+  "status of the question: Insufficient": "73/73",
+  "status of the question: NoFeasibleChoice": "93/100",
+  "status of the question: Unresolved": "57/69"
+ },
+ "picks": {
+  "an alternative": 702,
+  "Conflicting": 72,
+  "NoFeasibleChoice": 93,
+  "Insufficient": 73,
+  "Unresolved": 61
+ }
+}
