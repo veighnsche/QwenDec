@@ -87,7 +87,7 @@ They do not contribute equally. Of the 41 in-between questions between the text 
 - **Most of the gap is the vectors.** With the same two requests and no rubric in either, words get 59 in-between values and vectors 28.
 - Measured against the pilot's own rule, the no-rubric text arm would meet parts 1 and 2 (294 against 291 needed, 66 against 59) and miss part 3 by four questions (59 against 63).
 
-Why vectors do worse here, when the same form passed for Noul and Choice, is not shown by this run. Two things differ between the arms and are not separated: the number of positions (25 against 16), and that the latent arm has to learn to read its vectors through a new projection in the same single pass. Its loss starts far higher (1.35 over the first 50 steps, against 0.24) and is still higher at the end (0.09 against 0.08).
+Why vectors do worse here, when the same form passed for Noul and Choice, is not shown by this run. Two things differ between the arms and are not separated: the number of positions (25 against 16), and that the latent arm has to learn to read its vectors through a new projection in the same single pass. Its loss starts far higher (1.35 over the first 50 steps, against 0.23) and is still higher at the end (0.09 against 0.08).
 
 ## A question for the owner
 
