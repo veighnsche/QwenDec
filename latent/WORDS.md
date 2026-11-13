@@ -1,6 +1,6 @@
 # One adapter for Noul, Choice and Score, with fixed word-sequence requests: design and pass rule
 
-Written 13 November 2026, before any training for it. Not yet approved. Nothing is built and no model was run for this design; the token counts come from the tokenizer alone.
+Written 13 November 2026, before any training for it; the token counts come from the tokenizer alone. Vince decided the same day that part S3 stays in the rule. The rows and scripts were then built without the GPU. The two GPU checks and the run have not been done and wait for his go-ahead.
 
 ## Question
 
@@ -42,7 +42,7 @@ One arm.
 - **Start:** `runs/fork-v1/adapter`. Only the adapter is trained; there are no vectors and no projection.
 - **Examples:** the three training sets, unchanged: 4,468 Noul (selection hash `0dffd3a6…`), 3,954 Choice (`9df5422f…`), 2,596 Score (`14aad566…`). 11,018 examples, one pass.
 - **How the rows are made:** each row of the three existing prepared files is taken as it is, and its 16 vector positions are replaced by the fixed sequence. State, pointers, options and targets are not derived again.
-- **Batches:** all three operations grouped by length together, steps in a new seeded order (7). About 1,200 steps.
+- **Batches:** all three operations grouped by length together, steps in a new seeded order (7). 1,210 steps: 641 hold two or three operations, 307 only Noul, 195 only Score and 67 only Choice. Most Noul prompts are shorter than the others, and most Score prompts longer, which is why many steps hold one operation.
 - **Settings:** as in every pilot: learning rate 5e-5, 50-step warm-up, weight decay 0.01, clip 1.0, stock numerics, deterministic kernels, the on-device loop.
 
 ## Pass rule
@@ -77,7 +77,7 @@ Each operation is judged by the rule its request format was judged by, with fixe
 
 One run, the final step's weights are the only candidate, nothing is retried.
 
-**Part S3 is the hard one.** The Score-only run in this same word form got 59, four short. For the rule to be met, this run has to do slightly better on in-between values than that one did. Whether S3 belongs in the rule or is reported beside it is a decision for the owner, to be taken before the run.
+**Part S3 is the hard one.** The Score-only run in this same word form got 59, four short. For the rule to be met, this run has to do slightly better on in-between values than that one did. Whether S3 belongs in the rule or is reported beside it was put to the owner before the run. Decided by Vince on 13 November 2026: S3 stays in the rule.
 
 Stated in advance, outside the rule: in-between values count as working only at 67 of 134 or more.
 
@@ -94,12 +94,21 @@ Reported outside the rule: every measure against the joint vector adapter; Noul 
 
 ## Checks before training
 
-- Every request position holds exactly its fixed sequence, and each sequence is one token-id list everywhere.
-- Outside the request, every row equals its row in the source prepared file: state, pointers, options, target.
-- FP32 loss, batched step against an independent per-case forward, one step per prompt length.
+Done on 13 November 2026 without the GPU (`words_prepare.py`, which reads its output back, and the tokenizer; no model is run):
+
+| Check | Result |
+| --- | --- |
+| Every request position holds exactly its fixed sequence | all 11,018 rows |
+| Outside the request, every row equals its source row: state, pointers, options, target | all 11,018, each present once and trained once |
+| Every training row is what the measurement scripts build in word mode for a training question | all 11,018 |
+| The three source files are the ones the vector arms trained on | hashes match |
+
+Still to do on the GPU before training (`run_words.sh check`):
+
+- FP32 loss, batched step against an independent per-case forward, one step per prompt length, the one holding the most operations.
 - On-device loop against ordinary PyTorch, 6 steps: bit-identical.
 
-The last two need the GPU.
+The run itself is `run_words.sh`: training, then the six measurements.
 
 ## Limits
 
@@ -112,9 +121,9 @@ The last two need the GPU.
 
 ## Cost
 
-About 100 minutes of training, six measurements of 3 to 5 minutes each, and the two GPU checks: roughly two and a quarter hours on the RTX 3090. Building the rows and scripts needs no GPU.
+1,210 steps, about 100 minutes of training, six measurements of 3 to 5 minutes each, and the two GPU checks: roughly two and a quarter hours on the RTX 3090. Building the rows and scripts needs no GPU.
 
 ## Decisions for the owner
 
-1. **Is S3 part of the rule?** This design puts it in, as the Score pilot declared it. The alternative is to judge Score on S1 and S2 and report in-between values beside the rule, as was done for near-identical names in pilot 4.
+1. **Is S3 part of the rule?** This design puts it in, as the Score pilot declared it. The alternative is to judge Score on S1 and S2 and report in-between values beside the rule, as was done for near-identical names in pilot 4. Decided: it stays in.
 2. **What this run would replace.** If it passes, the open decision on the vector joint adapter falls away: this adapter would be the candidate for the next stage instead.

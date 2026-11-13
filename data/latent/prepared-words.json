@@ -1,0 +1,161 @@
+{
+ "arm": "words",
+ "examples": 11018,
+ "steps": 1210,
+ "passes": 1,
+ "order_seed": 7,
+ "sources": [
+  {
+   "operation": "noul",
+   "file": "data/latent/prepared-canonical-span-k16-order4.pt",
+   "file_sha256": "66c07867f70322d63e8865a097f9c0c6c7b5b610be85dd593898026229e3b629",
+   "examples": 4468,
+   "selection_sha256": "0dffd3a65d5289cb2f6121cfae2006308da714e925cd91bae14649346c932516"
+  },
+  {
+   "operation": "choice",
+   "file": "data/latent/prepared-choice-latent.pt",
+   "file_sha256": "d8c9ebe712d183928940d066cc8defa1a44652ba3590e3e25d2b5f068ad4964b",
+   "examples": 3954,
+   "selection_sha256": "9df5422fa4fad1d43557fbb33af510e0345d9299be972d896787843e67a8fefe"
+  },
+  {
+   "operation": "score",
+   "file": "data/latent/prepared-score-latent.pt",
+   "file_sha256": "70b6e78ebee78a0e2c8b769d221b0d387988da00b782c5768e39e30d353488c5",
+   "examples": 2596,
+   "selection_sha256": "14aad5668abfb07f7ad5b51f9a474f4e82a09c7e4f814189608865d260d0f120"
+  }
+ ],
+ "requests": {
+  "Is this proposition true? At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": {
+   "tokens": 23,
+   "rows": 491
+  },
+  "Is this proposition true? Negation of: At least one prerequisite of the supplied rule holds. Criterion: either prerequisite alone is enough.": {
+   "tokens": 27,
+   "rows": 462
+  },
+  "Is this proposition true? Negation of: The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": {
+   "tokens": 21,
+   "rows": 949
+  },
+  "Is this proposition true? Negation of: What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 32,
+   "rows": 815
+  },
+  "Is this proposition true? The indicated prerequisite holds. Criterion: the indicated prerequisite alone.": {
+   "tokens": 17,
+   "rows": 925
+  },
+  "Is this proposition true? What the supplied rule allows or defines holds in this case. Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 28,
+   "rows": 826
+  },
+  "What is one minus the score that applies under the supplied rule? Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 24,
+   "rows": 1298
+  },
+  "What score between 0 and 1 applies under the supplied rule? Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 25,
+   "rows": 1298
+  },
+  "Which of the indicated alternatives does the supplied rule rule out? Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 23,
+   "rows": 1454
+  },
+  "Which of the indicated alternatives should be selected under the supplied rule? Criterion: the supplied rule applied to the supplied facts.": {
+   "tokens": 24,
+   "rows": 2500
+  }
+ },
+ "steps_holding": {
+  "noul": 307,
+  "choice and noul": 375,
+  "score": 195,
+  "choice and score": 234,
+  "choice": 67,
+  "choice and noul and score": 18,
+  "noul and score": 14
+ },
+ "check_steps": [
+  2,
+  6,
+  1,
+  0,
+  126,
+  8,
+  68,
+  3
+ ],
+ "prompt_tokens_mean": 401.1,
+ "executed_positions": 4718848,
+ "buckets": [
+  {
+   "length": 320,
+   "batch": 12,
+   "rows": 3462,
+   "noul": 3462,
+   "choice": 0,
+   "score": 0
+  },
+  {
+   "length": 384,
+   "batch": 10,
+   "rows": 3900,
+   "noul": 584,
+   "choice": 3316,
+   "score": 0
+  },
+  {
+   "length": 448,
+   "batch": 9,
+   "rows": 465,
+   "noul": 251,
+   "choice": 214,
+   "score": 0
+  },
+  {
+   "length": 512,
+   "batch": 8,
+   "rows": 139,
+   "noul": 139,
+   "choice": 0,
+   "score": 0
+  },
+  {
+   "length": 576,
+   "batch": 7,
+   "rows": 2436,
+   "noul": 32,
+   "choice": 264,
+   "score": 2140
+  },
+  {
+   "length": 640,
+   "batch": 6,
+   "rows": 344,
+   "noul": 0,
+   "choice": 160,
+   "score": 184
+  },
+  {
+   "length": 704,
+   "batch": 5,
+   "rows": 140,
+   "noul": 0,
+   "choice": 0,
+   "score": 140
+  },
+  {
+   "length": 768,
+   "batch": 5,
+   "rows": 132,
+   "noul": 0,
+   "choice": 0,
+   "score": 132
+  }
+ ],
+ "rows_verified_against_sources": 11018,
+ "file_sha256": "152310e0908edc2eacb6efad21c179f8197cca03d0c9a87a16f135a20609312f"
+}

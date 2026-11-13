@@ -26,6 +26,7 @@ sys.path.insert(0, str(HERE))
 from choice_common import is_right, question_text, tokenise, values  # noqa: E402
 from measure_fork import Gate  # noqa: E402
 from model import load_text_model, require_gpu  # noqa: E402
+from words import insert  # noqa: E402
 
 
 def rate(hits):
@@ -35,7 +36,7 @@ def rate(hits):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--adapter", required=True)
-    ap.add_argument("--mode", choices=("text", "latent"), required=True)
+    ap.add_argument("--mode", choices=("text", "latent", "words"), required=True)
     ap.add_argument("--cases", default=str(ROOT / "data/latent/choice-development.jsonl"))
     ap.add_argument("--vectors", default=str(ROOT / "data/latent/question-vectors-k16-choice.pt"))
     ap.add_argument("--projection", help="trained projection file (latent mode)")
@@ -63,7 +64,9 @@ def main():
     rows = []
     with torch.no_grad():
         for case in cases:
-            ids, gate_start, q_start, _ = tokenise(tok, case, args.mode, k)
+            ids, gate_start, q_start, _ = tokenise(tok, case, "latent" if args.mode == "words" else args.mode, k)
+            if args.mode == "words":  # the request is its fixed word sequence; the alternatives stay pointers
+                ids = insert(tok, ids, q_start, question_text(case))
             ids = torch.tensor([ids], device=device)
             n = ids.shape[1]
             gate.mask = (torch.arange(n, device=device) >= gate_start).view(1, n, 1)

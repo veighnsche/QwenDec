@@ -29,6 +29,7 @@ from measure_decision4b import interval_distance  # noqa: E402
 from measure_fork import Gate  # noqa: E402
 from model import load_text_model, require_gpu  # noqa: E402
 from score_common import REQUESTS, VALUES, is_right, request_text, tokenise  # noqa: E402
+from words import insert  # noqa: E402
 
 
 def rate(hits):
@@ -38,7 +39,7 @@ def rate(hits):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--adapter", required=True)
-    ap.add_argument("--mode", choices=("text", "latent"), required=True)
+    ap.add_argument("--mode", choices=("text", "latent", "words"), required=True)
     ap.add_argument("--cases", default=str(ROOT / "data/latent/score-development.jsonl"))
     ap.add_argument("--vectors", default=str(ROOT / "data/latent/question-vectors-k16-score.pt"))
     ap.add_argument("--projection", help="trained projection file (latent mode)")
@@ -68,7 +69,9 @@ def main():
     rows = []
     with torch.no_grad():
         for case in cases:
-            ids, gate_start, q_start = tokenise(tok, case, args.mode, k, rubric=not args.no_rubric)
+            ids, gate_start, q_start = tokenise(tok, case, "latent" if args.mode == "words" else args.mode, k, rubric=not args.no_rubric)
+            if args.mode == "words":  # the request is its fixed word sequence; no rubric
+                ids = insert(tok, ids, q_start, request_text(case))
             ids = torch.tensor([ids], device=device)
             n = ids.shape[1]
             gate.mask = (torch.arange(n, device=device) >= gate_start).view(1, n, 1)
