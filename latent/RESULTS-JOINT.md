@@ -70,6 +70,6 @@ On the renamed panel, by type of question:
 - Whether joint training costs anything is not settled. For Noul the drop is the size of the difference between two Noul-only runs. For Choice there is no second run to compare with. A different step order could move the joint result in either direction, including below the rule.
 - Everything the earlier results left open is still open: fixed requests only, pointers given rather than produced, synthetic cases, Score not included.
 
-## Open for the owner
+## Not accepted, and superseded
 
-Whether to accept the joint adapter as the basis for the next stage is Vince's decision. The verdict above is the mechanical application of the rule (`runs/joint/result.json`).
+The joint vector adapter was never accepted. On 13 November 2026 Vince accepted instead the adapter that serves all three operations with fixed word-sequence requests ([RESULTS-WORDS.md](RESULTS-WORDS.md)), which is at or above this one on every Noul and Choice measure. The verdict above remains the mechanical application of this run's rule (`runs/joint/result.json`).

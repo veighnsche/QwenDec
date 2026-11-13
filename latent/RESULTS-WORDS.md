@@ -82,6 +82,8 @@ All eleven parts are met. The Score parts are met narrowly: S3 by 2 questions, S
 - Ten fixed sequences are a menu. Nothing here shows that a request can carry new content.
 - The pointers are given, not produced by the native side. The Score complement is an artificial request. The cases are synthetic.
 
-## Open for the owner
+## Accepted
 
-Whether to accept this adapter and request form as the basis for the next stage is Vince's decision. If it is accepted, the open decision on the vector joint adapter ([RESULTS-JOINT.md](RESULTS-JOINT.md)) falls away. The verdict above is the mechanical application of the rule (`runs/words/result.json`).
+Vince accepted this adapter and its request form on 13 November 2026 as the basis for the next stage: one adapter for Noul, Choice and Score, each request a fixed word sequence picked by the kind of request, plus replayed pointers.
+
+The acceptance leaves open the reliability across runs and the in-between Score values. It does not cover a request or a pointer produced by the native side. The open decision on the vector joint adapter ([RESULTS-JOINT.md](RESULTS-JOINT.md)) falls away with it; that adapter was never accepted (`runs/words/result.json`).

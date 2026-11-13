@@ -3,7 +3,17 @@
  "steps_planned": 1210,
  "skipped_steps": 0,
  "execution_complete": true,
- "learning_accepted": null,
+ "learning_accepted": {
+  "accepted": true,
+  "scope": "this adapter and its request form as the basis for the next stage: one adapter for Noul, Choice and Score, each request a fixed word sequence picked by the kind of request, plus replayed pointers",
+  "left_open": "reliability across runs (one run; the Score parts were met by 2, 3 and 10 questions); in-between Score values are short of the half stated in advance as working (65 of 134)",
+  "not_shown": "that a request can carry new content; the ten sequences are a fixed menu",
+  "not_measured": "a pointer or a request kind produced by the native side; which of the two changes against the vector joint adapter made the difference",
+  "replaces": "the open decision on the vector joint adapter (runs/joint), which was never accepted",
+  "decided_by": "Vince",
+  "date": "2026-11-13",
+  "evidence": "latent/RESULTS-WORDS.md"
+ },
  "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
  "pilot_rule": {
   "passed": true,
@@ -27,6 +37,6 @@
   "outside_the_rule": "Noul on development's own names 1143/1182; training states with distinct names 1199/1200; Choice select questions in listed order 216/230",
   "judged": "2026-11-13, mechanically against latent/WORDS.md (latent/words_analyse.py)",
   "see": "latent/RESULTS-WORDS.md",
-  "note": "the rule is met; acceptance is the owner's decision"
+  "note": "the rule is met"
  }
 }

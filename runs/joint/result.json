@@ -3,7 +3,11 @@
  "steps_planned": 810,
  "skipped_steps": 0,
  "execution_complete": true,
- "learning_accepted": null,
+ "learning_accepted": {
+  "accepted": false,
+  "reason": "never accepted; superseded on 2026-11-13 by runs/words, which Vince accepted as the basis for the next stage",
+  "evidence": "latent/RESULTS-WORDS.md"
+ },
  "note": "learning_accepted stays empty until evaluation is run and judged against the agreed rule",
  "pilot_rule": {
   "passed": true,
